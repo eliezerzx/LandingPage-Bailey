@@ -1,32 +1,150 @@
-/* ============================================================
-   ESTILOS GERAIS E EFEITOS GLOW
-   ============================================================ */
+html {
+  font-size: 18px;
+}
+
 body {
   background-color: #050806;
   font-family: 'Outfit', sans-serif;
+  overflow-x: hidden;
+  font-size: 1rem;
 }
 
-.glow-green { 
-  box-shadow: 0 0 30px rgba(74, 222, 128, 0.4); 
+/* ─── GRAIN TEXTURE ─────────────────────────────────────────── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+  opacity: 0.028;
+  mix-blend-mode: overlay;
 }
 
-.glow-purple { 
-  box-shadow: 0 0 45px rgba(124, 58, 237, 0.4); 
+/* ─── VINHETA ────────────────────────────────────────────────── */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 50% 50%, transparent 55%, rgba(5, 8, 6, 0.70) 100%);
 }
 
-@keyframes pulseTarget {
-  0% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.5); }
-  70% { box-shadow: 0 0 0 18px rgba(74, 222, 128, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); }
+/* ─── ORBS ───────────────────────────────────────────────────── */
+.bg-orbs {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
 }
 
-.btn-pulse { 
-  animation: pulseTarget 2s infinite; 
+.bg-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  will-change: transform;
+  opacity: 0;
 }
 
-/* ============================================================
-   ESTRUTURA DOS ELEMENTOS DO ECOSSISTEMA (PÍLULAS)
-   ============================================================ */
+.bg-orb-1 {
+  width: 600px; height: 600px;
+  top: -120px; left: -100px;
+  background: radial-gradient(circle, rgba(74,222,128,0.45) 0%, rgba(74,222,128,0.12) 55%, transparent 78%);
+  animation: orbFadeIn 2s ease forwards, drift1 22s ease-in-out infinite 2s;
+}
+
+.bg-orb-2 {
+  width: 700px; height: 700px;
+  bottom: -200px; right: -150px;
+  background: radial-gradient(circle, rgba(124,58,237,0.50) 0%, rgba(124,58,237,0.14) 50%, transparent 75%);
+  animation: orbFadeIn 2s 0.4s ease forwards, drift2 28s ease-in-out infinite 2.4s;
+}
+
+.bg-orb-3 {
+  width: 380px; height: 380px;
+  top: 30%; right: 5%;
+  background: radial-gradient(circle, rgba(74,222,128,0.35) 0%, rgba(52,211,153,0.08) 58%, transparent 78%);
+  animation: orbFadeIn 2s 0.8s ease forwards, drift3 18s ease-in-out infinite 2.8s;
+}
+
+.bg-orb-4 {
+  width: 420px; height: 420px;
+  top: 40%; left: 8%;
+  background: radial-gradient(circle, rgba(139,92,246,0.38) 0%, rgba(124,58,237,0.10) 58%, transparent 78%);
+  animation: orbFadeIn 2s 1.2s ease forwards, drift4 24s ease-in-out infinite 3.2s;
+}
+
+@keyframes orbFadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes drift1 {
+  0%   { transform: translate(0px, 0px)   scale(1);    }
+  33%  { transform: translate(60px, 40px) scale(1.08); }
+  66%  { transform: translate(20px, 70px) scale(0.95); }
+  100% { transform: translate(0px, 0px)   scale(1);    }
+}
+@keyframes drift2 {
+  0%   { transform: translate(0px, 0px)     scale(1);    }
+  33%  { transform: translate(-50px,-60px)  scale(1.05); }
+  66%  { transform: translate(-80px, 20px)  scale(0.97); }
+  100% { transform: translate(0px, 0px)     scale(1);    }
+}
+@keyframes drift3 {
+  0%   { transform: translate(0px, 0px)    scale(1);   }
+  50%  { transform: translate(-40px, 50px) scale(1.1); }
+  100% { transform: translate(0px, 0px)    scale(1);   }
+}
+@keyframes drift4 {
+  0%   { transform: translate(0px, 0px)    scale(1);    }
+  40%  { transform: translate(50px,-40px)  scale(0.92); }
+  80%  { transform: translate(30px, 30px)  scale(1.06); }
+  100% { transform: translate(0px, 0px)    scale(1);    }
+}
+
+/* ─── SISTEMA SOLAR (canvas de fundo) ───────────────────────── */
+#solar-system-canvas {
+  display: block;
+  /* z-index: 1 definido inline no HTML para garantir que fica abaixo dos orbs (z-index 2) */
+}
+
+/* ─── SEÇÃO HERO ─────────────────────────────────────────────── */
+/* A seção precisa de altura mínima para o canvas ter dimensões */
+#hero-section {
+  min-height: 320px;
+}
+
+/* ─── HUB CENTRAL RESPONSIVO ─────────────────────────────────── */
+.hub-responsive {
+  width: 80px;
+  height: 80px;
+}
+
+@media (min-width: 480px) {
+  .hub-responsive { width: 100px; height: 100px; }
+}
+@media (min-width: 768px) {
+  .hub-responsive { width: 120px; height: 120px; }
+}
+
+/* ─── BRILHO CENTRAL ─────────────────────────────────────────── */
+.central-glow-back {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 450px; height: 450px;
+  background: radial-gradient(circle, rgba(124,58,237,0.22) 0%, rgba(59,130,246,0.08) 50%, rgba(0,0,0,0) 70%);
+  filter: blur(40px);
+  z-index: 5;
+  pointer-events: none;
+  border-radius: 999px;
+}
+
+.glow-purple {
+  box-shadow: 0 0 40px rgba(124,58,237,0.45);
+}
+
+/* ─── NODOS DO ECOSSISTEMA ───────────────────────────────────── */
 .branch-node {
   position: absolute;
   transform: translate(-50%, -50%);
@@ -34,42 +152,336 @@ body {
   pointer-events: auto;
 }
 
-/* Pílula de Categoria Fixa */
 .category-pill {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255,255,255,0.05);
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.8);
-  padding: 6px 16px;
+  border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.8);
+  padding: 5px 12px;
   border-radius: 999px;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   white-space: nowrap;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
 }
 
-/* Pílula Dinâmica do App que muda */
 .app-pill {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 6px 16px 6px 6px;
-  border-radius: 12px;
-  font-size: 0.9rem;
+  gap: 8px;
+  padding: 5px 12px 5px 5px;
+  border-radius: 10px;
+  font-size: 0.8rem;
   font-weight: 500;
   white-space: nowrap;
   transition: all 0.5s ease;
 }
 
-/* Caixa interna do ícone do App */
 .app-icon-box {
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 1rem;
+  background: rgba(255,255,255,0.2);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.app-icon-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* ─── HUB CANVAS ─────────────────────────────────────────────── */
+#hub-aura-canvas,
+#hub-bg-canvas { display: block; }
+
+/* ─── MOBILE NAV ─────────────────────────────────────────────── */
+.mobile-menu-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+  background: none;
+  border: none;
+}
+
+.mobile-menu-btn span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: rgba(255,255,255,0.8);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 72px;
+  left: 0; right: 0;
+  background: rgba(5,8,6,0.97);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  z-index: 49;
+  padding: 16px 24px 24px;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mobile-nav.is-open { display: flex; }
+
+.mobile-nav a {
+  padding: 12px 8px;
+  color: rgba(255,255,255,0.7);
+  font-size: 1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  transition: color 0.2s;
+  text-decoration: none;
+}
+
+.mobile-nav a:last-child {
+  border-bottom: none;
+  margin-top: 8px;
+  color: #4ade80;
+  border: 1px solid rgba(74,222,128,0.35);
+  border-radius: 999px;
+  text-align: center;
+  padding: 10px 16px;
+}
+
+.mobile-nav a:hover { color: #4ade80; }
+
+/* ─── CARDS ──────────────────────────────────────────────────── */
+.bailey-card {
+  backdrop-filter: blur(12px);
+  will-change: transform, border-color, box-shadow;
+}
+
+.bailey-card:hover {
+  transform: translateY(-4px);
+  background: rgba(5,8,6,0.6);
+}
+
+/* ─── FLOAT DO PDV ───────────────────────────────────────────── */
+.animate-float {
+  animation: floatPDV 6s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes floatPDV {
+  0%   { transform: translateY(0px)   rotate(0deg);   }
+  50%  { transform: translateY(-12px) rotate(0.5deg); }
+  100% { transform: translateY(0px)   rotate(0deg);   }
+}
+
+/* ─── HEADER ANIMADO ─────────────────────────────────────────── */
+.header-animate {
+  position: fixed;
+  overflow: hidden;
+  background-size: 200% 200%;
+  animation: headerGlowBg 8s ease infinite;
+}
+
+.header-animate::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgba(74,222,128,0) 96%,
+    rgba(74,222,128,0.08) 98%,
+    rgba(74,222,128,0) 100%
+  );
+  background-size: 100% 6px;
+  animation: scanlines 20s linear infinite;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes headerGlowBg {
+  0%   { background-image: radial-gradient(circle at 20% -50%, rgba(124,58,237,0.12) 0%, rgba(5,8,6,0.4) 70%); }
+  50%  { background-image: radial-gradient(circle at 80% 150%, rgba(74,222,128,0.12) 0%, rgba(5,8,6,0.4) 70%); }
+  100% { background-image: radial-gradient(circle at 20% -50%, rgba(124,58,237,0.12) 0%, rgba(5,8,6,0.4) 70%); }
+}
+
+@keyframes scanlines {
+  from { background-position: 0 0; }
+  to   { background-position: 0 100%; }
+}
+
+/* ─── MOBILE ECOSYSTEM ALTERNATIVE ──────────────────────────── */
+.eco-mobile-pill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 10px 6px;
+  border-radius: 14px;
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  animation: ecoFloat 3s ease-in-out infinite;
+}
+
+.eco-mobile-pill:nth-child(2) { animation-delay: 0.5s; }
+.eco-mobile-pill:nth-child(3) { animation-delay: 1.0s; }
+.eco-mobile-pill:nth-child(4) { animation-delay: 1.5s; }
+.eco-mobile-pill:nth-child(5) { animation-delay: 2.0s; }
+.eco-mobile-pill:nth-child(6) { animation-delay: 2.5s; }
+
+.eco-mobile-pill img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.eco-mobile-pill i {
   font-size: 1.1rem;
-  background: rgba(255, 255, 255, 0.2);
+}
+
+.eco-mobile-pill span {
+  font-size: 0.6rem;
+  font-weight: 600;
+  line-height: 1;
+  opacity: 0.9;
+}
+
+@keyframes ecoFloat {
+  0%, 100% { transform: translateY(0px);  }
+  50%       { transform: translateY(-5px); }
+}
+
+/* ─── DEPOIMENTOS ────────────────────────────────────────────── */
+.testimonial-card {
+  background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 20px;
+  padding: 24px;
+  backdrop-filter: blur(12px);
+  transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonial-card::before {
+  content: '\201C';
+  position: absolute;
+  top: 12px;
+  right: 20px;
+  font-size: 4rem;
+  line-height: 1;
+  color: rgba(74,222,128,0.06);
+  font-family: Georgia, serif;
+  pointer-events: none;
+}
+
+.testimonial-card:hover {
+  border-color: rgba(74,222,128,0.25);
+  background: rgba(255,255,255,0.04);
+  transform: translateY(-4px);
+}
+
+footer a {
+  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+/* ─── TABLET GRANDE ──────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .bg-orb-1 { width: 480px; height: 480px; }
+  .bg-orb-2 { width: 560px; height: 560px; }
+  .bg-orb-3 { width: 300px; height: 300px; }
+  .bg-orb-4 { width: 340px; height: 340px; }
+
+  .grid-cols-1 {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
+
+/* ─── TABLET ─────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .mobile-menu-btn { display: flex; }
+
+  .bg-orb-1 { width: 360px; height: 360px; top: -80px;   left: -60px;  }
+  .bg-orb-2 { width: 400px; height: 400px; bottom: -120px; right: -80px; }
+  .bg-orb-3 { width: 240px; height: 240px; }
+  .bg-orb-4 { width: 260px; height: 260px; }
+
+  #ecosystem-viewport {
+    max-width: 100% !important;
+    overflow: hidden;
+  }
+
+  /* Reduz o canvas da aura para não vazar */
+  #hub-aura-canvas {
+    width: 180px !important;
+    height: 180px !important;
+  }
+
+  .category-pill {
+    font-size: 0.65rem;
+    padding: 4px 10px;
+    gap: 5px;
+  }
+
+  .app-pill {
+    font-size: 0.72rem;
+    padding: 4px 10px 4px 4px;
+    gap: 6px;
+  }
+}
+
+/* ─── MOBILE ─────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .bg-orb-1 { width: 280px; height: 280px; filter: blur(55px); }
+  .bg-orb-2 { width: 300px; height: 300px; filter: blur(55px); }
+  .bg-orb-3 { width: 180px; height: 180px; filter: blur(45px); top: 20%; right: 0; }
+  .bg-orb-4 { width: 200px; height: 200px; filter: blur(45px); left: 0; }
+
+  #hub-aura-canvas {
+    width: 140px !important;
+    height: 140px !important;
+  }
+
+  .category-pill {
+    font-size: 0.58rem;
+    padding: 3px 8px;
+    gap: 4px;
+  }
+
+  .app-pill {
+    font-size: 0.65rem;
+    padding: 3px 8px 3px 3px;
+    gap: 5px;
+  }
+
+  .app-icon-box {
+    width: 22px; height: 22px;
+    font-size: 0.75rem;
+    border-radius: 5px;
+  }
+
+  .bailey-card { padding: 20px; }
+}
+
+/* ─── MOBILE PEQUENO ─────────────────────────────────────────── */
+@media (max-width: 360px) {
+  .category-pill { display: none; }
+
+  .app-pill {
+    font-size: 0.6rem;
+    padding: 3px 6px 3px 3px;
+  }
 }
