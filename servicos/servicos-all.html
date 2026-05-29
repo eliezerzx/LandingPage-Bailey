@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Serviços — Bailey Aplicativos</title>
+  <link rel="icon" type="image/png" href="../images/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={theme:{extend:{colors:{'bailey-green':'#4ade80','bailey-purple':'#7c3aed','bailey-dark':'#050806'}}}}</script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body class="text-white overflow-x-hidden" style="background-color:#050806;">
+  <div class="bg-orbs" aria-hidden="true">
+    <div class="bg-orb bg-orb-1"></div><div class="bg-orb bg-orb-2"></div>
+  </div>
+  <header class="fixed top-4 inset-x-0 z-50 mx-auto max-w-5xl h-[70px] rounded-full bg-bailey-dark/40 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)]">
+    <div class="absolute top-0 inset-x-12 h-px bg-gradient-to-r from-transparent via-bailey-green/30 to-transparent"></div>
+    <div class="flex items-center justify-between h-full px-6 md:px-8">
+      <a href="../index.html" class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-full border border-bailey-purple/50 flex items-center justify-center bg-bailey-purple/10 overflow-hidden">
+          <img src="../images/logo.png" alt="Logo Bailey" class="w-full h-full object-cover">
+        </div>
+        <div>
+          <div class="font-display font-extrabold text-base leading-none tracking-tight">Bailey</div>
+          <div class="text-[8px] tracking-widest text-bailey-green uppercase mt-0.5">Aplicativos</div>
+        </div>
+      </a>
+      <a href="../index.html" class="text-white/60 text-xs hover:text-bailey-green transition-colors flex items-center gap-2">
+        <i class="fas fa-arrow-left text-[10px]"></i> Voltar ao início
+      </a>
+      <a href="https://w.app/baileyaplicativos" target="_blank" class="hidden md:block text-bailey-green border border-bailey-green/30 bg-bailey-green/5 px-5 py-2 rounded-full hover:bg-bailey-green hover:text-black transition-all text-xs font-bold tracking-wide uppercase">Bailey Business</a>
+    </div>
+  </header>
+  <main class="pt-[110px] max-w-6xl mx-auto px-6 py-16">
+    <div class="text-center mb-14">
+      <span class="text-xs font-bold tracking-[0.2em] text-bailey-green uppercase bg-bailey-green/10 px-3 py-1 rounded-full border border-bailey-green/20">Nossos Serviços</span>
+      <h1 class="font-display font-black text-4xl md:text-6xl text-white leading-none mt-4">
+        Tudo que você precisa<br><span class="text-bailey-green">em um só lugar.</span>
+      </h1>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <a href="mentoria-ifood.html" class="group p-6 rounded-2xl border border-white/8 bg-white/[0.02] hover:border-[#EA1D2C]/40 hover:bg-[#EA1D2C]/5 transition-all duration-300 hover:-translate-y-1">
+        <div class="w-11 h-11 rounded-xl bg-[#EA1D2C] flex items-center justify-center overflow-hidden mb-4">
+          <img src="../images/icons/ifood.png" alt="iFood" class="w-full h-full object-contain">
+        </div>
+        <h3 class="font-bold text-white text-sm mb-2">Mentoria iFood</h3>
+        <p class="text-white/45 text-xs leading-relaxed">Alavanque suas vendas, suba no ranking e atraia mais clientes.</p>
+        <div class="mt-4 flex items-center gap-1 text-[#EA1D2C] text-xs font-semibold group-hover:gap-2 transition-all">Saiba mais <i class="fas fa-arrow-right text-[10px]"></i></div>
+      </a>
+      <a href="mentoria-99food.html" class="group p-6 rounded-2xl border border-white/8 bg-white/[0.02] hover:border-[#FFC400]/40 hover:bg-[#FFC400]/5 transition-all duration-300 hover:-translate-y-1">
+        <div class="w-11 h-11 rounded-xl bg-[#FFC400] flex items-center justify-center overflow-hidden mb-4">
+          <img src="../images/icons/99food.png" alt="99Food" class="w-full h-full object-contain">
+        </div>
+        <h3 class="font-bold text-white text-sm mb-2">Mentoria 99Food</h3>
+        <p class="text-white/45 text-xs leading-relaxed">Ative mais um canal de vendas e aumente seu faturamento mensal.</p>
+        <div class="mt-4 flex items-center gap-1 text-[#FFC400] text-xs font-semibold group-hover:gap-2 transition-all">Saiba mais <i class="fas fa-arrow-right text-[10px]"></i></div>
+      </a>
+      <a href="mentoria-keeta.html" class="group p-6 rounded-2xl border border-white/8 bg-white/[0.02] hover:border-[#FF7A00]/40 hover:bg-[#FF7A00]/5 transition-all duration-300 hover:-translate-y-1">
+        <div class="w-11 h-11 rounded-xl bg-[#FF7A00] flex items-center justify-center overflow-hidden mb-4">
+          <img src="../images/icons/keeta.png" alt="Keeta" class="w-full h-full object-contain">
+        </div>
+        <h3 class="font-bold text-white text-sm mb-2">Mentoria Keeta</h3>
+        <p class="text-white/45 text-xs leading-relaxed">Gestão completa e crescimento acelerado na plataforma Keeta.</p>
+        <div class="mt-4 flex items-center gap-1 text-[#FF7A00] text-xs font-semibold group-hover:gap-2 transition-all">Saiba mais <i class="fas fa-arrow-right text-[10px]"></i></div>
+      </a>
+      <a href="pdv.html" class="group p-6 rounded-2xl border border-white/8 bg-white/[0.02] hover:border-[#7c3aed]/40 hover:bg-[#7c3aed]/5 transition-all duration-300 hover:-translate-y-1">
+        <div class="w-11 h-11 rounded-xl bg-[#7c3aed] flex items-center justify-center mb-4">
+          <i class="fas fa-desktop text-white text-lg"></i>
+        </div>
+        <h3 class="font-bold text-white text-sm mb-2">PDV — Frente de Caixa</h3>
+        <p class="text-white/45 text-xs leading-relaxed">Sistema completo de gestão, vendas e emissão de nota fiscal.</p>
+        <div class="mt-4 flex items-center gap-1 text-[#a78bfa] text-xs font-semibold group-hover:gap-2 transition-all">Saiba mais <i class="fas fa-arrow-right text-[10px]"></i></div>
+      </a>
+      <a href="cardapio-digital.html" class="group p-6 rounded-2xl border border-white/8 bg-white/[0.02] hover:border-bailey-green/40 hover:bg-bailey-green/5 transition-all duration-300 hover:-translate-y-1">
+        <div class="w-11 h-11 rounded-xl bg-bailey-green flex items-center justify-center mb-4">
+          <i class="fas fa-utensils text-black text-lg"></i>
+        </div>
+        <h3 class="font-bold text-white text-sm mb-2">Cardápio Digital</h3>
+        <p class="text-white/45 text-xs leading-relaxed">Cardápio online com pedidos via WhatsApp e robô de status automático.</p>
+        <div class="mt-4 flex items-center gap-1 text-bailey-green text-xs font-semibold group-hover:gap-2 transition-all">Saiba mais <i class="fas fa-arrow-right text-[10px]"></i></div>
+      </a>
+    </div>
+    <div class="text-center mt-14">
+      <a href="https://w.app/baileyaplicativos" target="_blank" class="inline-flex items-center gap-3 bg-bailey-green text-black font-bold px-8 py-4 rounded-full hover:bg-emerald-400 transition-all transform hover:scale-105 shadow-lg">
+        <i class="fab fa-whatsapp text-xl"></i> Fale com um especialista
+      </a>
+    </div>
+  </main>
+  <footer class="border-t border-white/10 bg-bailey-dark/40 py-8 text-center mt-12">
+    <p class="text-white/30 text-xs">&copy; 2026 Bailey Aplicativos • <a href="../index.html" class="hover:text-bailey-green transition-colors ml-1">Voltar ao início</a></p>
+  </footer>
+  <a id="whatsapp-float" href="https://w.app/baileyaplicativos" target="_blank" aria-label="Fale no WhatsApp"><i class="fab fa-whatsapp"></i></a>
+</body>
+</html>

@@ -66,6 +66,8 @@ document.addEventListener("DOMContentLoaded", () => {
   initMobileMenu();
   initSectionAtmosphere();
   initFAQ();
+  initScrollAnimations();
+  initCounters();
 
   // ══════════════════════════════════════════════════════════
   // ECOSSISTEMA
@@ -94,32 +96,65 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ─── MENU MOBILE ────────────────────────────────────────────────
   function initMobileMenu() {
+    // ── Hambúrguer ──
     const toggle = document.getElementById('mobile-menu-toggle');
     const nav    = document.getElementById('mobile-nav');
-    if (!toggle || !nav) return;
-
-    toggle.addEventListener('click', () => {
-      const isOpen = nav.classList.toggle('is-open');
-      toggle.setAttribute('aria-expanded', isOpen);
-      const bars = toggle.querySelectorAll('span');
-      if (isOpen) {
-        bars[0].style.transform = 'translateY(7px) rotate(45deg)';
-        bars[1].style.opacity   = '0';
-        bars[2].style.transform = 'translateY(-7px) rotate(-45deg)';
-      } else {
-        bars[0].style.transform = bars[2].style.transform = '';
-        bars[1].style.opacity   = '';
-      }
-    });
-
-    nav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        nav.classList.remove('is-open');
-        toggle.querySelectorAll('span').forEach(b => {
-          b.style.transform = ''; b.style.opacity = '';
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        const isOpen = nav.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', isOpen);
+        const bars = toggle.querySelectorAll('span');
+        if (isOpen) {
+          bars[0].style.transform = 'translateY(7px) rotate(45deg)';
+          bars[1].style.opacity   = '0';
+          bars[2].style.transform = 'translateY(-7px) rotate(-45deg)';
+        } else {
+          bars[0].style.transform = bars[2].style.transform = '';
+          bars[1].style.opacity   = '';
+        }
+      });
+      // fecha ao clicar num link do menu principal
+      nav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          nav.classList.remove('is-open');
+          toggle.querySelectorAll('span').forEach(b => {
+            b.style.transform = ''; b.style.opacity = '';
+          });
         });
       });
-    });
+    }
+
+    // ── Dropdown DESKTOP: Serviços ──
+    const ddWrapper = document.getElementById('servicos-dropdown');
+    if (ddWrapper) {
+      // fecha ao pressionar Esc
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') ddWrapper.classList.remove('is-open');
+      });
+      // fecha ao clicar fora
+      document.addEventListener('click', e => {
+        if (!ddWrapper.contains(e.target)) ddWrapper.classList.remove('is-open');
+      });
+      // toggle no click do trigger (teclado / touch)
+      const trigger = ddWrapper.querySelector('.nav-dropdown-trigger');
+      if (trigger) {
+        trigger.addEventListener('click', e => {
+          e.stopPropagation();
+          const opened = ddWrapper.classList.toggle('is-open');
+          trigger.setAttribute('aria-expanded', opened);
+        });
+      }
+    }
+
+    // ── Subgrupo Serviços no MOBILE ──
+    const mServToggle  = document.getElementById('mobile-servicos-toggle');
+    const mServSubmenu = document.getElementById('mobile-servicos-submenu');
+    if (mServToggle && mServSubmenu) {
+      mServToggle.addEventListener('click', () => {
+        const isOpen = mServSubmenu.classList.toggle('is-open');
+        mServToggle.classList.toggle('is-open', isOpen);
+      });
+    }
   }
 
   // ─── ATMOSFERA POR SEÇÃO ────────────────────────────────────────
@@ -424,6 +459,76 @@ document.addEventListener("DOMContentLoaded", () => {
       time += 0.016; sMX += (tMX-sMX)*0.06; sMY += (tMY-sMY)*0.06;
       drawBg(); drawAura(); requestAnimationFrame(loop);
     })();
+  }
+
+  // ─── SISTEMA SOLAR ──────────────────────────────────────────────
+  // ─── SCROLL ANIMATIONS ──────────────────────────────────────────
+  function initScrollAnimations() {
+    const els = document.querySelectorAll('[data-animate]');
+    if (!els.length) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target); // anima só uma vez
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '-20px 0px',
+    });
+
+    els.forEach(el => observer.observe(el));
+  }
+
+  // ─── CONTADORES ANIMADOS ─────────────────────────────────────────
+  function initCounters() {
+    const counters = document.querySelectorAll('[data-counter]');
+    if (!counters.length) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          runCounter(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.6 });
+
+    counters.forEach(el => observer.observe(el));
+  }
+
+  function runCounter(el) {
+    const target   = parseFloat(el.getAttribute('data-counter'));
+    const prefix   = el.getAttribute('data-prefix')  || '';
+    const suffix   = el.getAttribute('data-suffix')  || '';
+    const isFloat  = target % 1 !== 0;
+    const duration = 1800; // ms
+    const steps    = 60;
+    const stepTime = duration / steps;
+    let   current  = 0;
+    let   step     = 0;
+
+    // Easing: easeOutQuart
+    function easeOut(t) { return 1 - Math.pow(1 - t, 4); }
+
+    const timer = setInterval(() => {
+      step++;
+      const progress = easeOut(step / steps);
+      current = target * progress;
+
+      const display = isFloat
+        ? current.toFixed(1)
+        : Math.floor(current);
+
+      el.textContent = `${prefix}${display}${suffix}`;
+
+      if (step >= steps) {
+        clearInterval(timer);
+        el.textContent = `${prefix}${isFloat ? target.toFixed(1) : target}${suffix}`;
+      }
+    }, stepTime);
   }
 
   // ─── SISTEMA SOLAR ──────────────────────────────────────────────
