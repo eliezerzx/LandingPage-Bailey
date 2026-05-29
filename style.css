@@ -932,3 +932,76 @@ footer a { transition:color 0.2s ease-in-out, background-color 0.2s ease-in-out,
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
   transform: translateY(-2px);
 }
+
+/* Animação com delay para a imagem sobreposta dos celulares */
+.animate-float-delayed {
+  animation: floatDelayed 6s ease-in-out infinite;
+}
+
+@keyframes floatDelayed {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px); /* Flutua em um tempo alternado ao computador */
+  }
+}
+/* ==========================================================
+   CONEXÃO CARDÁPIO DIGITAL → PDV
+========================================================== */
+
+.connection-line{
+    position:absolute;
+    left:0;
+    width:100%;
+    height:500px;
+    margin-top:-120px;
+    z-index:5;
+    overflow:hidden;
+}
+
+.connection-line svg{
+    width:100%;
+    height:100%;
+}
+
+.connection-line path{
+    fill:none;
+    stroke:#38bdf8;
+    stroke-width:3;
+    stroke-linecap:round;
+
+    stroke-dasharray:10 12;
+
+    opacity:.45;
+
+    filter: drop-shadow(0 0 10px rgba(56,189,248,.5));
+}
+
+main{
+   position:relative;
+   overflow:hidden;
+}
+
+.connection-dot-start,
+.connection-dot-end{
+    position:absolute;
+    width:14px;
+    height:14px;
+    border-radius:999px;
+    background:#4ade80;
+    box-shadow:
+      0 0 20px #4ade80,
+      0 0 40px #4ade80;
+    z-index:10;
+}
+
+.connection-dot-start{
+    top:140px;
+    left:240px;
+}
+
+.connection-dot-end{
+    top:470px;
+    right:260px;
+}
