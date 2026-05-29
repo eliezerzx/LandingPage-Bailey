@@ -336,7 +336,7 @@
 
               <!-- Keeta — superior direito (243, 96) -->
               <div class="eco-hub-node" style="top:96px;left:243px;">
-                <div class="eco-hub-node-ring" style="--node-bg:#000;--node-border:rgba(255,195,0,0.6);--node-glow:rgba(255,195,0,0.35);">
+                <div class="eco-hub-node-ring" style="--node-bg:hsl(59, 94%, 51%);--node-border:rgba(255,195,0,0.6);--node-glow:rgba(255,195,0,0.35);">
                   <img src="images/icons/keeta.png" alt="Keeta" onerror="this.style.display='none'">
                 </div>
               </div>
@@ -587,23 +587,60 @@
 
     <hr class="section-divider">
 
-   <div class="relative w-full overflow-hidden">
-  
-  <div class="absolute inset-0 pointer-events-none z-10 hidden lg:block" aria-hidden="true">
-    <svg class="w-full h-full" viewBox="0 0 1440 1600" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M 950,250 C 1300,500 1100,900 700,950 C 200,1000 200,1350 400,1400" 
-            stroke="url(#gradient-line)" 
-            stroke-width="3" 
-            stroke-dasharray="8 8" 
-            stroke-linecap="round"/>
-      
+  <div class="relative w-full overflow-visible">
+
+  <!-- ── MAPA DO TESOURO — linhas pontilhadas conectando as 3 seções ── -->
+  <div class="absolute inset-0 pointer-events-none hidden lg:block" style="z-index:2;" aria-hidden="true">
+    <svg class="w-full h-full" viewBox="0 0 1200 2800" preserveAspectRatio="xMidYMid meet" fill="none" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <linearGradient id="gradient-line" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stop-color="#22c55e" stop-opacity="0.6" />
-          <stop offset="50%" stop-color="#a855f7" stop-opacity="0.3" />
-          <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.6" />
+        <!-- Gradiente verde → azul → vermelho ao longo do percurso -->
+        <linearGradient id="treasure-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%"   stop-color="#4ade80" stop-opacity="0.7"/>
+          <stop offset="40%"  stop-color="#38bdf8" stop-opacity="0.6"/>
+          <stop offset="75%"  stop-color="#a855f7" stop-opacity="0.5"/>
+          <stop offset="100%" stop-color="#EA1D2C" stop-opacity="0.6"/>
         </linearGradient>
+        <!-- Filtro de brilho suave -->
+        <filter id="treasure-glow" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="4" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
       </defs>
+
+      <!-- Trilha principal — de cardápio (dir) → PDV (esq) → iFood (dir) -->
+      <path
+        d="M 850,80
+           C 950,180 980,300 900,420
+           C 820,540 600,560 480,640
+           C 340,730 240,820 200,960
+           C 160,1080 180,1180 260,1280
+           C 340,1380 480,1420 560,1500
+           C 650,1590 720,1700 780,1820
+           C 840,1940 860,2060 820,2200
+           C 790,2300 740,2380 700,2450"
+        stroke="url(#treasure-grad)"
+        stroke-width="2.5"
+        stroke-dasharray="14 10"
+        stroke-linecap="round"
+        filter="url(#treasure-glow)"
+        opacity="0.55"
+      />
+
+      <!-- Waypoint 1 — Cardápio Digital (topo direito) -->
+      <circle cx="850" cy="80"   r="7" fill="#4ade80" opacity="0.8" filter="url(#treasure-glow)"/>
+      <circle cx="850" cy="80"   r="14" fill="none" stroke="#4ade80" stroke-width="1.5" opacity="0.35" stroke-dasharray="4 4"/>
+
+      <!-- Waypoint 2 — PDV Software (meio esquerdo) -->
+      <circle cx="210" cy="1060" r="7" fill="#38bdf8" opacity="0.8" filter="url(#treasure-glow)"/>
+      <circle cx="210" cy="1060" r="14" fill="none" stroke="#38bdf8" stroke-width="1.5" opacity="0.35" stroke-dasharray="4 4"/>
+
+      <!-- Waypoint 3 — Mentoria iFood (baixo direito) -->
+      <circle cx="720" cy="2420" r="7" fill="#EA1D2C" opacity="0.8" filter="url(#treasure-glow)"/>
+      <circle cx="720" cy="2420" r="14" fill="none" stroke="#EA1D2C" stroke-width="1.5" opacity="0.35" stroke-dasharray="4 4"/>
+
+      <!-- Seta final no waypoint 3 -->
+      <path d="M 720,2440 L 720,2465 L 710,2455 M 720,2465 L 730,2455"
+            stroke="#EA1D2C" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
     </svg>
   </div>
 
@@ -693,46 +730,42 @@
     </div>
   </section>
 
-  <!-- ==========================================================
-     CONEXÃO VISUAL CARDÁPIO DIGITAL → PDV
-     Linha pontilhada curva entre as duas seções
-        =========================================================== -->
-      <div class="connection-line pointer-events-none hidden lg:block">
-          <svg viewBox="0 0 1200 500" preserveAspectRatio="none">
-              <path
-                  d="M 250 50
-                    C 500 120, 700 120, 820 250
-                    S 950 420, 1100 450"
-              />
-          </svg>
-      </div>
+  <!-- ─── Separador visual entre seções ─── -->
+  <div class="flex flex-col items-center py-4 pointer-events-none" aria-hidden="true">
+    <div class="w-px h-10 bg-gradient-to-b from-sky-400/40 via-sky-400/20 to-transparent"></div>
+    <div class="w-2 h-2 rounded-full bg-sky-400/50 shadow-[0_0_8px_rgba(56,189,248,0.6)] my-1"></div>
+    <div class="w-px h-10 bg-gradient-to-b from-transparent via-sky-400/20 to-[#EA1D2C]/30"></div>
+  </div>
 
   <!-- ══════════════════════════════════════════════════════════
          PDV COMPLETO — DETALHES DO SOFTWARE E FUNCIONALIDADES
     ══════════════════════════════════════════════════════════ -->
 
   <section id="pdv-software-section" class="max-w-7xl mx-auto px-6 py-20 relative z-30 border-t border-white/5">
-    <div class="grid grid-cols-1 lg:grid-cols-11 gap-12 items-center">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
       
-      <div class="lg:col-span-6 relative flex justify-center items-center order-2 lg:order-1">
-        <div class="absolute w-[80%] h-[80%] bg-sky-500/15 blur-[120px] rounded-full pointer-events-none animate-pulse" aria-hidden="true"></div>
-        <div class="absolute w-[50%] h-[50%] bg-bailey-green/10 blur-[100px] rounded-full pointer-events-none animate-pulse delay-1000" aria-hidden="true"></div>
+      <!-- IMAGEM — agora ocupa metade total sem max-width limitante -->
+      <div class="relative flex justify-center items-center order-2 lg:order-1">
+        <div class="absolute w-[85%] h-[85%] bg-sky-500/15 blur-[130px] rounded-full pointer-events-none animate-pulse" aria-hidden="true"></div>
+        <div class="absolute w-[55%] h-[55%] bg-bailey-green/10 blur-[100px] rounded-full pointer-events-none animate-pulse delay-1000" aria-hidden="true"></div>
         
-        <div class="relative w-full max-w-[720px] mx-auto">
+        <div class="relative w-full pb-20">
           
-          <div class="w-full rounded-2xl border border-white/10 bg-bailey-dark/20 p-2 backdrop-blur-sm shadow-[0_0_50px_rgba(56,189,248,0.12)] transition-all duration-500 hover:shadow-[0_0_60px_rgba(56,189,248,0.22)] hover:border-sky-500/30 animate-float">
+          <!-- Imagem principal do PDV -->
+          <div class="w-full rounded-2xl border border-white/10 bg-bailey-dark/20 p-2 backdrop-blur-sm shadow-[0_0_60px_rgba(56,189,248,0.14)] transition-all duration-500 hover:shadow-[0_0_80px_rgba(56,189,248,0.25)] hover:border-sky-500/30 animate-float">
             <div class="absolute top-0 inset-x-12 h-px bg-gradient-to-r from-transparent via-sky-400/40 to-transparent"></div>
             <img src="images/Frentepdv.png" alt="Software PDV Completo Bailey" class="w-full h-auto rounded-xl object-cover block relative z-10">
           </div>
           
-          <div class="absolute -left-10 -bottom-8 w-[55%] md:w-[50%] z-20 drop-shadow-[0_25px_25px_rgba(0,0,0,0.6)] transition-transform duration-500 hover:scale-105 animate-float-delayed">
+          <!-- Celulares sobrepostos no canto inferior esquerdo — agora dentro dos limites -->
+          <div class="absolute -left-6 bottom-0 w-[42%] z-20 drop-shadow-[0_30px_30px_rgba(0,0,0,0.65)] transition-transform duration-500 hover:scale-105 animate-float-delayed">
             <img src="images/3celulares.png" alt="Integração Apps de Delivery" class="w-full h-auto object-contain block">
           </div>
-          
         </div>
       </div>
 
-      <div class="lg:col-span-5 space-y-8 order-1 lg:order-2">
+      <!-- TEXTO — coluna direita -->
+      <div class="space-y-8 order-1 lg:order-2 lg:pb-16">
         <div>
           <span class="inline-block px-3 py-1 rounded-full border border-sky-500/30 bg-sky-500/5 text-sky-400 text-[11px] font-medium tracking-wider uppercase mb-4">
             Gestão & Frente de Caixa
@@ -849,9 +882,10 @@
     ══════════════════════════════════════════════════════════ -->
 
   <section id="ifood-integration-section" class="max-w-7xl mx-auto px-6 py-20 relative z-30 border-t border-white/5">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
       
-      <div class="lg:col-span-4 space-y-8">
+      <!-- TEXTO — coluna esquerda, mais compacta -->
+      <div class="space-y-7">
         <div>
           <span class="inline-block px-3 py-1 rounded-full border border-[#EA1D2C]/30 bg-[#EA1D2C]/5 text-[#EA1D2C] text-[11px] font-medium tracking-wider uppercase mb-4">
             Sincronização Oficial
@@ -907,17 +941,16 @@
         </div>
       </div>
 
-      <div class="lg:col-span-8 relative flex justify-center items-center py-12">
-        <div class="absolute w-[80%] h-[80%] bg-[#EA1D2C]/10 blur-[120px] rounded-full pointer-events-none animate-pulse" aria-hidden="true"></div>
+      <!-- IMAGEM — coluna direita, ocupa metade total -->
+      <div class="relative flex justify-center items-center py-8">
+        <div class="absolute w-[85%] h-[85%] bg-[#EA1D2C]/10 blur-[130px] rounded-full pointer-events-none animate-pulse" aria-hidden="true"></div>
         <div class="absolute w-[50%] h-[50%] bg-bailey-purple/10 blur-[100px] rounded-full pointer-events-none animate-pulse delay-1000" aria-hidden="true"></div>
         
-        <div class="relative w-full max-w-[660px] mx-auto">
-          
-          <div class="w-full rounded-2xl border border-white/10 bg-bailey-dark/20 p-2 backdrop-blur-sm shadow-[0_0_50px_rgba(234,29,44,0.1)] transition-all duration-500 hover:shadow-[0_0_60px_rgba(234,29,44,0.2)] hover:border-[#EA1D2C]/30 animate-float">
+        <div class="relative w-full">
+          <div class="w-full rounded-2xl border border-white/10 bg-bailey-dark/20 p-2 backdrop-blur-sm shadow-[0_0_60px_rgba(234,29,44,0.12)] transition-all duration-500 hover:shadow-[0_0_80px_rgba(234,29,44,0.22)] hover:border-[#EA1D2C]/30 animate-float">
             <div class="absolute top-0 inset-x-12 h-px bg-gradient-to-r from-transparent via-[#EA1D2C]/40 to-transparent"></div>
             <img src="images/ifoodgestao.png" alt="Integração Homologada iFood Gestor" class="w-full h-auto rounded-xl object-cover block relative z-10">
           </div>
-          
         </div>
       </div>
 
@@ -1905,7 +1938,7 @@
               <span class="faq-icon"><i class="fas fa-plus"></i></span>
             </button>
             <div class="faq-body">
-              <p>Em média 48 horas. Nossa equipe cuida de toda a configuração: integração com os apps, importação do cardápio e treinamento da equipe. Você não precisa saber de tecnologia — nós fazemos tudo por você.</p>
+              <p>Em média 72 horas. Nossa equipe cuida de toda a configuração: integração com os apps, importação do cardápio e treinamento da equipe. Você não precisa saber de tecnologia — nós fazemos tudo por você.</p>
             </div>
           </div>
 
@@ -1996,6 +2029,115 @@
 
     <hr class="section-divider">
 
+    <!-- ══════════════════════════════════════════════════════════
+         INSTAGRAM — @bailey_aplicativos
+    ══════════════════════════════════════════════════════════ -->
+    <section id="instagram-section" class="relative z-30 py-20 overflow-hidden">
+      <!-- Glow decorativo rosa/laranja do Instagram -->
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] pointer-events-none" aria-hidden="true"
+           style="background: radial-gradient(ellipse, rgba(225,48,108,0.12) 0%, rgba(253,29,29,0.06) 40%, transparent 70%); filter: blur(60px);"></div>
+
+      <div class="max-w-6xl mx-auto px-6">
+
+        <!-- Cabeçalho -->
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6 mb-12" data-animate>
+          <!-- Perfil -->
+          <div class="flex items-center gap-5">
+            <!-- Avatar com borda gradient do Instagram -->
+            <div class="insta-avatar-ring">
+              <div class="insta-avatar-inner">
+                <img src="images/logo.png" alt="Bailey Aplicativos Instagram" class="w-full h-full object-cover">
+              </div>
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <h2 class="text-lg font-display font-black text-white">@bailey_aplicativos</h2>
+                <span class="w-5 h-5 bg-[#0095f6] rounded-full flex items-center justify-center flex-shrink-0" title="Perfil oficial">
+                  <i class="fas fa-check text-white" style="font-size:8px;"></i>
+                </span>
+              </div>
+              <p class="text-white/50 text-sm mt-0.5">Bailey Aplicativos · Ecossistema para Delivery</p>
+              <div class="flex gap-5 mt-2 text-xs">
+                <span class="text-white/70"><strong class="text-white">500+</strong> seguidores</span>
+                <span class="text-white/70"><strong class="text-white">delivery</strong> · tecnologia</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA Seguir -->
+          <a href="https://www.instagram.com/bailey_aplicativos/" target="_blank" rel="noopener"
+             class="insta-follow-btn">
+            <i class="fab fa-instagram text-xl"></i>
+            Seguir no Instagram
+          </a>
+        </div>
+
+        <!-- Grid de posts (6 cards — substitua pelas imagens reais) -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2">
+
+          <a href="https://www.instagram.com/bailey_aplicativos/" target="_blank"
+             class="insta-post-card group" style="--insta-hue:140;">
+            <img src="images/instagram/post1.jpg" alt="Post Instagram Bailey"
+                 onerror="this.style.display='none';this.parentElement.classList.add('no-img')">
+            <div class="insta-post-overlay">
+              <i class="fas fa-heart"></i>
+            </div>
+          </a>
+
+          <a href="https://www.instagram.com/bailey_aplicativos/" target="_blank"
+             class="insta-post-card group" style="--insta-hue:220;">
+            <img src="images/instagram/post2.jpg" alt="Post Instagram Bailey"
+                 onerror="this.style.display='none';this.parentElement.classList.add('no-img')">
+            <div class="insta-post-overlay"><i class="fas fa-heart"></i></div>
+          </a>
+
+          <a href="https://www.instagram.com/bailey_aplicativos/" target="_blank"
+             class="insta-post-card group" style="--insta-hue:0;">
+            <img src="images/instagram/post3.jpg" alt="Post Instagram Bailey"
+                 onerror="this.style.display='none';this.parentElement.classList.add('no-img')">
+            <div class="insta-post-overlay"><i class="fas fa-heart"></i></div>
+          </a>
+
+          <a href="https://www.instagram.com/bailey_aplicativos/" target="_blank"
+             class="insta-post-card group" style="--insta-hue:270;">
+            <img src="images/instagram/post4.jpg" alt="Post Instagram Bailey"
+                 onerror="this.style.display='none';this.parentElement.classList.add('no-img')">
+            <div class="insta-post-overlay"><i class="fas fa-heart"></i></div>
+          </a>
+
+          <a href="https://www.instagram.com/bailey_aplicativos/" target="_blank"
+             class="insta-post-card group" style="--insta-hue:30;">
+            <img src="images/instagram/post5.jpg" alt="Post Instagram Bailey"
+                 onerror="this.style.display='none';this.parentElement.classList.add('no-img')">
+            <div class="insta-post-overlay"><i class="fas fa-heart"></i></div>
+          </a>
+
+          <a href="https://www.instagram.com/bailey_aplicativos/" target="_blank"
+             class="insta-post-card group" style="--insta-hue:180;">
+            <img src="images/instagram/post6.jpg" alt="Post Instagram Bailey"
+                 onerror="this.style.display='none';this.parentElement.classList.add('no-img')">
+            <div class="insta-post-overlay"><i class="fas fa-heart"></i></div>
+          </a>
+
+        </div>
+
+        <!-- Nota e CTA central -->
+        <div class="text-center mt-8">
+          <p class="text-white/35 text-xs mb-4">
+            <i class="fas fa-images mr-1.5 text-[#e1306c]/50"></i>
+            Adicione screenshots reais em <code class="text-[#e1306c]/60">images/instagram/</code>
+          </p>
+          <a href="https://www.instagram.com/bailey_aplicativos/" target="_blank" rel="noopener"
+             class="inline-flex items-center gap-2 text-[#e1306c] border border-[#e1306c]/25 bg-[#e1306c]/5 px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-[#e1306c]/15 hover:border-[#e1306c]/50 transition-all">
+            <i class="fab fa-instagram"></i>
+            Ver todos os posts
+            <i class="fas fa-arrow-up-right-from-square text-xs opacity-60"></i>
+          </a>
+        </div>
+
+      </div>
+    </section>
+    <!-- ══ FIM INSTAGRAM ══ -->
 
   <!-- ─── FOOTER ────────────────────────────────────────────────── -->
   <footer class="relative z-30 border-t border-white/10 bg-bailey-dark/40 backdrop-blur-md pt-16 pb-8 mt-8">
