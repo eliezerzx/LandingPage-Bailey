@@ -358,6 +358,160 @@ body::after {
   .eco-hub-node-ring  { width: 46px; height: 46px; }
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   MARQUEE — FAIXA DE CLIENTES COM SCROLL INFINITO
+═══════════════════════════════════════════════════════════════ */
+
+/* Wrapper com fade nas bordas */
+.marquee-wrapper {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  /* Mascara as bordas com gradiente para fade suave */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 7%,
+    black 93%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 7%,
+    black 93%,
+    transparent 100%
+  );
+}
+
+/* Track interno: flex row com gap, sem quebra de linha */
+.marquee-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  will-change: transform;
+}
+
+/* Faixa 1: da direita para a esquerda */
+.marquee-track--left {
+  animation: marquee-to-left 38s linear infinite;
+}
+
+/* Faixa 2: da esquerda para a direita (sentido oposto) */
+.marquee-track--right {
+  animation: marquee-to-right 30s linear infinite;
+}
+
+/* Pausa ao passar o mouse */
+.marquee-wrapper:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-to-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes marquee-to-right {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+/* ── Card individual ── */
+.marquee-card {
+  flex-shrink: 0;
+  width: 215px;
+  height: 140px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.07);
+  position: relative;
+  cursor: pointer;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+}
+
+.marquee-card:hover {
+  border-color: var(--card-accent, rgba(74,222,128,0.4));
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.5), 0 0 0 1px var(--card-accent, rgba(74,222,128,0.3));
+}
+
+/* Imagem de fundo do card */
+.marquee-card-img {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  /* Fallback: exibe gradiente escuro quando sem foto */
+  background-image: none;
+}
+
+/* Overlay degradê para legibilidade do texto */
+.marquee-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.88) 0%,
+    rgba(0,0,0,0.40) 55%,
+    rgba(0,0,0,0.12) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 12px;
+}
+
+/* Badge de categoria */
+.marquee-badge {
+  display: inline-block;
+  font-size: 0.55rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 2px 7px;
+  border-radius: 999px;
+  color: #fff;
+  margin-bottom: 5px;
+  width: fit-content;
+}
+
+/* Nome do restaurante */
+.marquee-name {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 3px;
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Cidade */
+.marquee-city {
+  font-size: 0.62rem;
+  color: rgba(255,255,255,0.45);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.marquee-city i { font-size: 0.55rem; color: rgba(74,222,128,0.6); }
+
+/* Ícone placeholder quando sem foto (fundo colorido) */
+.marquee-card-img:not([style*="url('images"]) .marquee-card-overlay::before {
+  content: '\f2e7'; /* fa-store */
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  font-size: 2.2rem;
+  color: rgba(255,255,255,0.12);
+  pointer-events: none;
+}
+
 /* ─── DEPOIMENTOS ────────────────────────────────────────────── */
 .testimonial-card {
   background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.07);
