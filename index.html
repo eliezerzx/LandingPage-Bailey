@@ -163,7 +163,7 @@
 
             <hr class="nav-dd-divider">
 
-            <a href="servicos/servicos-all.html" class="nav-dd-seeall" role="menuitem">
+            <a href="servicos/index.html" class="nav-dd-seeall" role="menuitem">
               <i class="fas fa-grid-2 text-bailey-green text-sm"></i>
               Ver todos os serviços
               <i class="fas fa-arrow-right text-xs ml-auto text-bailey-green/60"></i>
@@ -205,7 +205,7 @@
         <a href="servicos/mentoria-keeta.html"    class="mobile-nav-sub-item"><span class="mobile-nav-sub-dot" style="background:#FF7A00;"></span>Mentoria Keeta</a>
         <a href="servicos/pdv.html"               class="mobile-nav-sub-item"><span class="mobile-nav-sub-dot" style="background:#7c3aed;"></span>PDV Frente de Caixa</a>
         <a href="servicos/cardapio-digital.html"  class="mobile-nav-sub-item"><span class="mobile-nav-sub-dot" style="background:#4ade80;"></span>Cardápio Digital</a>
-        <a href="servicos/servicos-all.html"             class="mobile-nav-sub-item"><span class="mobile-nav-sub-dot" style="background:#fff;"></span>Ver todos</a>
+        <a href="servicos/index.html"             class="mobile-nav-sub-item"><span class="mobile-nav-sub-dot" style="background:#fff;"></span>Ver todos</a>
       </div>
     </div>
 
@@ -244,46 +244,141 @@
           <div id="branches-container" class="absolute inset-0 w-full h-full z-20 pointer-events-none"></div>
         </div>
 
-        <!-- Ecossistema MOBILE -->
-        <div class="block sm:hidden w-full py-6 px-2" id="ecosystem-mobile">
-          <div class="flex justify-center mb-6">
-            <div class="relative w-20 h-20 rounded-full bg-black/80 border border-bailey-purple/40 glow-purple overflow-hidden shadow-2xl">
-              <div class="absolute inset-0 rounded-full" style="background:radial-gradient(circle at 40% 40%, rgba(124,58,237,0.5) 0%, rgba(90,30,180,0.2) 50%, transparent 70%);"></div>
-              <img src="images/logo.png" alt="Logo Bailey" class="w-full h-full object-cover relative" style="z-index:2;">
-            </div>
+        <!-- ── Ecossistema MOBILE — Hub Circular Neon ─────────────── -->
+        <div class="block sm:hidden w-full flex justify-center py-4" id="ecosystem-mobile">
+          <div class="eco-hub-outer">
+            <div class="eco-hub-container">
+
+              <!-- ── SVG: anéis + linhas de conexão + dots animados ── -->
+              <svg class="eco-hub-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <!-- Brilho neon verde -->
+                  <filter id="mob-neon" x="-60%" y="-60%" width="220%" height="220%">
+                    <feGaussianBlur stdDeviation="3.5" result="blur"/>
+                    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                  </filter>
+                  <!-- Glow difuso para os anéis -->
+                  <filter id="mob-ring-glow" x="-30%" y="-30%" width="160%" height="160%">
+                    <feGaussianBlur stdDeviation="7"/>
+                  </filter>
+                  <!-- Radial gradient para centro -->
+                  <radialGradient id="hub-center-grad" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%"   stop-color="rgba(124,58,237,0.45)"/>
+                    <stop offset="60%"  stop-color="rgba(90,30,180,0.2)"/>
+                    <stop offset="100%" stop-color="transparent"/>
+                  </radialGradient>
+                </defs>
+
+                <!-- Glow difuso do anel externo (fat blur) -->
+                <circle cx="150" cy="150" r="108" fill="none" stroke="#4ade80" stroke-width="10" opacity="0.14" filter="url(#mob-ring-glow)"/>
+
+                <!-- Anel externo principal — dashed, girando lentamente -->
+                <g>
+                  <animateTransform attributeName="transform" type="rotate" from="0 150 150" to="360 150 150" dur="42s" repeatCount="indefinite"/>
+                  <circle cx="150" cy="150" r="108" fill="none" stroke="#4ade80" stroke-width="1.5" stroke-dasharray="10 7" opacity="0.70" filter="url(#mob-neon)"/>
+                </g>
+
+                <!-- Anel interno — dashed, girando sentido contrário -->
+                <g>
+                  <animateTransform attributeName="transform" type="rotate" from="360 150 150" to="0 150 150" dur="22s" repeatCount="indefinite"/>
+                  <circle cx="150" cy="150" r="72" fill="none" stroke="#4ade80" stroke-width="1" stroke-dasharray="5 9" opacity="0.25"/>
+                </g>
+
+                <!-- Linhas de conexão do hub até cada app (dashed) -->
+                <!-- iFood top -->
+                <line x1="150" y1="108" x2="150" y2="69"  stroke="#4ade80" stroke-width="1" stroke-dasharray="4 4" opacity="0.50"/>
+                <!-- Keeta top-right -->
+                <line x1="186" y1="129" x2="220" y2="110" stroke="#4ade80" stroke-width="1" stroke-dasharray="4 4" opacity="0.50"/>
+                <!-- PDV bottom-right -->
+                <line x1="186" y1="171" x2="220" y2="190" stroke="#4ade80" stroke-width="1" stroke-dasharray="4 4" opacity="0.50"/>
+                <!-- Cardápio bottom -->
+                <line x1="150" y1="192" x2="150" y2="231" stroke="#4ade80" stroke-width="1" stroke-dasharray="4 4" opacity="0.50"/>
+                <!-- WhatsApp bottom-left -->
+                <line x1="114" y1="171" x2="80"  y2="190" stroke="#4ade80" stroke-width="1" stroke-dasharray="4 4" opacity="0.50"/>
+                <!-- 99Food top-left -->
+                <line x1="114" y1="129" x2="80"  y2="110" stroke="#4ade80" stroke-width="1" stroke-dasharray="4 4" opacity="0.50"/>
+
+                <!-- Aura pulsante em volta do hub central -->
+                <circle cx="150" cy="150" r="46" fill="rgba(74,222,128,0.04)" stroke="#4ade80" stroke-width="1.5" opacity="0.4">
+                  <animate attributeName="r"       values="44;52;44" dur="2.5s" repeatCount="indefinite" calcMode="ease-in-out"/>
+                  <animate attributeName="opacity" values="0.4;0.1;0.4" dur="2.5s" repeatCount="indefinite"/>
+                </circle>
+
+                <!-- Dot verde percorrendo o anel externo -->
+                <g>
+                  <animateTransform attributeName="transform" type="rotate" from="0 150 150" to="360 150 150" dur="5s" repeatCount="indefinite"/>
+                  <circle cx="150" cy="42" r="5" fill="#4ade80" filter="url(#mob-neon)" opacity="0.95"/>
+                </g>
+
+                <!-- Dot roxo indo no sentido contrário -->
+                <g>
+                  <animateTransform attributeName="transform" type="rotate" from="190 150 150" to="-170 150 150" dur="8s" repeatCount="indefinite"/>
+                  <circle cx="150" cy="42" r="3.5" fill="#a855f7" filter="url(#mob-neon)" opacity="0.90"/>
+                </g>
+              </svg>
+
+              <!-- ── Hub central (logo) ── -->
+              <div class="eco-hub-center">
+                <div class="eco-hub-center-ring">
+                  <div class="absolute inset-0 rounded-full" style="background:radial-gradient(circle at 38% 38%, rgba(124,58,237,0.55) 0%, rgba(90,30,180,0.22) 55%, transparent 75%);"></div>
+                  <img src="images/logo.png" alt="Bailey Aplicativos" class="w-full h-full object-cover relative" style="z-index:2;">
+                </div>
+              </div>
+
+              <!-- ── Nós dos apps (posicionados sobre o SVG) ── -->
+
+              <!-- iFood — topo (150, 42) -->
+              <div class="eco-hub-node" style="top:42px;left:150px;">
+                <div class="eco-hub-node-ring" style="--node-bg:#EA1D2C;--node-border:rgba(234,29,44,0.6);--node-glow:rgba(234,29,44,0.40);">
+                  <img src="images/icons/ifood.png" alt="iFood" onerror="this.style.display='none'">
+                </div>
+              </div>
+
+              <!-- Keeta — superior direito (243, 96) -->
+              <div class="eco-hub-node" style="top:96px;left:243px;">
+                <div class="eco-hub-node-ring" style="--node-bg:#000;--node-border:rgba(255,195,0,0.6);--node-glow:rgba(255,195,0,0.35);">
+                  <img src="images/icons/keeta.png" alt="Keeta" onerror="this.style.display='none'">
+                </div>
+              </div>
+
+              <!-- PDV — inferior direito (243, 204) -->
+              <div class="eco-hub-node" style="top:204px;left:243px;">
+                <div class="eco-hub-node-ring" style="--node-bg:#7c3aed;--node-border:rgba(124,58,237,0.65);--node-glow:rgba(124,58,237,0.40);">
+                  <i class="fas fa-desktop" style="color:#fff;font-size:1.25rem;"></i>
+                </div>
+              </div>
+
+              <!-- Cardápio Digital — base (150, 258) -->
+              <div class="eco-hub-node" style="top:258px;left:150px;">
+                <div class="eco-hub-node-ring" style="--node-bg:#050806;--node-border:rgba(74,222,128,0.65);--node-glow:rgba(74,222,128,0.40);">
+                  <i class="fas fa-utensils" style="color:#4ade80;font-size:1.25rem;"></i>
+                </div>
+              </div>
+
+              <!-- WhatsApp — inferior esquerdo (57, 204) -->
+              <div class="eco-hub-node" style="top:204px;left:57px;">
+                <div class="eco-hub-node-ring" style="--node-bg:#25D366;--node-border:rgba(37,211,102,0.65);--node-glow:rgba(37,211,102,0.40);">
+                  <i class="fab fa-whatsapp" style="color:#fff;font-size:1.5rem;"></i>
+                </div>
+              </div>
+
+              <!-- 99Food — superior esquerdo (57, 96) -->
+              <div class="eco-hub-node" style="top:96px;left:57px;">
+                <div class="eco-hub-node-ring" style="--node-bg:#FFC400;--node-border:rgba(255,196,0,0.65);--node-glow:rgba(255,196,0,0.40);">
+                  <img src="images/icons/99food.png" alt="99Food" onerror="this.style.display='none'">
+                </div>
+              </div>
+
+            </div><!-- /eco-hub-container -->
+
+            <!-- Legenda -->
+            <p class="text-center text-[10px] text-white/35 mt-3 tracking-[0.2em] uppercase">
+              <span class="inline-block w-1.5 h-1.5 bg-bailey-green rounded-full mr-1.5 align-middle" style="box-shadow:0 0 6px #4ade80;"></span>
+              Tudo integrado em um só lugar
+            </p>
           </div>
-          <div class="flex justify-center mb-4">
-            <div class="w-px h-6 bg-gradient-to-b from-bailey-green/60 to-transparent"></div>
-          </div>
-          <div class="grid grid-cols-3 gap-3 max-w-xs mx-auto">
-            <div class="eco-mobile-pill" style="background:#EA1D2C;">
-              <img src="images/icons/ifood.png" alt="iFood" onerror="this.style.display='none';this.parentElement.querySelector('i').style.display='block'">
-              <i class="fas fa-utensils" style="display:none;"></i><span>iFood</span>
-            </div>
-            <div class="eco-mobile-pill" style="background:#25D366;">
-              <i class="fab fa-whatsapp"></i><span>WhatsApp</span>
-            </div>
-            <div class="eco-mobile-pill" style="background:#7c3aed;">
-              <i class="fas fa-desktop"></i><span>PDV</span>
-            </div>
-            <div class="eco-mobile-pill" style="background:#10A37F;">
-              <img src="images/icons/chatgpt.png" alt="ChatGPT" onerror="this.style.display='none';this.parentElement.querySelector('i').style.display='block'">
-              <i class="fas fa-robot" style="display:none;"></i><span>ChatGPT</span>
-            </div>
-            <div class="eco-mobile-pill" style="background:#FFC400;color:#000;">
-              <img src="images/icons/99food.png" alt="99Food" onerror="this.style.display='none';this.parentElement.querySelector('i').style.display='block'">
-              <i class="fas fa-motorcycle" style="display:none;"></i><span>99Food</span>
-            </div>
-            <div class="eco-mobile-pill" style="background:#FF7A00;">
-              <img src="images/icons/keeta.png" alt="Keeta" onerror="this.style.display='none';this.parentElement.querySelector('i').style.display='block'">
-              <i class="fas fa-bag-shopping" style="display:none;"></i><span>Keeta</span>
-            </div>
-          </div>
-          <p class="text-center text-xs text-white/40 mt-4 tracking-wider uppercase">
-            <span class="inline-block w-1.5 h-1.5 bg-bailey-green rounded-full mr-1.5 align-middle shadow-[0_0_5px_#4ade80]"></span>
-            Ecossistema Integrado
-          </p>
         </div>
+        <!-- ── Fim Hub Circular Mobile ────────────────────────────── -->
 
         <!-- Título e CTA -->
         <div class="text-center max-w-3xl z-30 mt-2 sm:mt-4 px-4">
