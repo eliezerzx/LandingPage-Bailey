@@ -633,4 +633,40 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // ══════════════════════════════════════════════════════════
+  // CONTADOR ANIMADO — dispara ao entrar na viewport
+  // ══════════════════════════════════════════════════════════
+  const counters = document.querySelectorAll('[data-counter]');
+  if (counters.length) {
+    const easeOut = t => 1 - Math.pow(1 - t, 3);
+    const animateCounter = (el) => {
+      const target   = parseFloat(el.dataset.counter);
+      const prefix   = el.dataset.prefix  || '';
+      const suffix   = el.dataset.suffix  || '';
+      const isDecimal = String(target).includes('.');
+      const duration = 1800;
+      const start    = performance.now();
+
+      const step = (now) => {
+        const elapsed  = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const value    = target * easeOut(progress);
+        el.textContent = prefix + (isDecimal ? value.toFixed(1) : Math.floor(value)) + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !entry.target.dataset.counted) {
+          entry.target.dataset.counted = '1';
+          animateCounter(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    counters.forEach(el => observer.observe(el));
+  }
+
 });
