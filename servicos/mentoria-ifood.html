@@ -45,6 +45,32 @@
       display: flex; align-items: center; justify-content: center;
       font-size: 1rem; color: #4ade80; flex-shrink: 0;
     }
+    /* ─── CARD DO VÍDEO DO INSTAGRAM ───────────────────────────── */
+    .instagram-video-card {
+      width: 100%;
+      border-radius: 24px;
+      padding: 14px;
+      background: rgba(255,255,255,0.035);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 0 40px rgba(234,29,44,0.08);
+      overflow: hidden;
+    }
+
+    .instagram-video-card iframe {
+      border-radius: 18px !important;
+    }
+
+    /* Ajuste mobile */
+    @media (max-width: 767px) {
+      #video-instagram-ifood {
+        padding-bottom: 56px;
+      }
+
+      .instagram-video-card {
+        padding: 8px;
+        border-radius: 18px;
+      }
+    }
   </style>
 </head>
 <body class="text-white overflow-x-hidden" style="background-color:#050806;">
@@ -120,7 +146,46 @@
       </div>
     </section>
 
+    <!-- ─── VÍDEO INSTAGRAM — MENTORIA IFOOD ── -->
+    <section id="video-instagram-ifood" class="max-w-5xl mx-auto px-6 pb-20">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+
+        <!-- Texto lateral -->
+        <div>
+          <span class="text-xs font-bold tracking-[0.2em] text-bailey-green uppercase bg-bailey-green/10 px-3 py-1 rounded-full border border-bailey-green/20">
+            Veja na prática
+          </span>
+
+          <h2 class="font-display font-black text-3xl md:text-4xl text-white leading-tight mt-4 mb-5">
+            Conheça resultados reais <br>
+            <span class="text-[#EA1D2C]">dos nossos clientes no iFood.</span> 
+          </h2>
+
+          <p class="text-white/60 text-sm md:text-base leading-relaxed mb-6">
+            Descubra como criar uma operação automatizado com 5 lojas no iFood para gerenciar pedidos, atendimento e crescimento de forma profissional.
+          </p>
+
+          <a href="https://w.app/baileyaplicativos" target="_blank"
+            class="inline-flex items-center gap-3 bg-bailey-green text-black font-bold px-7 py-4 rounded-full hover:bg-emerald-400 transition-all transform hover:scale-105">
+            <i class="fab fa-whatsapp text-xl"></i>
+            Quero aplicar isso na minha loja
+          </a>
+        </div>
+
+        <!-- Embed Instagram -->
+        <div class="instagram-video-card">
+          <blockquote class="instagram-media"
+            data-instgrm-permalink="https://www.instagram.com/p/DP1yMF3DuNK/"
+            data-instgrm-version="14"
+            style="background:#fff; border:0; margin:0 auto; max-width:540px; min-width:326px; width:100%;">
+          </blockquote>
+        </div>
+
+      </div>
+    </section>
+
     <!-- ─── COMO FUNCIONA ── -->
+
     <section class="max-w-5xl mx-auto px-6 pb-20">
       <div class="text-center mb-12">
         <span class="text-xs font-bold tracking-[0.2em] text-bailey-green uppercase bg-bailey-green/10 px-3 py-1 rounded-full border border-bailey-green/20">Processo</span>
@@ -420,6 +485,8 @@
       stickyCta.style.transform = pct > 0.3 ? 'translateY(0)' : 'translateY(100%)';
     }, { passive: true });
   </script>
+
+  <script async src="//www.instagram.com/embed.js"></script>
 
 </body>
 </html>
