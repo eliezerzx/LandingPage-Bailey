@@ -1,5 +1,16 @@
 html { font-size: 18px; }
 
+/* ── Seções que aparecem somente no PC ── */
+@media (max-width: 767px) {
+  #como-funciona,
+  #synchronization-section,
+  #resultados,
+  #faq-section,
+  #instagram-section {
+    display: none !important;
+  }
+}
+
 body {
   background-color: #050806;
   font-family: 'Outfit', sans-serif;
@@ -1131,4 +1142,25 @@ main{
 .connection-dot-end{
     top:470px;
     right:260px;
+}
+
+@media (max-width: 767px) {
+  .desktop-only {
+    display: none !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MOSTRAR SOMENTE NO PC
+   Esconde essas seções no mobile/tablet pequeno
+═══════════════════════════════════════════════════════════════ */
+@media (max-width: 767px) {
+  #como-funciona,
+  #synchronization-section,
+  #resultados,
+  #faq-section,
+  #instagram-section,
+  .desktop-only {
+    display: none !important;
+  }
 }
