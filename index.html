@@ -599,23 +599,22 @@
 
   <!-- ── MAPA DO TESOURO — linhas pontilhadas conectando as 3 seções ── -->
   <div class="absolute inset-0 pointer-events-none hidden lg:block" style="z-index:2;" aria-hidden="true">
-    <svg class="w-full h-full" viewBox="0 0 1200 2800" preserveAspectRatio="xMidYMid meet" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg class="w-full h-full" viewBox="0 0 1200 4200" preserveAspectRatio="xMidYMid meet" fill="none" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <!-- Gradiente verde → azul → vermelho ao longo do percurso -->
         <linearGradient id="treasure-grad" x1="0%" y1="0%" x2="0%" y2="100%">
           <stop offset="0%"   stop-color="#4ade80" stop-opacity="0.7"/>
-          <stop offset="40%"  stop-color="#38bdf8" stop-opacity="0.6"/>
-          <stop offset="75%"  stop-color="#a855f7" stop-opacity="0.5"/>
-          <stop offset="100%" stop-color="#EA1D2C" stop-opacity="0.6"/>
+          <stop offset="30%"  stop-color="#38bdf8" stop-opacity="0.6"/>
+          <stop offset="55%"  stop-color="#EA1D2C" stop-opacity="0.6"/>
+          <stop offset="78%"  stop-color="#FFC400" stop-opacity="0.7"/>
+          <stop offset="100%" stop-color="#FF7A00" stop-opacity="0.7"/>
         </linearGradient>
-        <!-- Filtro de brilho suave -->
         <filter id="treasure-glow" x="-20%" y="-20%" width="140%" height="140%">
           <feGaussianBlur stdDeviation="4" result="blur"/>
           <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
         </filter>
       </defs>
 
-      <!-- Trilha principal — de cardápio (dir) → PDV (esq) → iFood (dir) -->
+      <!-- Trilha: Cardápio → PDV → iFood → 99Food → Keeta -->
       <path
         d="M 850,80
            C 950,180 980,300 900,420
@@ -625,7 +624,13 @@
            C 340,1380 480,1420 560,1500
            C 650,1590 720,1700 780,1820
            C 840,1940 860,2060 820,2200
-           C 790,2300 740,2380 700,2450"
+           C 790,2300 740,2380 700,2460
+           C 660,2560 560,2620 420,2680
+           C 280,2740 180,2820 200,2980
+           C 220,3100 340,3180 480,3240
+           C 620,3300 760,3360 840,3460
+           C 900,3540 920,3640 880,3760
+           C 850,3860 800,3940 760,4020"
         stroke="url(#treasure-grad)"
         stroke-width="2.5"
         stroke-dasharray="14 10"
@@ -634,115 +639,30 @@
         opacity="0.55"
       />
 
-      <!-- Waypoint 1 — Cardápio Digital (topo direito) -->
+      <!-- Waypoint 1 — Cardápio Digital -->
       <circle cx="850" cy="80"   r="7" fill="#4ade80" opacity="0.8" filter="url(#treasure-glow)"/>
       <circle cx="850" cy="80"   r="14" fill="none" stroke="#4ade80" stroke-width="1.5" opacity="0.35" stroke-dasharray="4 4"/>
 
-      <!-- Waypoint 2 — PDV Software (meio esquerdo) -->
+      <!-- Waypoint 2 — PDV Software -->
       <circle cx="210" cy="1060" r="7" fill="#38bdf8" opacity="0.8" filter="url(#treasure-glow)"/>
       <circle cx="210" cy="1060" r="14" fill="none" stroke="#38bdf8" stroke-width="1.5" opacity="0.35" stroke-dasharray="4 4"/>
 
-      <!-- Waypoint 3 — Mentoria iFood (baixo direito) -->
+      <!-- Waypoint 3 — Mentoria iFood -->
       <circle cx="720" cy="2420" r="7" fill="#EA1D2C" opacity="0.8" filter="url(#treasure-glow)"/>
       <circle cx="720" cy="2420" r="14" fill="none" stroke="#EA1D2C" stroke-width="1.5" opacity="0.35" stroke-dasharray="4 4"/>
 
-      <!-- Seta final no waypoint 3 -->
-      <path d="M 720,2440 L 720,2465 L 710,2455 M 720,2465 L 730,2455"
-            stroke="#EA1D2C" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+      <!-- Waypoint 4 — Mentoria 99Food -->
+      <circle cx="210" cy="2980" r="7" fill="#FFC400" opacity="0.8" filter="url(#treasure-glow)"/>
+      <circle cx="210" cy="2980" r="14" fill="none" stroke="#FFC400" stroke-width="1.5" opacity="0.35" stroke-dasharray="4 4"/>
+
+      <!-- Waypoint 5 — Mentoria Keeta -->
+      <circle cx="760" cy="4020" r="7" fill="#FF7A00" opacity="0.8" filter="url(#treasure-glow)"/>
+      <circle cx="760" cy="4020" r="14" fill="none" stroke="#FF7A00" stroke-width="1.5" opacity="0.35" stroke-dasharray="4 4"/>
+
+      <!-- Seta final — Keeta -->
+      <path d="M 760,4040 L 760,4070 L 750,4060 M 760,4070 L 770,4060"
+            stroke="#FF7A00" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
     </svg>
-  </div>
-
-  <!-- ══════════════════════════════════════════════════════════
-         CARDAPIO DIGITAL 
-    ══════════════════════════════════════════════════════════ -->
-
-  <section id="pdv-detail-section" class="max-w-7xl mx-auto px-6 py-20 relative z-30">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-      <div class="lg:col-span-5 space-y-8">
-        <div>
-          <span class="inline-block px-3 py-1 rounded-full border border-bailey-green/30 bg-bailey-green/5 text-bailey-green text-[11px] font-medium tracking-wider uppercase mb-4">
-            Cardapio Digital
-          </span>
-          <h2 class="text-4xl md:text-5xl font-display font-extrabold tracking-tight leading-none text-white">
-            CARDAPIO DIGITAL<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-bailey-green to-emerald-400">BAILEY APLICATIVOS</span>
-          </h2>
-          <p class="mt-4 text-white/60 text-base leading-relaxed">
-            O sistema completo para gerenciar seu negócio com agilidade, segurança e integração total.
-          </p>
-        </div>
-        <div class="grid grid-cols-3 gap-3">
-          <div class="bg-bailey-dark/60 border border-white/5 rounded-xl p-4 flex flex-col items-center text-center justify-center min-h-[100px]">
-            <span class="px-2 py-0.5 text-[10px] font-bold rounded bg-[#EA1D2C] text-white mb-2">ifood</span>
-            <p class="text-[11px] text-white/50 leading-tight">Integração com iFood</p>
-          </div>
-          <div class="bg-bailey-dark/60 border border-white/5 rounded-xl p-4 flex flex-col items-center text-center justify-center min-h-[100px]">
-            <span class="px-2 py-0.5 text-[10px] font-bold rounded bg-[#FFC400] text-black mb-2">99</span>
-            <p class="text-[11px] text-white/50 leading-tight">Integração com 99 Food</p>
-          </div>
-          <div class="bg-bailey-dark/60 border border-white/5 rounded-xl p-4 flex flex-col items-center text-center justify-center min-h-[100px]">
-            <div class="text-bailey-green text-lg mb-1.5"><i class="fas fa-mobile-alt"></i></div>
-            <p class="text-[11px] text-white/50 leading-tight">Cardápio Digital</p>
-          </div>
-        </div>
-        <div class="flex items-center gap-4 bg-bailey-dark/60 border border-bailey-green/20 rounded-xl p-4">
-          <div class="text-bailey-green text-xl bg-bailey-green/10 w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0">
-            <i class="fas fa-file-invoice-dollar"></i>
-          </div>
-          <div>
-            <h4 class="text-sm font-semibold text-white">Emissor de Nota Fiscal</h4>
-            <p class="text-xs text-white/50">Configure e emita suas notas fiscais de forma integrada e sem burocracia.</p>
-          </div>
-        </div>
-      </div>
-      <div class="lg:col-span-7 relative flex justify-center items-center py-8">
-        <div class="absolute w-[80%] h-[80%] bg-bailey-green/20 blur-[120px] rounded-full pointer-events-none animate-pulse" aria-hidden="true"></div>
-        <div class="absolute w-[60%] h-[60%] bg-bailey-purple/15 blur-[100px] rounded-full pointer-events-none animate-pulse delay-1000" aria-hidden="true"></div>
-        <div class="relative rounded-2xl border border-white/10 bg-bailey-dark/20 p-2 backdrop-blur-sm shadow-[0_0_50px_rgba(74,222,128,0.15)] transition-all duration-500 hover:shadow-[0_0_60px_rgba(124,58,237,0.25)] hover:border-bailey-purple/40 animate-float">
-          <div class="absolute top-0 inset-x-12 h-px bg-gradient-to-r from-transparent via-bailey-green/40 to-transparent"></div>
-          <img src="images/pdv2.png" alt="Módulo PDV Frente de Caixa Bailey" class="w-full h-auto rounded-xl object-cover block relative z-10">
-        </div>
-      </div>
-    </div>
-
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mt-20 pt-12 border-t border-white/5">
-      <div class="space-y-2 group">
-        <div class="text-bailey-green text-xl transition-transform group-hover:scale-110 duration-300"><i class="fas fa-rocket"></i></div>
-        <h5 class="font-display font-bold text-xs tracking-wider text-white uppercase">Agilidade</h5>
-        <p class="text-[11px] text-white/50 leading-relaxed">Atendimento rápido e intuitivo para você vender mais.</p>
-      </div>
-      <div class="space-y-2 group">
-        <div class="text-bailey-green text-xl transition-transform group-hover:scale-110 duration-300"><i class="fas fa-shield-alt"></i></div>
-        <h5 class="font-display font-bold text-xs tracking-wider text-white uppercase">Controle Total</h5>
-        <p class="text-[11px] text-white/50 leading-relaxed">Tenha o controle completo de pedidos, entregas, caixa e clientes.</p>
-      </div>
-      <div class="space-y-2 group">
-        <div class="text-bailey-green text-xl transition-transform group-hover:scale-110 duration-300"><i class="fas fa-cloud"></i></div>
-        <h5 class="font-display font-bold text-xs tracking-wider text-white uppercase">Integração marketplace</h5>
-        <p class="text-[11px] text-white/50 leading-relaxed">Inegração com 99Food & Ifood.</p>
-      </div>
-      <div class="space-y-2 group">
-        <div class="text-bailey-green text-xl transition-transform group-hover:scale-110 duration-300"><i class="fas fa-receipt"></i></div>
-        <h5 class="font-display font-bold text-xs tracking-wider text-white uppercase">Nota Fiscal</h5>
-        <p class="text-[11px] text-white/50 leading-relaxed">Emita notas fiscais de forma prática e automática.</p>
-      </div>
-      <div class="space-y-2 group">
-        <div class="text-bailey-green text-xl transition-transform group-hover:scale-110 duration-300"><i class="fas fa-robot"></i></div>
-        <h5 class="font-display font-bold text-xs tracking-wider text-white uppercase">Robo de status</h5>
-        <p class="text-[11px] text-white/50 leading-relaxed">Automação inteligente para atualizar o status do seu delivery em tempo real.</p>
-      </div>
-      <div class="space-y-2 group">
-        <div class="text-bailey-green text-xl transition-transform group-hover:scale-110 duration-300"><i class="fas fa-headset"></i></div>
-        <h5 class="font-display font-bold text-xs tracking-wider text-white uppercase">Suporte</h5>
-        <p class="text-[11px] text-white/50 leading-relaxed">Conte com um time preparado para te ajudar sempre.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── Separador visual entre seções ─── -->
-  <div class="flex flex-col items-center py-4 pointer-events-none" aria-hidden="true">
-    <div class="w-px h-10 bg-gradient-to-b from-sky-400/40 via-sky-400/20 to-transparent"></div>
-    <div class="w-2 h-2 rounded-full bg-sky-400/50 shadow-[0_0_8px_rgba(56,189,248,0.6)] my-1"></div>
-    <div class="w-px h-10 bg-gradient-to-b from-transparent via-sky-400/20 to-[#EA1D2C]/30"></div>
   </div>
 
   <!-- ══════════════════════════════════════════════════════════
@@ -884,6 +804,100 @@
       </div>
     </div>
   </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+         CARDAPIO DIGITAL 
+    ══════════════════════════════════════════════════════════ -->
+
+  <section id="pdv-detail-section" class="max-w-7xl mx-auto px-6 py-20 relative z-30">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-5 space-y-8">
+        <div>
+          <span class="inline-block px-3 py-1 rounded-full border border-bailey-green/30 bg-bailey-green/5 text-bailey-green text-[11px] font-medium tracking-wider uppercase mb-4">
+            Cardapio Digital
+          </span>
+          <h2 class="text-4xl md:text-5xl font-display font-extrabold tracking-tight leading-none text-white">
+            CARDAPIO DIGITAL<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-bailey-green to-emerald-400">BAILEY APLICATIVOS</span>
+          </h2>
+          <p class="mt-4 text-white/60 text-base leading-relaxed">
+            O sistema completo para gerenciar seu negócio com agilidade, segurança e integração total.
+          </p>
+        </div>
+        <div class="grid grid-cols-3 gap-3">
+          <div class="bg-bailey-dark/60 border border-white/5 rounded-xl p-4 flex flex-col items-center text-center justify-center min-h-[100px]">
+            <span class="px-2 py-0.5 text-[10px] font-bold rounded bg-[#EA1D2C] text-white mb-2">ifood</span>
+            <p class="text-[11px] text-white/50 leading-tight">Integração com iFood</p>
+          </div>
+          <div class="bg-bailey-dark/60 border border-white/5 rounded-xl p-4 flex flex-col items-center text-center justify-center min-h-[100px]">
+            <span class="px-2 py-0.5 text-[10px] font-bold rounded bg-[#FFC400] text-black mb-2">99</span>
+            <p class="text-[11px] text-white/50 leading-tight">Integração com 99 Food</p>
+          </div>
+          <div class="bg-bailey-dark/60 border border-white/5 rounded-xl p-4 flex flex-col items-center text-center justify-center min-h-[100px]">
+            <div class="text-bailey-green text-lg mb-1.5"><i class="fas fa-mobile-alt"></i></div>
+            <p class="text-[11px] text-white/50 leading-tight">Cardápio Digital</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-4 bg-bailey-dark/60 border border-bailey-green/20 rounded-xl p-4">
+          <div class="text-bailey-green text-xl bg-bailey-green/10 w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0">
+            <i class="fas fa-file-invoice-dollar"></i>
+          </div>
+          <div>
+            <h4 class="text-sm font-semibold text-white">Emissor de Nota Fiscal</h4>
+            <p class="text-xs text-white/50">Configure e emita suas notas fiscais de forma integrada e sem burocracia.</p>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-7 relative flex justify-center items-center py-8">
+        <div class="absolute w-[80%] h-[80%] bg-bailey-green/20 blur-[120px] rounded-full pointer-events-none animate-pulse" aria-hidden="true"></div>
+        <div class="absolute w-[60%] h-[60%] bg-bailey-purple/15 blur-[100px] rounded-full pointer-events-none animate-pulse delay-1000" aria-hidden="true"></div>
+        <div class="relative rounded-2xl border border-white/10 bg-bailey-dark/20 p-2 backdrop-blur-sm shadow-[0_0_50px_rgba(74,222,128,0.15)] transition-all duration-500 hover:shadow-[0_0_60px_rgba(124,58,237,0.25)] hover:border-bailey-purple/40 animate-float">
+          <div class="absolute top-0 inset-x-12 h-px bg-gradient-to-r from-transparent via-bailey-green/40 to-transparent"></div>
+          <img src="images/pdv2.png" alt="Módulo PDV Frente de Caixa Bailey" class="w-full h-auto rounded-xl object-cover block relative z-10">
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mt-20 pt-12 border-t border-white/5">
+      <div class="space-y-2 group">
+        <div class="text-bailey-green text-xl transition-transform group-hover:scale-110 duration-300"><i class="fas fa-rocket"></i></div>
+        <h5 class="font-display font-bold text-xs tracking-wider text-white uppercase">Agilidade</h5>
+        <p class="text-[11px] text-white/50 leading-relaxed">Atendimento rápido e intuitivo para você vender mais.</p>
+      </div>
+      <div class="space-y-2 group">
+        <div class="text-bailey-green text-xl transition-transform group-hover:scale-110 duration-300"><i class="fas fa-shield-alt"></i></div>
+        <h5 class="font-display font-bold text-xs tracking-wider text-white uppercase">Controle Total</h5>
+        <p class="text-[11px] text-white/50 leading-relaxed">Tenha o controle completo de pedidos, entregas, caixa e clientes.</p>
+      </div>
+      <div class="space-y-2 group">
+        <div class="text-bailey-green text-xl transition-transform group-hover:scale-110 duration-300"><i class="fas fa-cloud"></i></div>
+        <h5 class="font-display font-bold text-xs tracking-wider text-white uppercase">Integração marketplace</h5>
+        <p class="text-[11px] text-white/50 leading-relaxed">Inegração com 99Food & Ifood.</p>
+      </div>
+      <div class="space-y-2 group">
+        <div class="text-bailey-green text-xl transition-transform group-hover:scale-110 duration-300"><i class="fas fa-receipt"></i></div>
+        <h5 class="font-display font-bold text-xs tracking-wider text-white uppercase">Nota Fiscal</h5>
+        <p class="text-[11px] text-white/50 leading-relaxed">Emita notas fiscais de forma prática e automática.</p>
+      </div>
+      <div class="space-y-2 group">
+        <div class="text-bailey-green text-xl transition-transform group-hover:scale-110 duration-300"><i class="fas fa-robot"></i></div>
+        <h5 class="font-display font-bold text-xs tracking-wider text-white uppercase">Robo de status</h5>
+        <p class="text-[11px] text-white/50 leading-relaxed">Automação inteligente para atualizar o status do seu delivery em tempo real.</p>
+      </div>
+      <div class="space-y-2 group">
+        <div class="text-bailey-green text-xl transition-transform group-hover:scale-110 duration-300"><i class="fas fa-headset"></i></div>
+        <h5 class="font-display font-bold text-xs tracking-wider text-white uppercase">Suporte</h5>
+        <p class="text-[11px] text-white/50 leading-relaxed">Conte com um time preparado para te ajudar sempre.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Separador visual entre seções ─── -->
+  <div class="flex flex-col items-center py-4 pointer-events-none" aria-hidden="true">
+    <div class="w-px h-10 bg-gradient-to-b from-sky-400/40 via-sky-400/20 to-transparent"></div>
+    <div class="w-2 h-2 rounded-full bg-sky-400/50 shadow-[0_0_8px_rgba(56,189,248,0.6)] my-1"></div>
+    <div class="w-px h-10 bg-gradient-to-b from-transparent via-sky-400/20 to-[#EA1D2C]/30"></div>
+  </div>
+
 
 <!-- ══════════════════════════════════════════════════════════
          IFOOD GESTAO INTEGRADO — DETALHES DO SOFTWARE E FUNCIONALIDADES
@@ -2393,9 +2407,17 @@
           <p class="text-xs text-white/50 leading-relaxed max-w-sm">
             Simplificando a gestão de delivery e integrando tecnologia de ponta para automatizar o seu negócio de ponta a ponta.
           </p>
-          <div class="flex items-center gap-4 text-white/40 text-base">
-            <a href="https://www.instagram.com/bailey_aplicativos/" class="hover:text-bailey-green transition-colors"><i class="fab fa-instagram"></i></a>
-            <a href="https://w.app/baileyaplicativos" class="hover:text-bailey-green transition-colors"><i class="fab fa-whatsapp"></i></a>
+          <div class="flex items-center flex-wrap gap-3 text-white/40 text-base">
+            <a href="https://www.instagram.com/bailey_aplicativos?igsh=MWJsNjVrbHMzanNwNQ==" target="_blank" rel="noopener" aria-label="Instagram" class="hover:text-[#E1306C] transition-colors"><i class="fab fa-instagram"></i></a>
+            <a href="https://w.app/baileyaplicativos" target="_blank" rel="noopener" aria-label="WhatsApp" class="hover:text-[#25D366] transition-colors"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.tiktok.com/@baileyaplicativos" target="_blank" rel="noopener" aria-label="TikTok" class="hover:text-white transition-colors"><i class="fab fa-tiktok"></i></a>
+            <a href="https://youtube.com/@baileyaplicativos" target="_blank" rel="noopener" aria-label="YouTube" class="hover:text-[#FF0000] transition-colors"><i class="fab fa-youtube"></i></a>
+            <a href="https://x.com/bailey_app" target="_blank" rel="noopener" aria-label="X / Twitter" class="hover:text-white transition-colors"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://www.threads.com/@bailey_aplicativos" target="_blank" rel="noopener" aria-label="Threads" class="hover:text-white transition-colors"><i class="fab fa-threads"></i></a>
+            <a href="https://facebook.com/baileyaplicativos" target="_blank" rel="noopener" aria-label="Facebook" class="hover:text-[#1877F2] transition-colors"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.linkedin.com/in/bailey-aplicativos-a55a6037b" target="_blank" rel="noopener" aria-label="LinkedIn" class="hover:text-[#0A66C2] transition-colors"><i class="fab fa-linkedin"></i></a>
+            <a href="https://pin.it/53Z931bN0" target="_blank" rel="noopener" aria-label="Pinterest" class="hover:text-[#E60023] transition-colors"><i class="fab fa-pinterest"></i></a>
+            <a href="https://k.kwai.com/u/@bailey_aplicativos/kxzQCqHG" target="_blank" rel="noopener" aria-label="Kwai" class="hover:text-[#FF6B00] transition-colors" style="font-size:.8rem;font-weight:700;font-family:'Outfit',sans-serif;letter-spacing:-.02em;">Kwai</a>
           </div>
         </div>
         <div class="lg:col-span-2 space-y-4">
