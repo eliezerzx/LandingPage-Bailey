@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://baileyaplicativos.com.br/sitemap.xml
