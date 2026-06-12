@@ -64,9 +64,10 @@
   </div>
 
   <!-- ─── HEADER ── -->
-  <header class="fixed top-4 inset-x-0 z-50 mx-auto max-w-5xl h-[70px] rounded-full bg-bailey-dark/40 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)]">
+    <header class="fixed top-4 inset-x-0 z-50 mx-auto max-w-5xl h-[70px] rounded-full bg-bailey-dark/40 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)]">
     <div class="absolute top-0 inset-x-12 h-px bg-gradient-to-r from-transparent via-bailey-green/30 to-transparent"></div>
     <div class="flex items-center justify-between h-full px-6 md:px-8">
+
       <a href="../index.html" class="flex items-center gap-3">
         <div class="w-9 h-9 rounded-full border border-bailey-purple/50 flex items-center justify-center bg-bailey-purple/10 overflow-hidden">
           <img src="../images/logo.png" alt="Logo Bailey" class="w-full h-full object-cover">
@@ -76,17 +77,116 @@
           <div class="text-[8px] tracking-widest text-bailey-green uppercase mt-0.5">Aplicativos</div>
         </div>
       </a>
-      <a href="../index.html" class="text-white/60 text-xs hover:text-bailey-green transition-colors flex items-center gap-2">
-        <i class="fas fa-arrow-left text-[10px]"></i> Voltar ao início
-      </a>
-      <a href="https://wa.me/5512988886499?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Bailey%20Aplicativos%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20planos.%20%F0%9F%9A%80" target="_blank"
-         class="hidden md:block text-bailey-green border border-bailey-green/30 bg-bailey-green/5 px-5 py-2 rounded-full hover:bg-bailey-green hover:text-black transition-all text-xs font-bold tracking-wide uppercase">
-        Bailey Business
-      </a>
+
+      <nav class="hidden md:flex items-center gap-8 text-xs font-medium uppercase tracking-wider text-white/70">
+        <a href="../index.html#synchronization-section" class="hover:text-bailey-green transition-colors">Funcionalidades</a>
+
+        <div class="nav-dropdown-wrapper" id="servicos-dropdown">
+          <button class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+            Serviços
+            <i class="fas fa-chevron-down nav-dropdown-arrow"></i>
+          </button>
+          <div class="nav-dropdown-menu" role="menu">
+            <div class="absolute top-0 inset-x-8 h-px bg-gradient-to-r from-transparent via-bailey-green/40 to-transparent"></div>
+            <p class="nav-dd-section-label">Integrações &amp; Mentorias</p>
+            <a href="mentoria-ifood.html" class="nav-dropdown-item" role="menuitem">
+              <span class="nav-dd-icon" style="background:#EA1D2C;">
+                <img src="../images/icons/ifood.png" alt="iFood" onerror="this.style.display='none';this.parentElement.innerHTML='<b style=&quot;color:#fff;font-size:.6rem&quot;>iF</b>'">
+              </span>
+              <div>
+                <div class="nav-dd-label">Mentoria iFood</div>
+                <div class="nav-dd-sub">Alavanque suas vendas no marketplace</div>
+              </div>
+              <i class="fas fa-arrow-right nav-dd-arrow"></i>
+            </a>
+            <a href="mentoria-99food.html" class="nav-dropdown-item" role="menuitem">
+              <span class="nav-dd-icon" style="background:#FFC400;">
+                <img src="../images/icons/99food.png" alt="99Food" onerror="this.style.display='none';this.parentElement.innerHTML='<b style=&quot;color:#000;font-size:.65rem&quot;>99</b>'">
+              </span>
+              <div>
+                <div class="nav-dd-label">Mentoria 99Food</div>
+                <div class="nav-dd-sub">Novo canal de vendas ativo</div>
+              </div>
+              <i class="fas fa-arrow-right nav-dd-arrow"></i>
+            </a>
+            <a href="mentoria-keeta.html" class="nav-dropdown-item" role="menuitem">
+              <span class="nav-dd-icon" style="background:#FF7A00;">
+                <img src="../images/icons/keeta.png" alt="Keeta" onerror="this.style.display='none';this.parentElement.innerHTML='<b style=&quot;color:#fff;font-size:.55rem&quot;>KT</b>'">
+              </span>
+              <div>
+                <div class="nav-dd-label">Mentoria Keeta</div>
+                <div class="nav-dd-sub">Gestão e crescimento no Keeta</div>
+              </div>
+              <i class="fas fa-arrow-right nav-dd-arrow"></i>
+            </a>
+            <hr class="nav-dd-divider">
+            <p class="nav-dd-section-label">Sistemas</p>
+            <a href="pdv.html" class="nav-dropdown-item" role="menuitem">
+              <span class="nav-dd-icon" style="background:#7c3aed;">
+                <i class="fas fa-desktop text-white" style="font-size:.75rem;"></i>
+              </span>
+              <div>
+                <div class="nav-dd-label">PDV — Frente de Caixa</div>
+                <div class="nav-dd-sub">Sistema completo de gestão e vendas</div>
+              </div>
+              <i class="fas fa-arrow-right nav-dd-arrow"></i>
+            </a>
+            <a href="cardapio-digital.html" class="nav-dropdown-item" role="menuitem">
+              <span class="nav-dd-icon" style="background:#4ade80;">
+                <i class="fas fa-utensils" style="font-size:.75rem;color:#000;"></i>
+              </span>
+              <div>
+                <div class="nav-dd-label">Cardápio Digital</div>
+                <div class="nav-dd-sub">Pedidos via WhatsApp + robô de status</div>
+              </div>
+              <i class="fas fa-arrow-right nav-dd-arrow"></i>
+            </a>
+            <hr class="nav-dd-divider">
+            <a href="servicos-all.html" class="nav-dd-seeall" role="menuitem">
+              <i class="fas fa-grid-2 text-bailey-green text-sm"></i>
+              Ver todos os serviços
+              <i class="fas fa-arrow-right text-xs ml-auto text-bailey-green/60"></i>
+            </a>
+          </div>
+        </div>
+
+        <a href="../index.html#resultados"      class="hover:text-bailey-green transition-colors">Resultados</a>
+        <a href="../index.html#pricing-section" class="hover:text-bailey-green transition-colors">Preços</a>
+        <a href="../index.html#faq-section"     class="hover:text-bailey-green transition-colors">FAQ</a>
+      </nav>
+
+      <div class="hidden md:block">
+        <a href="https://wa.me/5512988886499?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Bailey%20Aplicativos%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20planos.%20%F0%9F%9A%80" target="_blank"
+           class="text-bailey-green border border-bailey-green/30 bg-bailey-green/5 px-5 py-2 rounded-full hover:bg-bailey-green hover:text-black hover:border-transparent transition-all text-xs font-bold tracking-wide uppercase">
+          Bailey Business
+        </a>
+      </div>
+
+      <button id="mobile-menu-toggle" class="mobile-menu-btn md:hidden" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
 
-  <main class="pt-[110px]">
+  <!-- Menu mobile -->
+  <nav id="mobile-nav" class="mobile-nav">
+    <a href="../index.html#synchronization-section">Funcionalidades</a>
+    <div class="mobile-nav-group">
+      <button class="mobile-nav-group-trigger" id="mobile-servicos-toggle">
+        Serviços <i class="fas fa-chevron-down mobile-nav-group-arrow"></i>
+      </button>
+      <div class="mobile-nav-submenu" id="mobile-servicos-submenu">
+        <a href="mentoria-ifood.html"   class="mobile-nav-sub-item"><span class="mobile-nav-sub-dot" style="background:#EA1D2C;"></span>Mentoria iFood</a>
+        <a href="mentoria-99food.html"  class="mobile-nav-sub-item"><span class="mobile-nav-sub-dot" style="background:#FFC400;"></span>Mentoria 99Food</a>
+        <a href="mentoria-keeta.html"   class="mobile-nav-sub-item"><span class="mobile-nav-sub-dot" style="background:#FF7A00;"></span>Mentoria Keeta</a>
+        <a href="pdv.html"              class="mobile-nav-sub-item"><span class="mobile-nav-sub-dot" style="background:#7c3aed;"></span>PDV Frente de Caixa</a>
+        <a href="cardapio-digital.html" class="mobile-nav-sub-item"><span class="mobile-nav-sub-dot" style="background:#4ade80;"></span>Cardápio Digital</a>
+        <a href="servicos-all.html"     class="mobile-nav-sub-item"><span class="mobile-nav-sub-dot" style="background:#fff;"></span>Ver todos</a>
+      </div>
+    </div>
+    <a href="../index.html#pricing-section">Preços</a>
+    <a href="https://wa.me/5512988886499?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Bailey%20Aplicativos%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20planos.%20%F0%9F%9A%80" target="_blank">Bailey Business</a>
+  </nav><main class="pt-[110px]">
 
     <!-- ─── HERO DA PÁGINA DE SERVIÇO ── -->
     <section class="relative overflow-hidden pt-16 pb-20 text-center px-6"
@@ -248,61 +348,110 @@
           Quem fez a mentoria<br><span class="text-[#FFC400]">e o que mudou.</span>
         </h2>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Pizzaria Planet -->
         <div class="rounded-2xl border border-white/8 bg-white/[0.03] p-6 flex flex-col gap-5">
-          <div class="flex items-center gap-4">
-            <div class="w-12 h-12 rounded-xl bg-[#FFC400]/20 border border-[#FFC400]/30 flex items-center justify-center text-[#FFC400] text-xl font-black flex-shrink-0">S</div>
-            <div>
-              <div class="text-sm font-semibold text-white">Saborosa Lanches</div>
-              <div class="text-[11px] text-white/40">Santo André — SP</div>
-              <div class="flex gap-0.5 mt-1">
-                <i class="fas fa-star text-yellow-400 text-xs"></i><i class="fas fa-star text-yellow-400 text-xs"></i>
-                <i class="fas fa-star text-yellow-400 text-xs"></i><i class="fas fa-star text-yellow-400 text-xs"></i>
-                <i class="fas fa-star text-yellow-400 text-xs"></i>
+          <div class="flex items-start justify-between mb-1">
+            <div class="flex items-center gap-3">
+              <div class="w-11 h-11 rounded-xl overflow-hidden border border-white/10 bg-white flex items-center justify-center flex-shrink-0">
+                <img src="../images/logos/logoPlanet.avif" alt="Pizzaria Planet" class="w-full h-full object-cover">
+              </div>
+              <div>
+                <div class="text-sm font-semibold text-white">Pizzaria Planet</div>
+                <div class="text-[11px] text-white/40">Vitória — ES</div>
               </div>
             </div>
+            <div class="text-bailey-green text-xs font-bold bg-bailey-green/10 border border-bailey-green/20 px-2 py-0.5 rounded-full whitespace-nowrap">iFood + PDV</div>
           </div>
-          <p class="text-white/60 text-sm leading-relaxed italic">"Não sabia nem que o 99Food existia direito. A Bailey me ajudou a ativar a loja e em 3 semanas já tinha pedidos todos os dias. Virou meu segundo maior canal."</p>
+          <div class="flex gap-0.5">
+            <i class="fas fa-star text-yellow-400 text-xs"></i><i class="fas fa-star text-yellow-400 text-xs"></i>
+            <i class="fas fa-star text-yellow-400 text-xs"></i><i class="fas fa-star text-yellow-400 text-xs"></i>
+            <i class="fas fa-star text-yellow-400 text-xs"></i>
+          </div>
+          <p class="text-white/60 text-sm leading-relaxed italic">"Antes eu perdia pedido toda semana por confusão no caixa e no iFood. Depois do Bailey, zero erro. O pedido já cai direto na impressora da cozinha."</p>
           <div class="grid grid-cols-2 gap-3 pt-3 border-t border-white/8">
             <div class="rounded-xl bg-red-500/8 border border-red-500/15 p-3 text-center">
               <div class="text-xs text-white/40 uppercase tracking-wider mb-1">Antes</div>
-              <div class="text-xl font-display font-black text-red-400">0</div>
-              <div class="text-[10px] text-white/30">pedidos/dia no 99Food</div>
+              <div class="text-xl font-display font-black text-red-400">Perdas</div>
+              <div class="text-[10px] text-white/30">pedidos/semana</div>
             </div>
             <div class="rounded-xl bg-bailey-green/8 border border-bailey-green/20 p-3 text-center">
               <div class="text-xs text-white/40 uppercase tracking-wider mb-1">Depois</div>
-              <div class="text-xl font-display font-black text-bailey-green">+35</div>
-              <div class="text-[10px] text-white/30">pedidos/dia no 99Food</div>
+              <div class="text-xl font-display font-black text-bailey-green">+67%</div>
+              <div class="text-[10px] text-white/30">pedidos/mês</div>
             </div>
           </div>
         </div>
+
+        <!-- Mr Prime -->
         <div class="rounded-2xl border border-white/8 bg-white/[0.03] p-6 flex flex-col gap-5">
-          <div class="flex items-center gap-4">
-            <div class="w-12 h-12 rounded-xl bg-bailey-green/20 border border-bailey-green/30 flex items-center justify-center text-bailey-green text-xl font-black flex-shrink-0">T</div>
-            <div>
-              <div class="text-sm font-semibold text-white">Tia Cida Marmitas</div>
-              <div class="text-[11px] text-white/40">Osasco — SP</div>
-              <div class="flex gap-0.5 mt-1">
-                <i class="fas fa-star text-yellow-400 text-xs"></i><i class="fas fa-star text-yellow-400 text-xs"></i>
-                <i class="fas fa-star text-yellow-400 text-xs"></i><i class="fas fa-star text-yellow-400 text-xs"></i>
-                <i class="fas fa-star text-yellow-400 text-xs"></i>
+          <div class="flex items-start justify-between mb-1">
+            <div class="flex items-center gap-3">
+              <div class="w-11 h-11 rounded-xl overflow-hidden border border-white/10 bg-white flex items-center justify-center flex-shrink-0">
+                <img src="../images/logos/logoMrprime.jpg" alt="Mr Prime" class="w-full h-full object-cover">
+              </div>
+              <div>
+                <div class="text-sm font-semibold text-white">Mr Prime</div>
+                <div class="text-[11px] text-white/40">Caçapava — SP</div>
               </div>
             </div>
+            <div class="text-bailey-green text-xs font-bold bg-bailey-green/10 border border-bailey-green/20 px-2 py-0.5 rounded-full whitespace-nowrap">3 plataformas</div>
           </div>
-          <p class="text-white/60 text-sm leading-relaxed italic">"Diversificar para o 99Food foi a melhor decisão. Meu faturamento total subiu 40% porque agora tenho clientes de duas plataformas diferentes."</p>
+          <div class="flex gap-0.5">
+            <i class="fas fa-star text-yellow-400 text-xs"></i><i class="fas fa-star text-yellow-400 text-xs"></i>
+            <i class="fas fa-star text-yellow-400 text-xs"></i><i class="fas fa-star text-yellow-400 text-xs"></i>
+            <i class="fas fa-star text-yellow-400 text-xs"></i>
+          </div>
+          <p class="text-white/60 text-sm leading-relaxed italic">"Integrei iFood, 99Food e o cardápio digital em menos de 1 semana. Hoje atualizo preço uma vez e aparece em tudo. Coisa que antes me tomava 1h por dia."</p>
           <div class="grid grid-cols-2 gap-3 pt-3 border-t border-white/8">
             <div class="rounded-xl bg-red-500/8 border border-red-500/15 p-3 text-center">
               <div class="text-xs text-white/40 uppercase tracking-wider mb-1">Antes</div>
-              <div class="text-xl font-display font-black text-red-400">R$6k</div>
-              <div class="text-[10px] text-white/30">faturamento/mês</div>
+              <div class="text-xl font-display font-black text-red-400">1h/dia</div>
+              <div class="text-[10px] text-white/30">atualizando preços</div>
             </div>
             <div class="rounded-xl bg-bailey-green/8 border border-bailey-green/20 p-3 text-center">
               <div class="text-xs text-white/40 uppercase tracking-wider mb-1">Depois</div>
-              <div class="text-xl font-display font-black text-bailey-green">R$8.4k</div>
-              <div class="text-[10px] text-white/30">faturamento/mês</div>
+              <div class="text-xl font-display font-black text-bailey-green">+43%</div>
+              <div class="text-[10px] text-white/30">faturamento</div>
             </div>
           </div>
         </div>
+
+        <!-- Pizza Obba Premium -->
+        <div class="rounded-2xl border border-white/8 bg-white/[0.03] p-6 flex flex-col gap-5 md:col-span-2 lg:col-span-1">
+          <div class="flex items-start justify-between mb-1">
+            <div class="flex items-center gap-3">
+              <div class="w-11 h-11 rounded-xl overflow-hidden border border-white/10 bg-white flex items-center justify-center flex-shrink-0">
+                <img src="../images/logos/logoOba.avif" alt="Pizza Obba Premium" class="w-full h-full object-cover">
+              </div>
+              <div>
+                <div class="text-sm font-semibold text-white">Pizza Obba Premium</div>
+                <div class="text-[11px] text-white/40">Uberlândia — MG</div>
+              </div>
+            </div>
+            <div class="text-[#a78bfa] text-xs font-bold bg-bailey-purple/10 border border-bailey-purple/20 px-2 py-0.5 rounded-full whitespace-nowrap">PDV + Robô</div>
+          </div>
+          <div class="flex gap-0.5">
+            <i class="fas fa-star text-yellow-400 text-xs"></i><i class="fas fa-star text-yellow-400 text-xs"></i>
+            <i class="fas fa-star text-yellow-400 text-xs"></i><i class="fas fa-star text-yellow-400 text-xs"></i>
+            <i class="fas fa-star text-yellow-400 text-xs"></i>
+          </div>
+          <p class="text-white/60 text-sm leading-relaxed italic">"O robô de status no WhatsApp mudou tudo. Meu celular parou de tocar com pergunta de cliente. A equipe pode focar em fazer o lanche em vez de ficar digitando."</p>
+          <div class="grid grid-cols-2 gap-3 pt-3 border-t border-white/8">
+            <div class="rounded-xl bg-red-500/8 border border-red-500/15 p-3 text-center">
+              <div class="text-xs text-white/40 uppercase tracking-wider mb-1">Antes</div>
+              <div class="text-xl font-display font-black text-red-400">100%</div>
+              <div class="text-[10px] text-white/30">msgs manuais</div>
+            </div>
+            <div class="rounded-xl bg-bailey-green/8 border border-bailey-green/20 p-3 text-center">
+              <div class="text-xs text-white/40 uppercase tracking-wider mb-1">Depois</div>
+              <div class="text-xl font-display font-black text-bailey-green">-80%</div>
+              <div class="text-[10px] text-white/30">msgs manuais</div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -402,5 +551,51 @@
     }, { passive: true });
   </script>
 
+
+  <script>
+    // Dropdown desktop + menu mobile
+    (function() {
+      const toggle = document.getElementById('mobile-menu-toggle');
+      const nav    = document.getElementById('mobile-nav');
+      if (toggle && nav) {
+        toggle.addEventListener('click', () => {
+          const isOpen = nav.classList.toggle('is-open');
+          toggle.setAttribute('aria-expanded', isOpen);
+          const bars = toggle.querySelectorAll('span');
+          if (isOpen) {
+            bars[0].style.transform = 'translateY(7px) rotate(45deg)';
+            bars[1].style.opacity   = '0';
+            bars[2].style.transform = 'translateY(-7px) rotate(-45deg)';
+          } else {
+            bars[0].style.transform = bars[2].style.transform = '';
+            bars[1].style.opacity   = '';
+          }
+        });
+        nav.querySelectorAll('a').forEach(l => l.addEventListener('click', () => {
+          nav.classList.remove('is-open');
+          toggle.querySelectorAll('span').forEach(b => { b.style.transform = ''; b.style.opacity = ''; });
+        }));
+      }
+      const ddWrapper = document.getElementById('servicos-dropdown');
+      if (ddWrapper) {
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') ddWrapper.classList.remove('is-open'); });
+        document.addEventListener('click',   e => { if (!ddWrapper.contains(e.target)) ddWrapper.classList.remove('is-open'); });
+        const trigger = ddWrapper.querySelector('.nav-dropdown-trigger');
+        if (trigger) trigger.addEventListener('click', e => {
+          e.stopPropagation();
+          const opened = ddWrapper.classList.toggle('is-open');
+          trigger.setAttribute('aria-expanded', opened);
+        });
+      }
+      const mServToggle  = document.getElementById('mobile-servicos-toggle');
+      const mServSubmenu = document.getElementById('mobile-servicos-submenu');
+      if (mServToggle && mServSubmenu) {
+        mServToggle.addEventListener('click', () => {
+          const isOpen = mServSubmenu.classList.toggle('is-open');
+          mServToggle.classList.toggle('is-open', isOpen);
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
