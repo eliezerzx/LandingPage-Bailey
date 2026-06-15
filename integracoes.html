@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Integrações — Bailey Aplicativos</title>
+
+  <!-- ─── FAVICON ──────────────────────────────────── -->
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="apple-touch-icon" href="images/logo.png">
+
+  <!-- ─── SEO META TAGS ────────────────────────────── -->
+  <meta name="description" content="+17 integrações nativas com iFood, 99Food, Keeta e muitas mais. Marketplace, pagamento, fiscal, marketing e tudo que você precisa integrado.">
+  <meta name="keywords" content="integrações, ifood, 99food, keeta, whatsapp, mercado pago, pix, nfc-e, delivery, automação">
+  <meta name="author" content="Bailey Aplicativos">
+  <meta name="robots" content="index, follow">
+
+  <!-- ─── OPEN GRAPH (WhatsApp, LinkedIn, Facebook) ── -->
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="Integrações — Bailey Aplicativos">
+  <meta property="og:description" content="+17 integrações nativas. Marketplace, pagamento, fiscal, marketing e muito mais — tudo no mesmo painel.">
+  <meta property="og:image"       content="images/og-cover.webp">
+  <meta property="og:url"         content="https://baileyaplicativos.com.br/integracoes.html">
+  <meta property="og:site_name"   content="Bailey Aplicativos">
+  <meta property="og:locale"      content="pt_BR">
+
+  <!-- ─── TWITTER CARD ─────────────────────────────── -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Integrações — Bailey Aplicativos">
+  <meta name="twitter:description" content="+17 integrações nativas com todas as plataformas de delivery.">
+  <meta name="twitter:image"       content="images/og-cover.webp">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="css/tailwind.css">
+
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"></noscript>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/MotionPathPlugin.min.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FKSEWWZCN9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-FKSEWWZCN9');
+  </script>
+</head>
+<body class="text-white overflow-x-hidden">
+
+  <!-- ─── CAMADAS DE FUNDO ─────────────────────────────────────── -->
+  <!-- Orbs fixos base -->
+  <div class="bg-orbs" aria-hidden="true">
+    <div class="bg-orb bg-orb-1"></div>
+    <div class="bg-orb bg-orb-2"></div>
+    <div class="bg-orb bg-orb-3"></div>
+    <div class="bg-orb bg-orb-4"></div>
+  </div>
+
+  <!-- Atmosfera temática por seção (z-index: 1) -->
+  <div id="bg-atmosphere" aria-hidden="true">
+    <div class="atm-layer atm-hero"></div>
+  </div>
+
+  <!-- ─── HEADER ─────────────────────────────────────────────────── -->
+  <header class="fixed top-4 inset-x-0 z-50 mx-auto max-w-5xl h-[70px] rounded-full bg-bailey-dark/40 backdrop-blur-xl border border-white/10 header-animate shadow-[0_8px_32px_0_rgba(0,0,0,0.37)]">
+    <div class="absolute top-0 inset-x-12 h-px bg-gradient-to-r from-transparent via-bailey-green/30 to-transparent"></div>
+    <div class="flex items-center justify-between h-full px-6 md:px-8">
+      <a href="index.html" class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-full border border-bailey-purple/50 flex items-center justify-center bg-bailey-purple/10 overflow-hidden">
+          <img src="images/logo.png" alt="Logo Bailey" class="w-full h-full object-cover" fetchpriority="high" decoding="async" width="36" height="36">
+        </div>
+        <div>
+          <div class="font-display font-extrabold text-base leading-none tracking-tight">Bailey</div>
+          <div class="text-[8px] tracking-widest text-bailey-green uppercase mt-0.5">Aplicativos</div>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8 text-xs font-medium uppercase tracking-wider text-white/70">
+        <a href="index.html#synchronization-section" class="hover:text-bailey-green transition-colors">Funcionalidades</a>
+
+        <!-- ── DROPDOWN SERVIÇOS ── -->
+        <div class="nav-dropdown-wrapper" id="servicos-dropdown">
+          <button class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+            Serviços
+            <i class="fas fa-chevron-down nav-dropdown-arrow"></i>
+          </button>
+
+          <div class="nav-dropdown-menu" role="menu">
+            <div class="absolute top-0 inset-x-8 h-px bg-gradient-to-r from-transparent via-bailey-green/40 to-transparent"></div>
+
+            <p class="nav-dd-section-label">Integrações & Mentorias</p>
+
+            <a href="servicos/mentoria-ifood.html" class="nav-dropdown-item" role="menuitem">
+              <span class="nav-dd-icon" style="background:#EA1D2C;">
+                <img src="images/icons/ifood.png" alt="iFood"
+                     onerror="this.style.display='none';this.parentElement.innerHTML='<b style=\'color:#fff;font-size:.6rem\'>iF</b>'">
+              </span>
+              <div>
+                <div class="nav-dd-label">Mentoria iFood</div>
+                <div class="nav-dd-sub">Alavanque suas vendas no marketplace</div>
+              </div>
+              <i class="fas fa-arrow-right nav-dd-arrow"></i>
+            </a>
+
+            <a href="servicos/mentoria-99food.html" class="nav-dropdown-item" role="menuitem">
+              <span class="nav-dd-icon" style="background:#FFC400;">
+                <img src="images/icons/99food.png" alt="99Food"
+                     onerror="this.style.display='none';this.parentElement.innerHTML='<b style=\'color:#000;font-size:.65rem\'>99</b>'">
+              </span>
+              <div>
+                <div class="nav-dd-label">Mentoria 99Food</div>
+                <div class="nav-dd-sub">Novo canal de vendas ativo</div>
+              </div>
+              <i class="fas fa-arrow-right nav-dd-arrow"></i>
+            </a>
+
+            <a href="servicos/mentoria-keeta.html" class="nav-dropdown-item" role="menuitem">
+              <span class="nav-dd-icon" style="background:#FF7A00;">
+                <img src="images/icons/keeta.png" alt="Keeta"
+                     onerror="this.style.display='none';this.parentElement.innerHTML='<b style=\'color:#fff;font-size:.55rem\'>KT</b>'">
+              </span>
+              <div>
+                <div class="nav-dd-label">Mentoria Keeta</div>
+                <div class="nav-dd-sub">Gestão e crescimento no Keeta</div>
+              </div>
+              <i class="fas fa-arrow-right nav-dd-arrow"></i>
+            </a>
+
+            <hr class="nav-dd-divider">
+            <p class="nav-dd-section-label">Sistemas</p>
+
+            <a href="servicos/pdv.html" class="nav-dropdown-item" role="menuitem">
+              <span class="nav-dd-icon" style="background:#7c3aed;">
+                <i class="fas fa-desktop text-white" style="font-size:.75rem;"></i>
+              </span>
+              <div>
+                <div class="nav-dd-label">PDV — Frente de Caixa</div>
+                <div class="nav-dd-sub">Sistema completo de gestão e vendas</div>
+              </div>
+              <i class="fas fa-arrow-right nav-dd-arrow"></i>
+            </a>
+
+            <a href="servicos/cardapio-digital.html" class="nav-dropdown-item" role="menuitem">
+              <span class="nav-dd-icon" style="background:#4ade80;">
+                <i class="fas fa-utensils" style="font-size:.75rem;color:#000;"></i>
+              </span>
+              <div>
+                <div class="nav-dd-label">Cardápio Digital</div>
+                <div class="nav-dd-sub">Pedidos via WhatsApp + robô de status</div>
+              </div>
+              <i class="fas fa-arrow-right nav-dd-arrow"></i>
+            </a>
+
+            <a href="integracoes.html" class="nav-dropdown-item" role="menuitem">
+              <span class="nav-dd-icon" style="background:#d946ef;">
+                <i class="fas fa-plug text-white" style="font-size:.75rem;"></i>
+              </span>
+              <div>
+                <div class="nav-dd-label">Integrações</div>
+                <div class="nav-dd-sub">+17 integrações nativas</div>
+              </div>
+              <i class="fas fa-arrow-right nav-dd-arrow"></i>
+            </a>
+
+            <hr class="nav-dd-divider">
+
+            <a href="servicos/servicos-all.html" class="nav-dd-seeall" role="menuitem">
+              <i class="fas fa-grid-2 text-bailey-green text-sm"></i>
+              Ver todos os serviços
+              <i class="fas fa-arrow-right text-xs ml-auto text-bailey-green/60"></i>
+            </a>
+          </div>
+        </div>
+        <!-- ── FIM DROPDOWN ── -->
+
+        <a href="index.html#resultados"      class="hover:text-bailey-green transition-colors">Resultados</a>
+        <a href="index.html#pricing-section" class="hover:text-bailey-green transition-colors">Preços</a>
+        <a href="index.html#faq-section"     class="hover:text-bailey-green transition-colors">FAQ</a>
+      </nav>
+
+      <div class="hidden md:block">
+        <a href="https://wa.me/5512988886499?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Bailey%20Aplicativos%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20planos.%20%F0%9F%9A%80" target="_blank"
+           class="text-bailey-green border border-bailey-green/30 bg-bailey-green/5 px-5 py-2 rounded-full hover:bg-bailey-green hover:text-black hover:border-transparent transition-all text-xs font-bold tracking-wide uppercase">
+          Bailey Business
+        </a>
+      </div>
+
+      <button id="mobile-menu-toggle" class="mobile-menu-btn md:hidden" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Menu mobile dropdown -->
+  <nav id="mobile-nav" class="mobile-nav">
+    <a href="index.html#synchronization-section">Funcionalidades</a>
+    <a href="index.html#pricing-section">Preços</a>
+    <a href="index.html#faq-section">FAQ</a>
+    <a href="https://wa.me/5512988886499?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Bailey%20Aplicativos%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20planos.%20%F0%9F%9A%80" target="_blank">Bailey Business</a>
+  </nav>
+
+  <!-- ─── BOTÃO WHATSAPP FLUTUANTE ─────────────────────────────── -->
+  <a id="whatsapp-float" href="https://wa.me/5512988886499?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Bailey%20Aplicativos%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20planos.%20%F0%9F%9A%80" target="_blank" aria-label="Fale no WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- ─── CTA FLUTUANTE MOBILE ─────────────────────────────── -->
+  <div id="mobile-cta-bar" class="mobile-cta-bar md:hidden">
+    <a href="https://wa.me/5512988886499?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Bailey%20Aplicativos%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20planos.%20%F0%9F%9A%80" target="_blank" class="mobile-cta-btn">
+      <i class="fab fa-whatsapp text-xl"></i>
+      <span>Falar no WhatsApp</span>
+    </a>
+  </div>
+
+  <main class="pt-[110px]">
+
+    <!-- ══════════════════════════════════════════════════════════
+         INTEGRAÇÕES
+    ══════════════════════════════════════════════════════════ -->
+    <section id="integracoes-section" class="relative z-30 py-20 border-t border-white/5">
+      <div class="max-w-5xl mx-auto px-6">
+
+        <!-- Cabeçalho -->
+        <div class="text-center max-w-2xl mx-auto mb-14" data-animate>
+          <span class="text-xs font-bold tracking-[0.2em] text-bailey-green uppercase bg-bailey-green/10 px-3 py-1 rounded-full border border-bailey-green/20">
+            Ecossistema Conectado
+          </span>
+          <h1 class="font-display font-black text-4xl md:text-5xl lg:text-6xl text-white leading-none mt-4">
+            Conecta com tudo<br><span class="text-bailey-green">que você já usa.</span>
+          </h1>
+          <p class="text-white/55 text-base mt-6">+17 integrações nativas. Marketplace, pagamento, fiscal, marketing e muito mais — tudo no mesmo painel.</p>
+        </div>
+
+        <!-- Grade de integrações -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3" data-animate>
+
+          <!-- iFood -->
+          <div class="integ-card group">
+            <div class="integ-icon" style="background:#EA1D2C;">
+              <img src="images/icons/ifood.png" alt="iFood" width="28" height="28" loading="lazy" decoding="async" onerror="this.style.display='none'">
+            </div>
+            <span class="integ-name">iFood</span>
+            <div class="integ-tags"><span class="itag" style="color:#3b82f6;background:rgba(59,130,246,0.15);border-color:rgba(59,130,246,0.4);">Logística</span><span class="itag" style="color:#6366f1;background:rgba(99,102,241,0.15);border-color:rgba(99,102,241,0.4);">Marketplace</span></div>
+            <span class="integ-desc">Receba e gerencie os pedidos do iFood direto no gestor.</span>
+          </div>
+
+          <!-- 99Food -->
+          <div class="integ-card group">
+            <div class="integ-icon" style="background:#FFC400;">
+              <img src="images/icons/99food.png" alt="99Food" width="28" height="28" loading="lazy" decoding="async" onerror="this.style.display='none'">
+            </div>
+            <span class="integ-name">99Food</span>
+            <div class="integ-tags"><span class="itag" style="color:#3b82f6;background:rgba(59,130,246,0.15);border-color:rgba(59,130,246,0.4);">Logística</span><span class="itag" style="color:#6366f1;background:rgba(99,102,241,0.15);border-color:rgba(99,102,241,0.4);">Marketplace</span></div>
+            <span class="integ-desc">Pedidos do 99Food integrados automaticamente ao gestor.</span>
+          </div>
+
+          <!-- Keeta -->
+          <div class="integ-card group">
+            <div class="integ-icon" style="background:#FF7A00;">
+              <img src="images/icons/keeta.png" alt="Keeta" width="28" height="28" loading="lazy" decoding="async" onerror="this.style.display='none'">
+            </div>
+            <span class="integ-name">Keeta</span>
+            <div class="integ-tags"><span class="itag" style="color:#3b82f6;background:rgba(59,130,246,0.15);border-color:rgba(59,130,246,0.4);">Logística</span><span class="itag" style="color:#6366f1;background:rgba(99,102,241,0.15);border-color:rgba(99,102,241,0.4);">Marketplace</span></div>
+            <span class="integ-desc">Pedidos do Keeta integrados ao painel de gestão.</span>
+          </div>
+
+          <!-- Repediu -->
+          <div class="integ-card group">
+            <div class="integ-icon" style="background:#7c3aed;">
+              <i class="fas fa-rotate" style="font-size:1.1rem;color:#fff;"></i>
+            </div>
+            <span class="integ-name">Repediu</span>
+            <div class="integ-tags"><span class="itag" style="color:#3b82f6;background:rgba(59,130,246,0.15);border-color:rgba(59,130,246,0.4);">Pedidos</span></div>
+            <span class="integ-desc">Integração de pedidos com a plataforma Repediu.</span>
+          </div>
+
+          <!-- WhatsApp -->
+          <div class="integ-card group">
+            <div class="integ-icon" style="background:#25D366;">
+              <i class="fab fa-whatsapp" style="font-size:1.3rem;color:#fff;"></i>
+            </div>
+            <span class="integ-name">WhatsApp</span>
+            <div class="integ-tags"><span class="itag" style="color:#a855f7;background:rgba(168,85,247,0.15);border-color:rgba(168,85,247,0.4);">Mensageria</span></div>
+            <span class="integ-desc">Mensagens transacionais e envio de pedidos por WhatsApp.</span>
+          </div>
+
+          <!-- API WhatsApp COEX -->
+          <div class="integ-card group">
+            <div class="integ-icon" style="background:#128C7E;">
+              <i class="fab fa-whatsapp" style="font-size:1.3rem;color:#fff;"></i>
+            </div>
+            <span class="integ-name">WhatsApp API</span>
+            <div class="integ-tags"><span class="itag" style="color:#a855f7;background:rgba(168,85,247,0.15);border-color:rgba(168,85,247,0.4);">Mensageria</span><span class="itag" style="color:#7c3aed;background:rgba(124,58,237,0.15);border-color:rgba(124,58,237,0.4);">Oficial</span></div>
+            <span class="integ-desc">WhatsApp Business API oficial (COEX), versão 2.0.</span>
+          </div>
+
+          <!-- Foody Delivery -->
+          <div class="integ-card group">
+            <div class="integ-icon" style="background:#E94E77;">
+              <i class="fas fa-truck-fast" style="font-size:1rem;color:#fff;"></i>
+            </div>
+            <span class="integ-name">Foody</span>
+            <div class="integ-tags"><span class="itag" style="color:#3b82f6;background:rgba(59,130,246,0.15);border-color:rgba(59,130,246,0.4);">Roteirizador</span></div>
+            <span class="integ-desc">Roteirização de entregas Foody (mutex com Agilizone).</span>
+          </div>
+
+          <!-- Agilizone -->
+          <div class="integ-card group">
+            <div class="integ-icon" style="background:#00B4D8;">
+              <i class="fas fa-location-dot" style="font-size:1rem;color:#fff;"></i>
+            </div>
+            <span class="integ-name">Agilizone</span>
+            <div class="integ-tags"><span class="itag" style="color:#3b82f6;background:rgba(59,130,246,0.15);border-color:rgba(59,130,246,0.4);">Roteirizador</span><span class="itag" style="color:#eab308;background:rgba(234,179,8,0.15);border-color:rgba(234,179,8,0.4);">Oferta</span></div>
+            <span class="integ-desc">Roteirização de entregas Agilizone (mutex com Foody).</span>
+          </div>
+
+          <!-- Roteirizador próprio -->
+          <div class="integ-card group" style="position:relative;">
+            <div class="integ-badge">Exclusivo</div>
+            <div class="integ-icon" style="background:linear-gradient(135deg,#4ade80,#7c3aed);">
+              <i class="fas fa-route" style="font-size:1rem;color:#fff;"></i>
+            </div>
+            <span class="integ-name">Roteirizador</span>
+            <div class="integ-tags"><span class="itag" style="color:#3b82f6;background:rgba(59,130,246,0.15);border-color:rgba(59,130,246,0.4);">Roteirizador</span><span class="itag" style="color:#22c55e;background:rgba(34,197,94,0.15);border-color:rgba(34,197,94,0.4);">Recomendado</span></div>
+            <span class="integ-desc">Roteirização de entregas com suporte assistido da nossa equipe.</span>
+          </div>
+
+          <!-- Mercado Pago -->
+          <div class="integ-card group">
+            <div class="integ-icon" style="background:#009EE3;">
+              <i class="fas fa-credit-card" style="font-size:1rem;color:#fff;"></i>
+            </div>
+            <span class="integ-name">Mercado Pago</span>
+            <div class="integ-tags"><span class="itag" style="color:#14b8a6;background:rgba(20,184,166,0.15);border-color:rgba(20,184,166,0.4);">Pagamento</span></div>
+            <span class="integ-desc">Pagamento online (cartão e saldo MP) no cardápio digital.</span>
+          </div>
+
+          <!-- Pix Online -->
+          <div class="integ-card group">
+            <div class="integ-icon" style="background:#32BCAD;">
+              <i class="fas fa-qrcode" style="font-size:1rem;color:#fff;"></i>
+            </div>
+            <span class="integ-name">Pix Online</span>
+            <div class="integ-tags"><span class="itag" style="color:#14b8a6;background:rgba(20,184,166,0.15);border-color:rgba(20,184,166,0.4);">Pagamento</span></div>
+            <span class="integ-desc">Pagamento via PIX automático no cardápio digital.</span>
+          </div>
+
+          <!-- NFC-e -->
+          <div class="integ-card group">
+            <div class="integ-icon" style="background:#F59E0B;">
+              <i class="fas fa-file-invoice" style="font-size:1rem;color:#fff;"></i>
+            </div>
+            <span class="integ-name">NFC-e</span>
+            <div class="integ-tags"><span class="itag" style="color:#f97316;background:rgba(249,115,22,0.15);border-color:rgba(249,115,22,0.4);">Fiscal</span></div>
+            <span class="integ-desc">Emissão de NF-e integrada por empresa emissora.</span>
+          </div>
+
+          <!-- Meta Pixel -->
+          <div class="integ-card group">
+            <div class="integ-icon" style="background:#0668E1;">
+              <i class="fab fa-meta" style="font-size:1.1rem;color:#fff;"></i>
+            </div>
+            <span class="integ-name">Meta Pixel</span>
+            <div class="integ-tags"><span class="itag" style="color:#a855f7;background:rgba(168,85,247,0.15);border-color:rgba(168,85,247,0.4);">Marketing</span></div>
+            <span class="integ-desc">Rastreamento de conversões do Facebook/Instagram Ads.</span>
+          </div>
+
+          <!-- Google Analytics -->
+          <div class="integ-card group">
+            <div class="integ-icon" style="background:#E37400;">
+              <i class="fab fa-google" style="font-size:1.1rem;color:#fff;"></i>
+            </div>
+            <span class="integ-name">Google Analytics</span>
+            <div class="integ-tags"><span class="itag" style="color:#a855f7;background:rgba(168,85,247,0.15);border-color:rgba(168,85,247,0.4);">Marketing</span></div>
+            <span class="integ-desc">Métricas de acesso e comportamento (GA4).</span>
+          </div>
+
+          <!-- Microsoft Clarity -->
+          <div class="integ-card group">
+            <div class="integ-icon" style="background:#0078D4;">
+              <i class="fab fa-microsoft" style="font-size:1.1rem;color:#fff;"></i>
+            </div>
+            <span class="integ-name">MS Clarity</span>
+            <div class="integ-tags"><span class="itag" style="color:#a855f7;background:rgba(168,85,247,0.15);border-color:rgba(168,85,247,0.4);">Marketing</span></div>
+            <span class="integ-desc">Mapas de calor e gravações de sessão.</span>
+          </div>
+
+          <!-- Cardápio QrCode -->
+          <div class="integ-card group">
+            <div class="integ-icon" style="background:#4ade80;">
+              <i class="fas fa-qrcode" style="font-size:1rem;color:#050806;"></i>
+            </div>
+            <span class="integ-name">QR Code</span>
+            <div class="integ-tags"><span class="itag" style="color:#06b6d4;background:rgba(6,182,212,0.15);border-color:rgba(6,182,212,0.4);">Cardápio digital</span></div>
+            <span class="integ-desc">Cardápio na mesa pelo QR Code do cliente.</span>
+          </div>
+
+          <!-- Totem -->
+          <div class="integ-card group">
+            <div class="integ-icon" style="background:#7c3aed;">
+              <i class="fas fa-tablet-screen-button" style="font-size:1rem;color:#fff;"></i>
+            </div>
+            <span class="integ-name">Totem</span>
+            <div class="integ-tags"><span class="itag" style="color:#06b6d4;background:rgba(6,182,212,0.15);border-color:rgba(6,182,212,0.4);">Cardápio digital</span><span class="itag" style="color:#f59e0b;background:rgba(245,158,11,0.15);border-color:rgba(245,158,11,0.4);">Contratado à parte</span></div>
+            <span class="integ-desc">Tela de autoatendimento para quiosque/totem.</span>
+          </div>
+
+          <!-- Cardápio Tablet -->
+          <div class="integ-card group">
+            <div class="integ-icon" style="background:#6366f1;">
+              <i class="fas fa-tablet" style="font-size:1rem;color:#fff;"></i>
+            </div>
+            <span class="integ-name">Tablet</span>
+            <div class="integ-tags"><span class="itag" style="color:#06b6d4;background:rgba(6,182,212,0.15);border-color:rgba(6,182,212,0.4);">Cardápio digital</span></div>
+            <span class="integ-desc">Cardápio digital em tablet para a mesa.</span>
+          </div>
+
+        </div><!-- /grid -->
+
+        <!-- CTA abaixo -->
+        <div class="text-center mt-12" data-animate>
+          <p class="text-white/40 text-sm mb-4">Novas integrações adicionadas regularmente.</p>
+          <a href="https://wa.me/5512988886499?text=Olá!%20Quero%20saber%20mais%20sobre%20as%20integrações%20do%20sistema." target="_blank" rel="noopener"
+             class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-bailey-green/10 border border-bailey-green/30 text-bailey-green text-sm font-medium hover:bg-bailey-green/20 transition-colors">
+            <i class="fab fa-whatsapp"></i> Falar com especialista
+          </a>
+        </div>
+
+      </div>
+    </section>
+    <!-- ══ FIM INTEGRAÇÕES ══ -->
+
+  </main>
+
+  <!-- ══════════════════════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════════════════ -->
+  <footer class="relative z-30 border-t border-white/10 bg-bailey-dark/40 backdrop-blur-md pt-16 pb-8 mt-8">
+    <div class="max-w-7xl mx-auto px-6">
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-10 mb-12">
+
+        <!-- Marca -->
+        <div class="lg:col-span-2">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-9 h-9 rounded-full border border-bailey-purple/50 flex items-center justify-center bg-bailey-purple/10 overflow-hidden">
+              <img src="images/logo.png" alt="Logo Bailey" class="w-full h-full object-cover" loading="lazy" decoding="async" width="36" height="36">
+            </div>
+            <div>
+              <div class="font-display font-extrabold text-base leading-none tracking-tight text-white">Bailey</div>
+              <div class="text-[8px] tracking-widest text-bailey-green uppercase mt-0.5">Aplicativos</div>
+            </div>
+          </div>
+          <p class="text-white/45 text-sm leading-relaxed max-w-xs">
+            Simplificando a gestão de delivery e integrando tecnologia de ponta para automatizar o seu negócio de ponta a ponta.
+          </p>
+          <!-- Redes sociais -->
+          <div class="flex flex-wrap gap-2 mt-6">
+            <a href="https://www.instagram.com/bailey_aplicativos?igsh=MWJsNjVrbHMzanNwNQ==" target="_blank" rel="noopener" class="footer-social" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/5512988886499" target="_blank" rel="noopener" class="footer-social" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.tiktok.com/@baileyaplicativos" target="_blank" rel="noopener" class="footer-social" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://youtube.com/@baileyaplicativos" target="_blank" rel="noopener" class="footer-social" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://facebook.com/baileyaplicativos" target="_blank" rel="noopener" class="footer-social" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.linkedin.com/in/bailey-aplicativos-a55a6037b" target="_blank" rel="noopener" class="footer-social" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://pin.it/53Z931bN0" target="_blank" rel="noopener" class="footer-social" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+            <a href="https://x.com/bailey_app" target="_blank" rel="noopener" class="footer-social" aria-label="X / Twitter"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://www.threads.com/@bailey_aplicativos" target="_blank" rel="noopener" class="footer-social" aria-label="Threads"><i class="fab fa-threads"></i></a>
+            <a href="https://k.kwai.com/u/@bailey_aplicativos/kxzQCqHG" target="_blank" rel="noopener" class="footer-social footer-social--text" aria-label="Kwai">Kwai</a>
+          </div>
+        </div>
+
+        <!-- Produtos -->
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-widest text-white/40 mb-4">Produtos</h4>
+          <ul class="space-y-3 text-sm">
+            <li><a href="servicos/pdv.html" class="text-white/60 hover:text-bailey-green transition-colors">Bailey PDV</a></li>
+            <li><a href="servicos/cardapio-digital.html" class="text-white/60 hover:text-bailey-green transition-colors">Cardápio Digital</a></li>
+            <li><a href="index.html#synchronization-section" class="text-white/60 hover:text-bailey-green transition-colors">Gestor Único</a></li>
+            <li><a href="index.html#como-funciona" class="text-white/60 hover:text-bailey-green transition-colors">Robô de Status</a></li>
+          </ul>
+        </div>
+
+        <!-- Integrações -->
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-widest text-white/40 mb-4">Integrações</h4>
+          <ul class="space-y-3 text-sm">
+            <li><a href="servicos/mentoria-ifood.html" class="text-white/60 hover:text-bailey-green transition-colors">iFood Marketplace</a></li>
+            <li><a href="servicos/mentoria-keeta.html" class="text-white/60 hover:text-bailey-green transition-colors">Keeta Delivery</a></li>
+            <li><a href="servicos/mentoria-99food.html" class="text-white/60 hover:text-bailey-green transition-colors">99Food App</a></li>
+            <li><a href="servicos/pdv.html" class="text-white/60 hover:text-bailey-green transition-colors">Frente de Caixa</a></li>
+          </ul>
+        </div>
+
+        <!-- Recursos -->
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-widest text-white/40 mb-4">Recursos</h4>
+          <ul class="space-y-3 text-sm">
+            <li><a href="index.html#resultados" class="text-white/60 hover:text-bailey-green transition-colors">Nossos Cases</a></li>
+            <li><a href="index.html#pricing-section" class="text-white/60 hover:text-bailey-green transition-colors">Planos e Preços</a></li>
+            <li><a href="index.html#faq-section" class="text-white/60 hover:text-bailey-green transition-colors">Perguntas Frequentes</a></li>
+            <li><a href="https://wa.me/5512988886499" target="_blank" rel="noopener" class="text-white/60 hover:text-bailey-green transition-colors">Suporte Técnico</a></li>
+          </ul>
+        </div>
+
+        <!-- Fale Conosco -->
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-widest text-white/40 mb-4">Fale Conosco</h4>
+          <a href="https://wa.me/5512988886499" target="_blank" rel="noopener"
+             class="inline-flex items-center gap-2 text-sm font-semibold text-white/80 hover:text-bailey-green transition-colors">
+            Entre em contato <i class="fas fa-arrow-up-right-from-square text-xs"></i>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Rodapé inferior -->
+      <div class="pt-8 border-t border-white/8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-white/30 text-xs">© 2026 Bailey Aplicativos · baileyaplicativos@gmail.com</p>
+        <div class="flex gap-6">
+          <a href="termos-de-uso.html" class="text-white/30 text-xs hover:text-white/60 transition-colors">Termos de Uso</a>
+          <a href="politica-de-privacidade.html" class="text-white/30 text-xs hover:text-white/60 transition-colors">Política de Privacidade</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
