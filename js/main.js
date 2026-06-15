@@ -631,6 +631,15 @@ document.addEventListener("DOMContentLoaded", () => {
       stars.forEach(s => { s.x = Math.random(); s.y = Math.random(); });
       draw();
     });
+
+    // Pausar canvas quando aba está em background
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        cancelAnimationFrame(animId);
+      } else {
+        draw();
+      }
+    });
   }
 
   // ══════════════════════════════════════════════════════════

@@ -8,9 +8,9 @@
   <link rel="icon" type="image/png" href="../images/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet"/>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>tailwind.config={theme:{extend:{colors:{'bailey-green':'#4ade80','bailey-purple':'#7c3aed','bailey-dark':'#050806'}}}}</script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/tailwind.css">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
   <link rel="stylesheet" href="../css/style.css">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FKSEWWZCN9"></script>
@@ -31,7 +31,7 @@
 
       <a href="../index.html" class="flex items-center gap-3">
         <div class="w-9 h-9 rounded-full border border-bailey-purple/50 flex items-center justify-center bg-bailey-purple/10 overflow-hidden">
-          <img src="../images/logo.png" alt="Logo Bailey" class="w-full h-full object-cover">
+          <img src="../images/logo.png" alt="Logo Bailey" class="w-full h-full object-cover" fetchpriority="high" decoding="async" width="36" height="36">
         </div>
         <div>
           <div class="font-display font-extrabold text-base leading-none tracking-tight">Bailey</div>
@@ -157,7 +157,7 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
       <a href="mentoria-ifood.html" class="group p-6 rounded-2xl border border-white/8 bg-white/[0.02] hover:border-[#EA1D2C]/40 hover:bg-[#EA1D2C]/5 transition-all duration-300 hover:-translate-y-1">
         <div class="w-11 h-11 rounded-xl bg-[#EA1D2C] flex items-center justify-center overflow-hidden mb-4">
-          <img src="../images/icons/ifood.png" alt="iFood" class="w-full h-full object-contain">
+          <img src="../images/icons/ifood.png" alt="iFood" class="w-full h-full object-contain" loading="lazy" decoding="async">
         </div>
         <h3 class="font-bold text-white text-sm mb-2">Mentoria iFood</h3>
         <p class="text-white/45 text-xs leading-relaxed">Alavanque suas vendas, suba no ranking e atraia mais clientes.</p>
@@ -165,7 +165,7 @@
       </a>
       <a href="mentoria-99food.html" class="group p-6 rounded-2xl border border-white/8 bg-white/[0.02] hover:border-[#FFC400]/40 hover:bg-[#FFC400]/5 transition-all duration-300 hover:-translate-y-1">
         <div class="w-11 h-11 rounded-xl bg-[#FFC400] flex items-center justify-center overflow-hidden mb-4">
-          <img src="../images/icons/99food.png" alt="99Food" class="w-full h-full object-contain">
+          <img src="../images/icons/99food.png" alt="99Food" class="w-full h-full object-contain" loading="lazy" decoding="async">
         </div>
         <h3 class="font-bold text-white text-sm mb-2">Mentoria 99Food</h3>
         <p class="text-white/45 text-xs leading-relaxed">Ative mais um canal de vendas e aumente seu faturamento mensal.</p>
@@ -173,7 +173,7 @@
       </a>
       <a href="mentoria-keeta.html" class="group p-6 rounded-2xl border border-white/8 bg-white/[0.02] hover:border-[#FF7A00]/40 hover:bg-[#FF7A00]/5 transition-all duration-300 hover:-translate-y-1">
         <div class="w-11 h-11 rounded-xl bg-[#FF7A00] flex items-center justify-center overflow-hidden mb-4">
-          <img src="../images/icons/keeta.png" alt="Keeta" class="w-full h-full object-contain">
+          <img src="../images/icons/keeta.png" alt="Keeta" class="w-full h-full object-contain" loading="lazy" decoding="async">
         </div>
         <h3 class="font-bold text-white text-sm mb-2">Mentoria Keeta</h3>
         <p class="text-white/45 text-xs leading-relaxed">Gestão completa e crescimento acelerado na plataforma Keeta.</p>

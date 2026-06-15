@@ -7,7 +7,8 @@
   <link rel="icon" type="image/png" href="images/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -57,7 +58,7 @@
 </head>
 <body>
   <div class="logo-wrap">
-    <img src="images/logo.png" alt="Bailey Aplicativos">
+    <img src="images/logo.png" alt="Bailey Aplicativos" fetchpriority="high" decoding="async" width="36" height="36">
   </div>
   <div class="code">404</div>
   <h1>Página não encontrada</h1>

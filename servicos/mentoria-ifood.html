@@ -10,13 +10,9 @@
   <link rel="icon" type="image/png" href="../images/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet"/>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = { theme: { extend: { colors: {
-      'bailey-green': '#4ade80', 'bailey-purple': '#7c3aed', 'bailey-dark': '#050806'
-    }}}}
-  </script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/tailwind.css">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
   <link rel="stylesheet" href="../css/style.css">
 
   <style>
@@ -96,7 +92,7 @@
 
       <a href="../index.html" class="flex items-center gap-3">
         <div class="w-9 h-9 rounded-full border border-bailey-purple/50 flex items-center justify-center bg-bailey-purple/10 overflow-hidden">
-          <img src="../images/logo.png" alt="Logo Bailey" class="w-full h-full object-cover">
+          <img src="../images/logo.png" alt="Logo Bailey" class="w-full h-full object-cover" fetchpriority="high" decoding="async" width="36" height="36">
         </div>
         <div>
           <div class="font-display font-extrabold text-base leading-none tracking-tight">Bailey</div>
@@ -222,7 +218,7 @@
 
         <!-- Ícone do serviço -->
         <div class="service-icon-large" style="background:#EA1D2C;">
-          <img src="../images/icons/ifood.png" alt="iFood">
+          <img src="../images/icons/ifood.png" alt="iFood" loading="lazy" decoding="async">
         </div>
 
         <!-- Breadcrumb -->
@@ -420,7 +416,7 @@
           <div class="flex items-start justify-between mb-1">
             <div class="flex items-center gap-3">
               <div class="w-11 h-11 rounded-xl overflow-hidden border border-white/10 bg-white flex items-center justify-center flex-shrink-0">
-                <img src="../images/logos/logoPlanet.avif" alt="Pizzaria Planet" class="w-full h-full object-cover">
+                <img src="../images/logos/logoPlanet.avif" alt="Pizzaria Planet" class="w-full h-full object-cover" loading="lazy" decoding="async" width="200" height="200">
               </div>
               <div>
                 <div class="text-sm font-semibold text-white">Pizzaria Planet</div>
@@ -454,7 +450,7 @@
           <div class="flex items-start justify-between mb-1">
             <div class="flex items-center gap-3">
               <div class="w-11 h-11 rounded-xl overflow-hidden border border-white/10 bg-white flex items-center justify-center flex-shrink-0">
-                <img src="../images/logos/logoMrprime.jpg" alt="Mr Prime" class="w-full h-full object-cover">
+                <img src="../images/logos/logoMrprime.jpg" alt="Mr Prime" class="w-full h-full object-cover" loading="lazy" decoding="async" width="200" height="200">
               </div>
               <div>
                 <div class="text-sm font-semibold text-white">Mr Prime</div>
@@ -488,7 +484,7 @@
           <div class="flex items-start justify-between mb-1">
             <div class="flex items-center gap-3">
               <div class="w-11 h-11 rounded-xl overflow-hidden border border-white/10 bg-white flex items-center justify-center flex-shrink-0">
-                <img src="../images/logos/logoOba.avif" alt="Pizza Obba Premium" class="w-full h-full object-cover">
+                <img src="../images/logos/logoOba.avif" alt="Pizza Obba Premium" class="w-full h-full object-cover" loading="lazy" decoding="async" width="200" height="200">
               </div>
               <div>
                 <div class="text-sm font-semibold text-white">Pizza Obba Premium</div>
