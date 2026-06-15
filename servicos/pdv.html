@@ -41,6 +41,24 @@
       display: flex; align-items: center; justify-content: center;
       font-size: 1rem; color: #4ade80; flex-shrink: 0;
     }
+    /* ─── CARD DO VÍDEO DO INSTAGRAM ───────────────────────────── */
+    .instagram-video-card {
+      width: 100%;
+      border-radius: 24px;
+      padding: 14px;
+      background: rgba(255,255,255,0.035);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 0 40px rgba(74,222,128,0.08);
+      overflow: hidden;
+    }
+    .instagram-video-card iframe {
+      border-radius: 18px !important;
+    }
+    @media (max-width: 767px) {
+      .instagram-video-card {
+        padding: 8px;
+      }
+    }
   </style>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FKSEWWZCN9"></script>
@@ -303,6 +321,44 @@
       </div>
     </section>
 
+    <!-- ─── VÍDEO INSTAGRAM — PDV ── -->
+    <section class="max-w-5xl mx-auto px-6 py-20">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+
+        <!-- Texto lateral -->
+        <div>
+          <span class="text-xs font-bold tracking-[0.2em] text-bailey-green uppercase bg-bailey-green/10 px-3 py-1 rounded-full border border-bailey-green/20">
+            Veja na prática
+          </span>
+
+          <h2 class="font-display font-black text-3xl md:text-4xl text-white leading-tight mt-4 mb-5">
+            PDV em ação<br>
+            <span class="text-bailey-green">automação completa.</span>
+          </h2>
+
+          <p class="text-white/60 text-sm md:text-base leading-relaxed mb-6">
+            Veja como o PDV automatiza pedidos, integra com marketplaces, gerencia estoque e emite notas fiscais em tempo real. Tudo funcionando perfeitamente em operações reais.
+          </p>
+
+          <a href="https://wa.me/5512988886499?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Bailey%20Aplicativos%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20planos.%20%F0%9F%9A%80" target="_blank"
+            class="inline-flex items-center gap-3 bg-bailey-green text-black font-bold px-7 py-4 rounded-full hover:bg-emerald-400 transition-all transform hover:scale-105">
+            <i class="fab fa-whatsapp text-xl"></i>
+            Quero conhecer o PDV
+          </a>
+        </div>
+
+        <!-- Embed Instagram -->
+        <div class="instagram-video-card">
+          <blockquote class="instagram-media"
+            data-instgrm-permalink="https://www.instagram.com/p/DSAqaC2CYOY/"
+            data-instgrm-version="14"
+            style="background:#fff; border:0; margin:0 auto; max-width:540px; min-width:326px; width:100%;">
+          </blockquote>
+        </div>
+
+      </div>
+    </section>
+
     <!-- ─── CTA FINAL ── -->
     <section class="max-w-3xl mx-auto px-6 pb-24 text-center">
       <div class="rounded-2xl border border-bailey-green/20 bg-bailey-green/5 p-10">
@@ -333,6 +389,7 @@
     <i class="fab fa-whatsapp"></i>
   </a>
 
+  <script async src="//www.instagram.com/embed.js"></script>
 
   <script>
     // Dropdown desktop + menu mobile
