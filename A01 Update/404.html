@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Página não encontrada · Bailey Aplicativos</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --verde:      #22c55e;
+      --verde-neon: #4ade80;
+      --roxo:       #a855f7;
+      --roxo-neon:  #c084fc;
+      --preto:      #080808;
+      --f-titulo:   'Space Grotesk', sans-serif;
+      --f-corpo:    'Outfit', sans-serif;
+    }
+
+    html, body {
+      height: 100%;
+      background: var(--preto);
+      color: #fff;
+      font-family: var(--f-corpo);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Background ── */
+    body {
+      background-color: #06060c;
+      background-image:
+        radial-gradient(circle, rgba(168,85,247,.11) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 50% 0%,   rgba(168,85,247,.18) 0%, transparent 65%),
+        radial-gradient(ellipse 55% 45% at 15% 100%,  rgba(34,197,94,.10)  0%, transparent 60%),
+        radial-gradient(ellipse 55% 45% at 85% 100%,  rgba(74,222,128,.08) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(to bottom, #06060c 0%, transparent 15%, transparent 85%, #06060c 100%),
+        linear-gradient(to right,  #06060c 0%, transparent 8%,  transparent 92%, #06060c 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Layout ── */
+    .page {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px;
+      text-align: center;
+    }
+
+    /* ── Logo ── */
+    .logo-wrap {
+      margin-bottom: 52px;
+    }
+    .logo-wrap img {
+      height: 36px;
+      width: auto;
+      opacity: .85;
+    }
+
+    /* ── 404 number ── */
+    .err-code {
+      font-family: var(--f-titulo);
+      font-size: clamp(96px, 20vw, 200px);
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      background: linear-gradient(
+        135deg,
+        var(--roxo-neon) 0%,
+        var(--roxo)      35%,
+        var(--verde)     70%,
+        var(--verde-neon) 100%
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+      position: relative;
+    }
+
+    /* Glow behind the number */
+    .err-code::after {
+      content: '404';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--roxo) 0%, var(--verde) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: blur(48px);
+      opacity: .35;
+      z-index: -1;
+    }
+
+    /* ── Badge ── */
+    .err-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(168,85,247,.28);
+      background: rgba(168,85,247,.08);
+      font-family: var(--f-titulo);
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--roxo-neon);
+      margin-bottom: 28px;
+    }
+    .err-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--roxo-neon);
+      box-shadow: 0 0 6px var(--roxo-neon);
+    }
+
+    /* ── Heading ── */
+    .err-title {
+      font-family: var(--f-titulo);
+      font-size: clamp(1.5rem, 4vw, 2.4rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .err-title span {
+      background: linear-gradient(90deg, var(--verde) 0%, var(--verde-neon) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ── Description ── */
+    .err-desc {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,.48);
+      max-width: 420px;
+      margin-bottom: 40px;
+    }
+
+    /* ── Actions ── */
+    .err-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 28px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--verde) 0%, var(--verde-neon) 100%);
+      color: #05120a;
+      font-family: var(--f-titulo);
+      font-size: .95rem;
+      font-weight: 700;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: opacity .2s, transform .18s, box-shadow .2s;
+      box-shadow: 0 4px 24px rgba(34,197,94,.22);
+    }
+    .btn-primary:hover {
+      opacity: .92;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(34,197,94,.32);
+    }
+    .btn-primary svg { flex-shrink: 0; }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 12px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.12);
+      color: rgba(255,255,255,.65);
+      font-family: var(--f-titulo);
+      font-size: .95rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background .18s, border-color .18s, color .18s;
+    }
+    .btn-ghost:hover {
+      background: rgba(255,255,255,.08);
+      border-color: rgba(255,255,255,.22);
+      color: #fff;
+    }
+
+    /* ── Footer note ── */
+    .err-foot {
+      margin-top: 64px;
+      font-size: .8rem;
+      color: rgba(255,255,255,.2);
+    }
+    .err-foot a {
+      color: rgba(168,85,247,.6);
+      text-decoration: none;
+      transition: color .15s;
+    }
+    .err-foot a:hover { color: var(--roxo-neon); }
+
+    /* ── Responsive ── */
+    @media (max-width: 480px) {
+      .err-actions { flex-direction: column; width: 100%; }
+      .btn-primary, .btn-ghost { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+
+    <!-- Logo -->
+    <div class="logo-wrap">
+      <img src="images/images/logo.png" alt="Bailey Aplicativos">
+    </div>
+
+    <!-- 404 -->
+    <p class="err-code">404</p>
+
+    <!-- Badge -->
+    <div class="err-badge">Página não encontrada</div>
+
+    <!-- Heading -->
+    <h1 class="err-title">
+      Ops! Esta página<br>
+      <span>saiu do delivery.</span>
+    </h1>
+
+    <!-- Description -->
+    <p class="err-desc">
+      A página que você está procurando não existe, foi movida ou o link está incorreto.
+      Mas não se preocupe — seu sistema continua rodando normalmente.
+    </p>
+
+    <!-- Actions -->
+    <div class="err-actions">
+      <a href="index.html" class="btn-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+          <polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+        Voltar ao início
+      </a>
+      <a href="https://wa.me/5512988886499" target="_blank" rel="noopener" class="btn-ghost">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+        Falar com suporte
+      </a>
+    </div>
+
+    <!-- Footer note -->
+    <p class="err-foot">
+      © 2026 Bailey Aplicativos ·
+      <a href="index.html">baileyaplicativos.com.br</a>
+    </p>
+
+  </main>
+</body>
+</html>

@@ -178,4 +178,146 @@ document.addEventListener('DOMContentLoaded', () => {
     revealEls.forEach(el => revealObs.observe(el));
   }
 
+
+  // ---- Mentor tabs (iFood / 99Food / Keeta) -----------------
+  const mentorTabs   = document.querySelectorAll('.mentor-tab');
+  const mentorPanels = document.querySelectorAll('.mentor-panel');
+
+  mentorTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      mentorTabs.forEach(t => t.classList.remove('is-active'));
+      mentorPanels.forEach(p => p.classList.remove('is-active'));
+      tab.classList.add('is-active');
+      const target = document.getElementById(tab.dataset.target);
+      if (target) target.classList.add('is-active');
+    });
+  });
+
+
+
+  // ---- Stats counter animation ------------------------------
+  const statsEls = document.querySelectorAll('.stats-count');
+  if (statsEls.length) {
+    const statsObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el      = entry.target;
+        const target  = parseFloat(el.dataset.target);
+        const suffix  = el.dataset.suffix || '';
+        const isDecimal = el.dataset.dec === '1';
+        const usePtFmt  = el.dataset.fmt === 'pt';
+        const duration  = 1800;
+        const startTime = performance.now();
+
+        const tick = (now) => {
+          const p      = Math.min((now - startTime) / duration, 1);
+          const eased  = 1 - Math.pow(1 - p, 3);
+          const val    = eased * target;
+          if (isDecimal) {
+            el.textContent = val.toFixed(1) + suffix;
+          } else if (usePtFmt) {
+            el.textContent = Math.floor(val).toLocaleString('pt-BR') + suffix;
+          } else {
+            el.textContent = Math.floor(val) + suffix;
+          }
+          if (p < 1) requestAnimationFrame(tick);
+          else {
+            if (isDecimal)   el.textContent = target.toFixed(1) + suffix;
+            else if (usePtFmt) el.textContent = target.toLocaleString('pt-BR') + suffix;
+            else             el.textContent = target + suffix;
+          }
+        };
+        requestAnimationFrame(tick);
+        statsObs.unobserve(el);
+      });
+    }, { threshold: 0.4 });
+
+    statsEls.forEach(el => statsObs.observe(el));
+  }
+
+
+  // ---- Legal Modals (Termos / Privacidade) -----------------
+  (function () {
+    let activeModal = null;
+
+    const openModal = (id) => {
+      const modal = document.getElementById(id);
+      if (!modal) return;
+      activeModal = modal;
+      modal.removeAttribute('hidden');
+      document.body.style.overflow = 'hidden';
+
+      // Reset scroll & button state
+      const body   = modal.querySelector('.js-modal-body');
+      const accept = modal.querySelector('.js-modal-accept');
+      const hint   = modal.querySelector('.js-modal-hint');
+      body.scrollTop = 0;
+      accept.disabled = true;
+      hint && hint.classList.remove('is-hidden');
+
+      // Scroll detection
+      const onScroll = () => {
+        const atBottom = body.scrollTop + body.clientHeight >= body.scrollHeight - 6;
+        if (atBottom) {
+          accept.disabled = false;
+          hint && hint.classList.add('is-hidden');
+          body.removeEventListener('scroll', onScroll);
+        }
+      };
+      body.addEventListener('scroll', onScroll, { passive: true });
+
+      // Focus the close button for accessibility
+      modal.querySelector('.legal-modal__close')?.focus();
+    };
+
+    const closeModal = () => {
+      if (!activeModal) return;
+      activeModal.setAttribute('hidden', '');
+      document.body.style.overflow = '';
+      activeModal = null;
+    };
+
+    // Triggers in footer
+    document.querySelectorAll('.js-modal-trigger').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const id = 'modal-' + link.dataset.modal;
+        openModal(id);
+      });
+    });
+
+    // Close via overlay / close button / accept button
+    document.querySelectorAll('.legal-modal').forEach(modal => {
+      modal.querySelectorAll('.js-modal-close').forEach(el => {
+        el.addEventListener('click', closeModal);
+      });
+      modal.querySelector('.js-modal-accept')?.addEventListener('click', closeModal);
+    });
+
+    // ESC key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && activeModal) closeModal();
+    });
+  })();
+
+
+  // ---- FAQ accordion ---------------------------------------
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('is-open');
+      // fecha todos
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('is-open');
+        i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+      });
+      // abre o clicado (se estava fechado)
+      if (!isOpen) {
+        item.classList.add('is-open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+
 });

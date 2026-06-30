@@ -7,7 +7,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=9">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
@@ -16,44 +17,76 @@
        ==================================================== -->
   <header class="navbar" id="navbar">
     <nav class="nav-inner">
-      <a href="/" class="nav-logo"><span class="logo-dot"></span>Bailey</a>
+      <a href="/" class="nav-logo">
+        <img src="img/logo.png" alt="Bailey" class="nav-logo-img">
+        <span class="nav-logo-text">
+          <span class="nav-logo-bailey">Bailey</span><span class="nav-logo-aplicativos">Aplicativos</span>
+        </span>
+      </a>
 
       <div class="nav-desktop">
-        <div class="nav-item" data-nav="funciona">
+        <a href="#funcionalidades" class="nav-link">Funcionalidades</a>
+        <div class="nav-item" data-nav="servicos">
           <button class="nav-trigger" aria-expanded="false" aria-haspopup="true">
-            Como funciona
+            Serviços
             <svg class="nav-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6l4 4 4-4"/></svg>
           </button>
-          <div class="nav-dropdown" role="menu">
-            <ul class="nav-dropdown-grid">
-              <li><a href="#pdv" class="nav-list-item"><div class="nav-list-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><div class="nav-list-text"><span class="nav-list-title">PDV Software</span><span class="nav-list-desc">Sistema completo de frente de caixa</span></div></a></li>
-              <li><a href="#cardapio" class="nav-list-item"><div class="nav-list-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M4 8h16M4 12h10"/></svg></div><div class="nav-list-text"><span class="nav-list-title">Cardápio Digital</span><span class="nav-list-desc">Cardápio online integrado ao delivery</span></div></a></li>
-              <li><a href="#sync" class="nav-list-item"><div class="nav-list-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12v-2a8 8 0 0 1 14.9-3.6M20 12v2a8 8 0 0 1-14.9 3.6"/><path d="M15 9l2-2-2-2M9 15l-2 2 2 2"/></svg></div><div class="nav-list-text"><span class="nav-list-title">Sincronização Total</span><span class="nav-list-desc">iFood, 99Food e Keeta numa tela</span></div></a></li>
-              <li><a href="#relatorios" class="nav-list-item"><div class="nav-list-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div><div class="nav-list-text"><span class="nav-list-title">Relatórios</span><span class="nav-list-desc">Dados e insights do seu negócio</span></div></a></li>
-            </ul>
-            <div class="nav-dropdown-footer"><p>Quer ver na prática? <a href="https://wa.me/5511999999999" target="_blank" rel="noopener">Agende uma demo →</a></p></div>
+          <div class="nav-dropdown nav-dropdown--cats" role="menu">
+
+            <div class="nav-dd-cat">
+              <p class="nav-dd-cat-label">Sistemas</p>
+              <ul class="nav-dd-cat-list">
+                <li>
+                  <a href="pages/servicos/pdv.html" class="nav-list-item">
+                    <div class="nav-list-icon nav-list-icon--purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+                    <div class="nav-list-text"><span class="nav-list-title">PDV — Frente de Caixa</span><span class="nav-list-desc">Sistema completo de gestão e vendas</span></div>
+                  </a>
+                </li>
+                <li>
+                  <a href="pages/servicos/cardapio-digital.html" class="nav-list-item">
+                    <div class="nav-list-icon nav-list-icon--green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M4 8h16M4 12h10"/></svg></div>
+                    <div class="nav-list-text"><span class="nav-list-title">Cardápio Digital</span><span class="nav-list-desc">Pedidos via WhatsApp + robô de status</span></div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="nav-dd-divider"></div>
+
+            <div class="nav-dd-cat">
+              <p class="nav-dd-cat-label">Integrações &amp; Mentorias</p>
+              <ul class="nav-dd-cat-list">
+                <li>
+                  <a href="pages/servicos/mentoria-ifood.html" class="nav-list-item">
+                    <div class="nav-list-icon nav-list-icon--ifood"><img src="images/logos/ifood.png" alt="ifood" style="width:100%;height:100%;object-fit:contain;"></div>
+                    <div class="nav-list-text"><span class="nav-list-title">Mentoria iFood</span><span class="nav-list-desc">Cresça no iFood</span></div>
+                  </a>
+                </li>
+                <li>
+                  <a href="pages/servicos/mentoria-99food.html" class="nav-list-item">
+                    <div class="nav-list-icon nav-list-icon--99food"><img src="images/logos/99food.png" alt="99food" style="width:100%;height:100%;object-fit:contain;"></div>
+                    <div class="nav-list-text"><span class="nav-list-title">Mentoria 99Food</span><span class="nav-list-desc">Novo canal de vendas ativo</span></div>
+                  </a>
+                </li>
+                <li>
+                  <a href="pages/servicos/mentoria-keeta.html" class="nav-list-item">
+                    <div class="nav-list-icon nav-list-icon--keeta"><img src="images/logos/keeta.png" alt="keeta" style="width:100%;height:100%;object-fit:contain;"></div>
+                    <div class="nav-list-text"><span class="nav-list-title">Mentoria Keeta</span><span class="nav-list-desc">Gestão e crescimento no Keeta</span></div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
           </div>
         </div>
-        <div class="nav-item" data-nav="integracoes">
-          <button class="nav-trigger" aria-expanded="false" aria-haspopup="true">
-            Integrações
-            <svg class="nav-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6l4 4 4-4"/></svg>
-          </button>
-          <div class="nav-dropdown nav-dropdown--sm" role="menu">
-            <ul class="nav-dropdown-list">
-              <li><a href="#ifood" class="nav-list-item nav-list-item--inline"><div class="nav-list-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div><span class="nav-list-title">iFood</span></a></li>
-              <li><a href="#99food" class="nav-list-item nav-list-item--inline"><div class="nav-list-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14"/></svg></div><span class="nav-list-title">99Food</span></a></li>
-              <li><a href="#keeta" class="nav-list-item nav-list-item--inline"><div class="nav-list-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div><span class="nav-list-title">Keeta</span></a></li>
-              <li><a href="#integracoes" class="nav-list-item nav-list-item--inline nav-list-item--muted"><div class="nav-list-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="2"/><circle cx="20" cy="12" r="2"/><circle cx="4" cy="12" r="2"/></svg></div><span class="nav-list-title">Ver todas</span></a></li>
-            </ul>
-          </div>
-        </div>
-        <a href="#planos" class="nav-link">Preços</a>
+        <a href="#resultados" class="nav-link">Resultados</a>
+        <a href="#precos" class="nav-link">Preços</a>
+        <a href="#faq" class="nav-link">FAQ</a>
       </div>
 
       <div class="nav-actions">
         <a href="#" class="btn--outline-sm">Entrar</a>
-        <a href="https://wa.me/5511999999999" class="btn--primary-sm" target="_blank" rel="noopener">
+        <a href="https://wa.me/5512988886499" class="btn--primary-sm" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           Começar agora
         </a>
@@ -69,19 +102,21 @@
   <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
     <div class="mobile-menu-inner">
       <div class="mobile-links">
-        <p class="mobile-section-label">Como funciona</p>
-        <a href="#pdv" class="mobile-list-item"><div class="nav-list-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><div class="nav-list-text"><span class="nav-list-title">PDV Software</span><span class="nav-list-desc">Sistema completo de frente de caixa</span></div></a>
-        <a href="#cardapio" class="mobile-list-item"><div class="nav-list-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M4 8h16M4 12h10"/></svg></div><div class="nav-list-text"><span class="nav-list-title">Cardápio Digital</span><span class="nav-list-desc">Cardápio online integrado ao delivery</span></div></a>
-        <a href="#sync" class="mobile-list-item"><div class="nav-list-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12v-2a8 8 0 0 1 14.9-3.6M20 12v2a8 8 0 0 1-14.9 3.6"/></svg></div><div class="nav-list-text"><span class="nav-list-title">Sincronização Total</span><span class="nav-list-desc">iFood, 99Food e Keeta numa tela</span></div></a>
-        <p class="mobile-section-label">Integrações</p>
-        <a href="#ifood" class="mobile-list-item mobile-list-item--inline"><div class="nav-list-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/></svg></div><span class="nav-list-title">iFood</span></a>
-        <a href="#99food" class="mobile-list-item mobile-list-item--inline"><div class="nav-list-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14"/></svg></div><span class="nav-list-title">99Food</span></a>
-        <a href="#keeta" class="mobile-list-item mobile-list-item--inline"><div class="nav-list-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div><span class="nav-list-title">Keeta</span></a>
-        <a href="#planos" class="mobile-link-simple">Preços</a>
+        <a href="#funcionalidades" class="mobile-link-simple">Funcionalidades</a>
+        <p class="mobile-section-label">Sistemas</p>
+        <a href="pages/servicos/pdv.html" class="mobile-list-item"><div class="nav-list-icon nav-list-icon--purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><div class="nav-list-text"><span class="nav-list-title">PDV — Frente de Caixa</span><span class="nav-list-desc">Sistema completo de gestão e vendas</span></div></a>
+        <a href="pages/servicos/cardapio-digital.html" class="mobile-list-item"><div class="nav-list-icon nav-list-icon--green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M4 8h16M4 12h10"/></svg></div><div class="nav-list-text"><span class="nav-list-title">Cardápio Digital</span><span class="nav-list-desc">Pedidos via WhatsApp + robô de status</span></div></a>
+        <p class="mobile-section-label">Integrações &amp; Mentorias</p>
+        <a href="pages/servicos/mentoria-ifood.html" class="mobile-list-item"><div class="nav-list-icon nav-list-icon--ifood"><img src="images/logos/ifood.png" alt="ifood" style="width:100%;height:100%;object-fit:contain;"></div><div class="nav-list-text"><span class="nav-list-title">Mentoria iFood</span><span class="nav-list-desc">Cresça no iFood</span></div></a>
+        <a href="pages/servicos/mentoria-99food.html" class="mobile-list-item"><div class="nav-list-icon nav-list-icon--99food"><img src="images/logos/99food.png" alt="99food" style="width:100%;height:100%;object-fit:contain;"></div><div class="nav-list-text"><span class="nav-list-title">Mentoria 99Food</span><span class="nav-list-desc">Novo canal de vendas ativo</span></div></a>
+        <a href="pages/servicos/mentoria-keeta.html" class="mobile-list-item"><div class="nav-list-icon nav-list-icon--keeta"><img src="images/logos/keeta.png" alt="keeta" style="width:100%;height:100%;object-fit:contain;"></div><div class="nav-list-text"><span class="nav-list-title">Mentoria Keeta</span><span class="nav-list-desc">Gestão e crescimento no Keeta</span></div></a>
+        <a href="#resultados" class="mobile-link-simple">Resultados</a>
+        <a href="#precos" class="mobile-link-simple">Preços</a>
+        <a href="#faq" class="mobile-link-simple">FAQ</a>
       </div>
       <div class="mobile-ctas">
         <a href="#" class="btn--outline-full">Entrar</a>
-        <a href="https://wa.me/5511999999999" class="btn--primary-full" target="_blank" rel="noopener">
+        <a href="https://wa.me/5512988886499" class="btn--primary-full" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           Falar no WhatsApp
         </a>
@@ -148,19 +183,168 @@
       </div>
 
       <div class="hero-cta-wrap">
-        <a href="https://wa.me/5511999999999" class="btn--hero-wa" id="heroWaBtn" target="_blank" rel="noopener">
+        <a href="https://wa.me/5512988886499" class="btn--hero-wa" id="heroWaBtn" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           Chama no WhatsApp
-        <a href="#planos" class="btn--hero-ghost">Ver planos &rarr;</a>
-        <a href="#planos" class="btn--hero-ghost">Ve      </div>
+        </a>
+        <a href="#precos" class="btn--hero-ghost">Ver planos &rarr;</a>
+      </div>
     </div>
 
   </section>
 
 
+  <!-- ══════════════════════════════════════════════════════════
+       COMO FUNCIONA — 3 passos
+  ═══════════════════════════════════════════════════════════ -->
+  <section class="hiw-section" id="como-funciona">
+
+
+    <div class="hiw-inner">
+
+      <div class="hiw-header">
+        <span class="testi-badge">Como funciona</span>
+        <h2 class="hiw-title">Do zero ao operacional<br><span class="hiw-title-green">em 3 passos simples.</span></h2>
+      </div>
+
+      <div class="hiw-steps">
+
+        <!-- Passo 1 -->
+        <div class="hiw-step">
+          <div class="hiw-step-top">
+            <div class="hiw-num">01</div>
+            <div class="hiw-icon-wrap hiw-icon-wrap--purple">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="26" height="26">
+                <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/>
+                <rect x="9" y="3" width="6" height="4" rx="1"/>
+                <path d="M9 12h6M9 16h4"/>
+              </svg>
+            </div>
+          </div>
+          <h3 class="hiw-step-title">Escolha o plano</h3>
+          <p class="hiw-step-desc">Fale com nosso time pelo WhatsApp, escolha o plano e nós cuidamos de toda a estrutura.</p>
+          <span class="hiw-step-tag">Suporte humanizado do início ao fim</span>
+        </div>
+
+        <!-- Passo 2 -->
+        <div class="hiw-step">
+          <div class="hiw-step-top">
+            <div class="hiw-num">02</div>
+            <div class="hiw-icon-wrap hiw-icon-wrap--green">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="26" height="26">
+                <path d="M12 20h9"/>
+                <path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/>
+              </svg>
+            </div>
+          </div>
+          <h3 class="hiw-step-title">Nós configuramos tudo</h3>
+          <p class="hiw-step-desc">Integramos PDV, cardápio e plataformas como iFood, Keeta e 99Food em até 72h. Sem complicação.</p>
+          <span class="hiw-step-tag">Setup em até 72h, integração completa</span>
+        </div>
+
+        <!-- Passo 3 -->
+        <div class="hiw-step">
+          <div class="hiw-step-top">
+            <div class="hiw-num">03</div>
+            <div class="hiw-icon-wrap hiw-icon-wrap--verde">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="26" height="26">
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                <polyline points="17 6 23 6 23 12"/>
+              </svg>
+            </div>
+          </div>
+          <h3 class="hiw-step-title">Venda mais todos os dias</h3>
+          <p class="hiw-step-desc">Operação organizada, pedidos centralizados e foco no que importa: crescer o faturamento.</p>
+          <span class="hiw-step-tag">Mais controle, agilidade e resultados</span>
+        </div>
+
+      </div><!-- /hiw-steps -->
+
+      <div class="hiw-cta">
+        <a href="https://wa.me/5512988886499?text=Olá!%20Quero%20começar%20com%20a%20Bailey%20Aplicativos." class="btn--hero-wa" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.555 4.116 1.527 5.845L.057 23.077a.75.75 0 00.92.92l5.232-1.47A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.953 9.953 0 01-5.065-1.379l-.363-.214-3.764 1.057 1.058-3.764-.214-.363A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          Quero começar agora
+        </a>
+        <p class="hiw-cta-note">Setup em até 72h · Suporte humanizado · Sem burocracia</p>
+      </div>
+
+    </div><!-- /hiw-inner -->
+  </section>
+
   <!-- ====================================================
        SERVIÇOS — fundo branco, linhas alternadas
        ==================================================== -->
+
+  <!-- ── Shader Feature Cards (Sincronização Total) ── -->
+  <section class="sf-section" id="funcionalidades">
+    <div class="sf-inner">
+
+      <div class="sf-header">
+        <span class="testi-badge">Sincronização total</span>
+        <h2 class="sf-title">Um ecossistema completo<br><span class="hiw-title-green">para o seu delivery.</span></h2>
+        <p class="sf-desc">Conecte sua operação aos maiores players do mercado. Centralize pedidos, cardápios e automações em um único painel inteligente que trabalha por você.</p>
+      </div>
+
+      <div class="sf-grid">
+
+        <div class="sf-card">
+          <div class="sf-card-inner">
+            <div class="sf-icon"><img class="sf-logo-img" src="images/images/logo.png" alt="PDV Frente de Caixa"></div>
+            <h3 class="sf-card-title">PDV Frente de Caixa</h3>
+            <p class="sf-card-desc">Controle pedidos presenciais e online em um único sistema. Rápido, com nota fiscal, relatórios por turno e modo offline para nunca parar de vender.</p>
+            <div class="sf-card-link"><span>Conhecer o PDV</span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></div>
+          </div>
+        </div>
+
+        <div class="sf-card">
+          <div class="sf-card-inner">
+            <div class="sf-icon"><img class="sf-logo-img" src="images/images/logo.png" alt="Integração Bailey"></div>
+            <h3 class="sf-card-title">Integração Total</h3>
+            <p class="sf-card-desc">Pedidos do iFood, 99Food e Keeta chegam automaticamente ao seu PDV. Cardápio sincronizado em tempo real, sem ação manual.</p>
+            <div class="sf-card-link"><span>Ver integrações</span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></div>
+          </div>
+        </div>
+
+        <div class="sf-card">
+          <div class="sf-card-inner">
+            <div class="sf-icon"><img class="sf-logo-img" src="images/images/logo.png" alt="Cardápio Digital Bailey"></div>
+            <h3 class="sf-card-title">Cardápio Digital</h3>
+            <p class="sf-card-desc">Monte seu menu online em minutos e receba pedidos diretos pelo WhatsApp ou link próprio — sem pagar comissão para ninguém.</p>
+            <div class="sf-card-link"><span>Ver cardápio</span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></div>
+          </div>
+        </div>
+
+        <div class="sf-card">
+          <div class="sf-card-inner">
+            <div class="sf-icon"><img class="sf-logo-img" src="images/logos/ifood.png" alt="iFood"></div>
+            <h3 class="sf-card-title">Mentoria iFood</h3>
+            <p class="sf-card-desc">Estratégia de vendas, otimização de cardápio, combos e suporte humanizado para crescer de verdade dentro do iFood.</p>
+            <div class="sf-card-link"><span>Saiba mais</span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></div>
+          </div>
+        </div>
+
+        <div class="sf-card">
+          <div class="sf-card-inner">
+            <div class="sf-icon"><img class="sf-logo-img" src="images/logos/99food.png" alt="99Food"></div>
+            <h3 class="sf-card-title">Mentoria 99Food</h3>
+            <p class="sf-card-desc">Ativação da loja, expansão de canal e suporte dedicado para dominar o 99Food e aumentar seu volume de pedidos.</p>
+            <div class="sf-card-link"><span>Saiba mais</span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></div>
+          </div>
+        </div>
+
+        <div class="sf-card">
+          <div class="sf-card-inner">
+            <div class="sf-icon"><img class="sf-logo-img" src="images/logos/keeta.png" alt="Keeta"></div>
+            <h3 class="sf-card-title">Mentoria Keeta</h3>
+            <p class="sf-card-desc">Gestão da loja, estratégia de vendas e acompanhamento dos primeiros pedidos para acelerar seus resultados no Keeta.</p>
+            <div class="sf-card-link"><span>Saiba mais</span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <section class="svc-section" id="servicos">
     <div class="svc-container">
 
@@ -172,44 +356,20 @@
       </div>
 
       <!-- ── ROW 1: PDV & Frente de Caixa (mídia à esquerda) ── -->
-      <div class="svc-row reveal">
-        <div class="svc-media">
-          <svg viewBox="0 0 520 380" xmlns="http://www.w3.org/2000/svg" class="svc-mockup">
-            <rect width="520" height="380" rx="18" fill="#111118"/>
-            <rect width="520" height="56" rx="18" fill="#1c1c28"/>
-            <rect y="36" width="520" height="20" fill="#1c1c28"/>
-            <circle cx="22" cy="28" r="5" fill="#ff5f56"/><circle cx="38" cy="28" r="5" fill="#febc2e"/><circle cx="54" cy="28" r="5" fill="#28c840"/>
-            <text x="260" y="33" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="600" fill="rgba(255,255,255,.65)">Pedido #1847 — Mesa 4</text>
-            <line x1="24" y1="72" x2="496" y2="72" stroke="rgba(255,255,255,.07)" stroke-width="1"/>
-            <rect x="24" y="84" width="28" height="28" rx="6" fill="rgba(34,197,94,.15)"/>
-            <text x="38" y="103" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#22c55e">✓</text>
-            <text x="70" y="100" font-family="sans-serif" font-size="13" font-weight="500" fill="rgba(255,255,255,.85)">Pizza Frango c/ Catupiry</text>
-            <text x="420" y="95" font-family="sans-serif" font-size="11" fill="rgba(255,255,255,.4)">2x</text>
-            <text x="490" y="100" text-anchor="end" font-family="sans-serif" font-size="13" font-weight="600" fill="rgba(255,255,255,.85)">R$ 89</text>
-            <rect x="24" y="126" width="28" height="28" rx="6" fill="rgba(34,197,94,.15)"/>
-            <text x="38" y="145" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#22c55e">✓</text>
-            <text x="70" y="142" font-family="sans-serif" font-size="13" font-weight="500" fill="rgba(255,255,255,.85)">Coca-Cola 600ml</text>
-            <text x="420" y="137" font-family="sans-serif" font-size="11" fill="rgba(255,255,255,.4)">1x</text>
-            <text x="490" y="142" text-anchor="end" font-family="sans-serif" font-size="13" font-weight="600" fill="rgba(255,255,255,.85)">R$ 8</text>
-            <rect x="24" y="168" width="28" height="28" rx="6" fill="rgba(34,197,94,.15)"/>
-            <text x="38" y="187" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#22c55e">✓</text>
-            <text x="70" y="184" font-family="sans-serif" font-size="13" font-weight="500" fill="rgba(255,255,255,.85)">Batata Frita G</text>
-            <text x="420" y="179" font-family="sans-serif" font-size="11" fill="rgba(255,255,255,.4)">1x</text>
-            <text x="490" y="184" text-anchor="end" font-family="sans-serif" font-size="13" font-weight="600" fill="rgba(255,255,255,.85)">R$ 22</text>
-            <rect x="24" y="210" width="28" height="28" rx="6" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.12)" stroke-width="1" stroke-dasharray="3,2"/>
-            <text x="38" y="229" text-anchor="middle" font-family="sans-serif" font-size="16" fill="rgba(255,255,255,.3)">+</text>
-            <text x="70" y="226" font-family="sans-serif" font-size="12" fill="rgba(255,255,255,.3)">Adicionar item...</text>
-            <line x1="24" y1="254" x2="496" y2="254" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
-            <text x="24" y="275" font-family="sans-serif" font-size="12" fill="rgba(255,255,255,.45)">Subtotal</text>
-            <text x="490" y="275" text-anchor="end" font-family="sans-serif" font-size="12" fill="rgba(255,255,255,.55)">R$ 119,00</text>
-            <text x="24" y="296" font-family="sans-serif" font-size="12" fill="rgba(255,255,255,.45)">Taxa de entrega</text>
-            <text x="490" y="296" text-anchor="end" font-family="sans-serif" font-size="12" fill="rgba(255,255,255,.55)">R$ 7,00</text>
-            <line x1="24" y1="307" x2="496" y2="307" stroke="rgba(255,255,255,.07)" stroke-width="1"/>
-            <text x="24" y="328" font-family="sans-serif" font-size="15" font-weight="700" fill="white">Total</text>
-            <text x="490" y="328" text-anchor="end" font-family="sans-serif" font-size="15" font-weight="700" fill="white">R$ 126,00</text>
-            <rect x="24" y="342" width="472" height="26" rx="8" fill="#22c55e"/>
-            <text x="260" y="359" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#000">Confirmar Pedido</text>
-          </svg>
+      <div class="svc-row svc-row--pdv reveal">
+        <div class="svc-media pdv-media">
+          <!-- imagem principal: PDV no computador -->
+          <img
+            src="images/gestao/Frentepdv.png"
+            alt="Bailey PDV — Frente de Caixa"
+            class="pdv-img-main"
+          >
+          <!-- imagem flutuante: 3 apps nos celulares -->
+          <img
+            src="images/gestao/3celulares-frentePDV.png"
+            alt="Bailey integrado com iFood, 99Food e Keeta"
+            class="pdv-img-phones"
+          >
         </div>
         <div class="svc-text">
           <span class="svc-chip svc-chip--blue">PDV &amp; Caixa</span>
@@ -221,53 +381,18 @@
             <li>Relatórios de vendas por turno</li>
             <li>Funciona offline sem perder nada</li>
           </ul>
-          <a href="https://wa.me/5511999999999" class="svc-cta" target="_blank" rel="noopener">Quero ver o PDV &rarr;</a>
+          <a href="https://wa.me/5512988886499" class="svc-cta" target="_blank" rel="noopener">Quero ver o PDV &rarr;</a>
         </div>
       </div>
 
       <!-- ── ROW 2: Cardápio Digital (mídia à direita) ── -->
       <div class="svc-row svc-row--flip reveal">
-        <div class="svc-media">
-          <svg viewBox="0 0 520 380" xmlns="http://www.w3.org/2000/svg" class="svc-mockup">
-            <rect width="520" height="380" rx="18" fill="#f4f5f7"/>
-            <rect x="150" y="12" width="220" height="356" rx="28" fill="#fff" filter="url(#card-shadow)"/>
-            <defs>
-              <filter id="card-shadow" x="-20%" y="-10%" width="140%" height="130%">
-                <feDropShadow dx="0" dy="8" stdDeviation="18" flood-color="rgba(0,0,0,0.15)"/>
-              </filter>
-            </defs>
-            <rect x="214" y="18" width="92" height="14" rx="7" fill="#e0e0e0"/>
-            <rect x="150" y="44" width="220" height="52" fill="#111"/>
-            <rect x="150" y="44" width="220" height="52" rx="0" fill="#111"/>
-            <text x="260" y="65" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="700" fill="white">Pizzaria Bella Napoli</text>
-            <text x="260" y="81" text-anchor="middle" font-family="sans-serif" font-size="9" fill="rgba(255,255,255,.6)">Aberto agora · 30-45 min</text>
-            <rect x="162" y="104" width="196" height="26" rx="8" fill="#f0f0f2"/>
-            <text x="178" y="121" font-family="sans-serif" font-size="10" fill="#aaa">🔍  Buscar pratos...</text>
-            <rect x="162" y="140" width="58" height="20" rx="10" fill="#111"/>
-            <text x="191" y="154" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="600" fill="white">Pizzas</text>
-            <rect x="226" y="140" width="54" height="20" rx="10" fill="#f0f0f2"/>
-            <text x="253" y="154" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#555">Bebidas</text>
-            <rect x="286" y="140" width="50" height="20" rx="10" fill="#f0f0f2"/>
-            <text x="311" y="154" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#555">Promo</text>
-            <rect x="162" y="170" width="196" height="70" rx="10" fill="#fff" filter="url(#card-shadow)"/>
-            <rect x="280" y="176" width="72" height="58" rx="8" fill="#fde68a"/>
-            <text x="316" y="210" text-anchor="middle" font-family="sans-serif" font-size="24">🍕</text>
-            <text x="172" y="190" font-family="sans-serif" font-size="10" font-weight="700" fill="#111">Pizza Margherita</text>
-            <text x="172" y="203" font-family="sans-serif" font-size="9" fill="#888">Molho tomate, mussarela</text>
-            <text x="172" y="220" font-family="sans-serif" font-size="11" font-weight="700" fill="#16a34a">R$ 45,90</text>
-            <rect x="245" y="215" width="22" height="22" rx="6" fill="#111"/>
-            <text x="256" y="231" text-anchor="middle" font-family="sans-serif" font-size="16" fill="white">+</text>
-            <rect x="162" y="250" width="196" height="70" rx="10" fill="#fff" filter="url(#card-shadow)"/>
-            <rect x="280" y="256" width="72" height="58" rx="8" fill="#d1fae5"/>
-            <text x="316" y="290" text-anchor="middle" font-family="sans-serif" font-size="24">🥗</text>
-            <text x="172" y="270" font-family="sans-serif" font-size="10" font-weight="700" fill="#111">Frango Fit</text>
-            <text x="172" y="283" font-family="sans-serif" font-size="9" fill="#888">Grelhado, sem glúten</text>
-            <text x="172" y="300" font-family="sans-serif" font-size="11" font-weight="700" fill="#16a34a">R$ 38,90</text>
-            <rect x="245" y="295" width="22" height="22" rx="6" fill="#111"/>
-            <text x="256" y="311" text-anchor="middle" font-family="sans-serif" font-size="16" fill="white">+</text>
-            <rect x="162" y="334" width="196" height="26" rx="8" fill="#22c55e"/>
-            <text x="260" y="351" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="700" fill="#000">Ver carrinho (R$ 84,80)</text>
-          </svg>
+        <div class="svc-media cardapio-media">
+          <img
+            src="images/gestao/cardapio-digital.png"
+            alt="Bailey Cardápio Digital"
+            class="cardapio-img"
+          >
         </div>
         <div class="svc-text">
           <span class="svc-chip svc-chip--green">Cardápio Digital</span>
@@ -279,199 +404,1348 @@
             <li>Integrado ao PDV automaticamente</li>
             <li>Atualizações de preço em tempo real</li>
           </ul>
-          <a href="https://wa.me/5511999999999" class="svc-cta" target="_blank" rel="noopener">Ver cardápio em ação &rarr;</a>
+          <a href="https://wa.me/5512988886499" class="svc-cta" target="_blank" rel="noopener">Ver cardápio em ação &rarr;</a>
         </div>
       </div>
 
-
-      <!-- ── ROW 3: Mentoria iFood (mídia esquerda) ── -->
-      <div class="svc-row reveal">
-        <div class="svc-media">
-          <svg viewBox="0 0 520 360" xmlns="http://www.w3.org/2000/svg" class="svc-mockup">
-            <rect width="520" height="360" rx="18" fill="#140204"/>
-            <rect x="24" y="24" width="72" height="32" rx="8" fill="#D9181A"/>
-            <text x="60" y="44" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="800" fill="white">iFood</text>
-            <rect x="108" y="30" width="76" height="20" rx="10" fill="rgba(34,197,94,.15)" stroke="rgba(34,197,94,.35)" stroke-width="1"/>
-            <circle cx="120" cy="40" r="4" fill="#22c55e"/>
-            <text x="150" y="44" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="600" fill="#22c55e">Aberto</text>
-            <rect x="24" y="72" width="148" height="80" rx="12" fill="rgba(255,255,255,.05)"/>
-            <text x="48" y="98" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,.4)">Faturamento hoje</text>
-            <text x="48" y="126" font-family="sans-serif" font-size="26" font-weight="700" fill="white">R$2.480</text>
-            <text x="48" y="143" font-family="sans-serif" font-size="9" fill="#4ade80">+18% vs ontem</text>
-            <rect x="184" y="72" width="100" height="80" rx="12" fill="rgba(255,255,255,.05)"/>
-            <text x="234" y="98" text-anchor="middle" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,.4)">Pedidos</text>
-            <text x="234" y="126" text-anchor="middle" font-family="sans-serif" font-size="26" font-weight="700" fill="white">47</text>
-            <text x="234" y="143" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#4ade80">+6 hoje</text>
-            <rect x="296" y="72" width="200" height="80" rx="12" fill="rgba(255,255,255,.05)"/>
-            <text x="396" y="98" text-anchor="middle" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,.4)">Avaliacao</text>
-            <text x="396" y="126" text-anchor="middle" font-family="sans-serif" font-size="26" font-weight="700" fill="#fbbf24">4.9</text>
-            <text x="396" y="143" text-anchor="middle" font-family="sans-serif" font-size="9" fill="rgba(255,255,255,.3)">312 avaliacoes</text>
-            <line x1="24" y1="170" x2="496" y2="170" stroke="rgba(255,255,255,.07)" stroke-width="1"/>
-            <text x="24" y="190" font-family="sans-serif" font-size="10" font-weight="600" fill="rgba(255,255,255,.35)">PEDIDOS RECENTES</text>
-            <rect x="24" y="200" width="472" height="44" rx="10" fill="rgba(217,24,26,.1)" stroke="rgba(217,24,26,.3)" stroke-width="1"/>
-            <rect x="36" y="211" width="22" height="22" rx="6" fill="#D9181A"/>
-            <text x="47" y="226" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="700" fill="white">iF</text>
-            <text x="70" y="219" font-family="sans-serif" font-size="11" font-weight="600" fill="white">Pizza Calabresa G + 2 Refri</text>
-            <text x="70" y="234" font-family="sans-serif" font-size="9" fill="rgba(255,255,255,.35)">ha 2 min . R$94</text>
-            <rect x="418" y="212" width="66" height="20" rx="10" fill="#22c55e"/>
-            <text x="451" y="226" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="700" fill="#000">NOVO</text>
-            <rect x="24" y="252" width="472" height="44" rx="10" fill="rgba(255,255,255,.03)"/>
-            <rect x="36" y="263" width="22" height="22" rx="6" fill="#D9181A" opacity=".5"/>
-            <text x="47" y="278" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="700" fill="white">iF</text>
-            <text x="70" y="271" font-family="sans-serif" font-size="11" font-weight="600" fill="rgba(255,255,255,.7)">X-Burguer Duplo + Batata G</text>
-            <text x="70" y="286" font-family="sans-serif" font-size="9" fill="rgba(255,255,255,.3)">ha 11 min . R$67</text>
-            <rect x="400" y="263" width="84" height="20" rx="10" fill="rgba(251,191,36,.12)" stroke="rgba(251,191,36,.35)" stroke-width="1"/>
-            <text x="442" y="277" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="600" fill="#fbbf24">PREPARO</text>
-            <rect x="24" y="304" width="472" height="40" rx="10" fill="rgba(255,255,255,.02)"/>
-            <rect x="36" y="314" width="22" height="22" rx="6" fill="#D9181A" opacity=".25"/>
-            <text x="47" y="329" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="700" fill="white">iF</text>
-            <text x="70" y="322" font-family="sans-serif" font-size="11" font-weight="600" fill="rgba(255,255,255,.35)">Frango Grelhado + Arroz</text>
-            <text x="70" y="336" font-family="sans-serif" font-size="9" fill="rgba(255,255,255,.18)">ha 28 min . R$42</text>
-            <rect x="406" y="315" width="78" height="20" rx="10" fill="rgba(34,197,94,.07)"/>
-            <text x="445" y="329" text-anchor="middle" font-family="sans-serif" font-size="9" fill="rgba(34,197,94,.5)">ENTREGUE</text>
-          </svg>
+      <!-- ── MENTORIAS: tabs iFood / 99Food / Keeta ── -->
+      <div class="svc-mentor-wrap">
+        <div class="svc-mentor-divider">
+          <h3 class="svc-mentor-subtitle">Mentoria para cada<br>app de delivery</h3>
+          <p class="svc-mentor-body">Estratégia, otimização e acompanhamento para você vender mais em cada plataforma.</p>
         </div>
-        <div class="svc-text">
-          <span class="svc-chip svc-chip--red">iFood</span>
-          <h3 class="svc-subtitle">Mentoria iFood para vender mais todo dia</h3>
-          <p class="svc-body">Otimizamos seu perfil, cardapio e campanhas no iFood para voce aparecer mais, vender mais e receber avaliacoes melhores.</p>
-          <ul class="svc-features">
-            <li>Configuracao e otimizacao de perfil</li>
-            <li>Estrategia de campanhas e cupons</li>
-            <li>Gestao e resposta de avaliacoes</li>
-            <li>Integracao direta com o PDV Bailey</li>
-          </ul>
-          <a href="https://wa.me/5511999999999" class="svc-cta" target="_blank" rel="noopener">Quero mentoria iFood &rarr;</a>
-        </div>
+      <div class="mentor-tab-bar">
+        <button class="mentor-tab is-active" data-target="tab-ifood">
+          <span class="mentor-tab-dot" style="background:#D9181A"></span>iFood
+        </button>
+        <button class="mentor-tab" data-target="tab-99food">
+          <span class="mentor-tab-dot" style="background:#FF5C00"></span>99Food
+        </button>
+        <button class="mentor-tab" data-target="tab-keeta">
+          <span class="mentor-tab-dot" style="background:#7B2FBE"></span>Keeta
+        </button>
       </div>
 
-      <!-- ROW 4: Mentoria 99Food (midia direita) -->
-      <div class="svc-row svc-row--flip reveal">
-        <div class="svc-media">
-          <svg viewBox="0 0 520 360" xmlns="http://www.w3.org/2000/svg" class="svc-mockup">
-            <rect width="520" height="360" rx="18" fill="#120600"/>
-            <rect x="24" y="24" width="88" height="32" rx="8" fill="#FF5C00"/>
-            <text x="68" y="44" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="800" fill="white">99Food</text>
-            <rect x="124" y="30" width="76" height="20" rx="10" fill="rgba(34,197,94,.15)" stroke="rgba(34,197,94,.35)" stroke-width="1"/>
-            <circle cx="136" cy="40" r="4" fill="#22c55e"/>
-            <text x="166" y="44" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="600" fill="#22c55e">Aberto</text>
-            <rect x="24" y="72" width="148" height="80" rx="12" fill="rgba(255,255,255,.05)"/>
-            <text x="48" y="98" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,.4)">Faturamento hoje</text>
-            <text x="48" y="126" font-family="sans-serif" font-size="26" font-weight="700" fill="white">R$1.720</text>
-            <text x="48" y="143" font-family="sans-serif" font-size="9" fill="#4ade80">+22% vs ontem</text>
-            <rect x="184" y="72" width="100" height="80" rx="12" fill="rgba(255,255,255,.05)"/>
-            <text x="234" y="98" text-anchor="middle" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,.4)">Pedidos</text>
-            <text x="234" y="126" text-anchor="middle" font-family="sans-serif" font-size="26" font-weight="700" fill="white">33</text>
-            <text x="234" y="143" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#4ade80">+9 hoje</text>
-            <rect x="296" y="72" width="200" height="80" rx="12" fill="rgba(255,255,255,.05)"/>
-            <text x="396" y="98" text-anchor="middle" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,.4)">Ticket medio</text>
-            <text x="396" y="126" text-anchor="middle" font-family="sans-serif" font-size="26" font-weight="700" fill="white">R$52</text>
-            <text x="396" y="143" text-anchor="middle" font-family="sans-serif" font-size="9" fill="rgba(255,255,255,.3)">meta R$60</text>
-            <line x1="24" y1="170" x2="496" y2="170" stroke="rgba(255,255,255,.07)" stroke-width="1"/>
-            <text x="24" y="190" font-family="sans-serif" font-size="10" font-weight="600" fill="rgba(255,255,255,.35)">PEDIDOS RECENTES</text>
-            <rect x="24" y="200" width="472" height="44" rx="10" fill="rgba(255,92,0,.1)" stroke="rgba(255,92,0,.3)" stroke-width="1"/>
-            <rect x="36" y="211" width="22" height="22" rx="6" fill="#FF5C00"/>
-            <text x="47" y="226" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="700" fill="white">99</text>
-            <text x="70" y="219" font-family="sans-serif" font-size="11" font-weight="600" fill="white">Combo X-Tudo + Batata + Refri</text>
-            <text x="70" y="234" font-family="sans-serif" font-size="9" fill="rgba(255,255,255,.35)">ha 1 min . R$78</text>
-            <rect x="418" y="212" width="66" height="20" rx="10" fill="#22c55e"/>
-            <text x="451" y="226" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="700" fill="#000">NOVO</text>
-            <rect x="24" y="252" width="472" height="44" rx="10" fill="rgba(255,255,255,.03)"/>
-            <rect x="36" y="263" width="22" height="22" rx="6" fill="#FF5C00" opacity=".5"/>
-            <text x="47" y="278" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="700" fill="white">99</text>
-            <text x="70" y="271" font-family="sans-serif" font-size="11" font-weight="600" fill="rgba(255,255,255,.7)">Marmita Fit Frango G</text>
-            <text x="70" y="286" font-family="sans-serif" font-size="9" fill="rgba(255,255,255,.3)">ha 9 min . R$34</text>
-            <rect x="400" y="263" width="84" height="20" rx="10" fill="rgba(251,191,36,.12)" stroke="rgba(251,191,36,.35)" stroke-width="1"/>
-            <text x="442" y="277" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="600" fill="#fbbf24">PREPARO</text>
-            <rect x="24" y="304" width="472" height="40" rx="10" fill="rgba(255,255,255,.02)"/>
-            <rect x="36" y="314" width="22" height="22" rx="6" fill="#FF5C00" opacity=".25"/>
-            <text x="47" y="329" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="700" fill="white">99</text>
-            <text x="70" y="322" font-family="sans-serif" font-size="11" font-weight="600" fill="rgba(255,255,255,.35)">Acai 500ml + Granola</text>
-            <text x="70" y="336" font-family="sans-serif" font-size="9" fill="rgba(255,255,255,.18)">ha 21 min . R$29</text>
-            <rect x="406" y="315" width="78" height="20" rx="10" fill="rgba(34,197,94,.07)"/>
-            <text x="445" y="329" text-anchor="middle" font-family="sans-serif" font-size="9" fill="rgba(34,197,94,.5)">ENTREGUE</text>
-          </svg>
-        </div>
-        <div class="svc-text">
-          <span class="svc-chip svc-chip--orange">99Food</span>
-          <h3 class="svc-subtitle">Mentoria 99Food para crescer rapido</h3>
-          <p class="svc-body">Aumente sua visibilidade e volume de pedidos na 99Food com a estrategia certa. Menos concorrencia, mais oportunidade.</p>
-          <ul class="svc-features">
-            <li>Cadastro e ativacao do restaurante</li>
-            <li>Otimizacao de fotos e descricoes</li>
-            <li>Gestao de promocoes e descontos</li>
-            <li>Relatorios de desempenho semanais</li>
-          </ul>
-          <a href="https://wa.me/5511999999999" class="svc-cta" target="_blank" rel="noopener">Quero mentoria 99Food &rarr;</a>
-        </div>
-      </div>
+      <div class="mentor-panels">
 
-      <!-- ROW 5: Mentoria Keeta (midia esquerda) -->
-      <div class="svc-row reveal">
-        <div class="svc-media">
-          <svg viewBox="0 0 520 360" xmlns="http://www.w3.org/2000/svg" class="svc-mockup">
-            <rect width="520" height="360" rx="18" fill="#0d0318"/>
-            <rect x="24" y="24" width="76" height="32" rx="8" fill="#7B2FBE"/>
-            <text x="62" y="44" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="800" fill="white">Keeta</text>
-            <rect x="112" y="30" width="76" height="20" rx="10" fill="rgba(34,197,94,.15)" stroke="rgba(34,197,94,.35)" stroke-width="1"/>
-            <circle cx="124" cy="40" r="4" fill="#22c55e"/>
-            <text x="154" y="44" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="600" fill="#22c55e">Aberto</text>
-            <rect x="24" y="72" width="148" height="80" rx="12" fill="rgba(255,255,255,.05)"/>
-            <text x="48" y="98" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,.4)">Faturamento hoje</text>
-            <text x="48" y="126" font-family="sans-serif" font-size="26" font-weight="700" fill="white">R$940</text>
-            <text x="48" y="143" font-family="sans-serif" font-size="9" fill="#4ade80">+31% vs ontem</text>
-            <rect x="184" y="72" width="100" height="80" rx="12" fill="rgba(255,255,255,.05)"/>
-            <text x="234" y="98" text-anchor="middle" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,.4)">Pedidos</text>
-            <text x="234" y="126" text-anchor="middle" font-family="sans-serif" font-size="26" font-weight="700" fill="white">18</text>
-            <text x="234" y="143" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#4ade80">+5 hoje</text>
-            <rect x="296" y="72" width="200" height="80" rx="12" fill="rgba(255,255,255,.05)"/>
-            <text x="396" y="98" text-anchor="middle" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,.4)">Avaliacao</text>
-            <text x="396" y="126" text-anchor="middle" font-family="sans-serif" font-size="26" font-weight="700" fill="#fbbf24">4.8</text>
-            <text x="396" y="143" text-anchor="middle" font-family="sans-serif" font-size="9" fill="rgba(255,255,255,.3)">89 avaliacoes</text>
-            <line x1="24" y1="170" x2="496" y2="170" stroke="rgba(255,255,255,.07)" stroke-width="1"/>
-            <text x="24" y="190" font-family="sans-serif" font-size="10" font-weight="600" fill="rgba(255,255,255,.35)">PEDIDOS RECENTES</text>
-            <rect x="24" y="200" width="472" height="44" rx="10" fill="rgba(123,47,190,.12)" stroke="rgba(123,47,190,.35)" stroke-width="1"/>
-            <rect x="36" y="211" width="22" height="22" rx="6" fill="#7B2FBE"/>
-            <text x="47" y="226" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="700" fill="white">Kt</text>
-            <text x="70" y="219" font-family="sans-serif" font-size="11" font-weight="600" fill="white">Yakisoba de Camarao G</text>
-            <text x="70" y="234" font-family="sans-serif" font-size="9" fill="rgba(255,255,255,.35)">ha 3 min . R$67</text>
-            <rect x="418" y="212" width="66" height="20" rx="10" fill="#22c55e"/>
-            <text x="451" y="226" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="700" fill="#000">NOVO</text>
-            <rect x="24" y="252" width="472" height="44" rx="10" fill="rgba(255,255,255,.03)"/>
-            <rect x="36" y="263" width="22" height="22" rx="6" fill="#7B2FBE" opacity=".5"/>
-            <text x="47" y="278" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="700" fill="white">Kt</text>
-            <text x="70" y="271" font-family="sans-serif" font-size="11" font-weight="600" fill="rgba(255,255,255,.7)">Combo Sushi 10 pecas</text>
-            <text x="70" y="286" font-family="sans-serif" font-size="9" fill="rgba(255,255,255,.3)">ha 14 min . R$58</text>
-            <rect x="400" y="263" width="84" height="20" rx="10" fill="rgba(251,191,36,.12)" stroke="rgba(251,191,36,.35)" stroke-width="1"/>
-            <text x="442" y="277" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="600" fill="#fbbf24">PREPARO</text>
-            <rect x="24" y="304" width="472" height="40" rx="10" fill="rgba(255,255,255,.02)"/>
-            <rect x="36" y="314" width="22" height="22" rx="6" fill="#7B2FBE" opacity=".25"/>
-            <text x="47" y="329" text-anchor="middle" font-family="sans-serif" font-size="8" font-weight="700" fill="white">Kt</text>
-            <text x="70" y="322" font-family="sans-serif" font-size="11" font-weight="600" fill="rgba(255,255,255,.35)">Temaki de Salmao + Misso</text>
-            <text x="70" y="336" font-family="sans-serif" font-size="9" fill="rgba(255,255,255,.18)">ha 25 min . R$44</text>
-            <rect x="406" y="315" width="78" height="20" rx="10" fill="rgba(34,197,94,.07)"/>
-            <text x="445" y="329" text-anchor="middle" font-family="sans-serif" font-size="9" fill="rgba(34,197,94,.5)">ENTREGUE</text>
-          </svg>
+        <!-- ── Painel iFood ── -->
+        <div class="mentor-panel is-active" id="tab-ifood">
+                    <div class="mentor-panel-media">
+            <img src="images/gestao/ifoodgestao.png" alt="Bailey Gestão iFood" class="mentor-img">
+          </div>
+          <div class="mentor-panel-text">
+            <span class="svc-chip svc-chip--red">iFood</span>
+            <h3 class="svc-subtitle">Mentoria iFood para vender mais todo dia</h3>
+            <p class="svc-body">Otimizamos seu perfil, cardápio e campanhas no iFood para você aparecer mais, vender mais e receber avaliações melhores.</p>
+            <ul class="svc-features">
+              <li>Configuração e otimização de perfil</li>
+              <li>Estratégia de campanhas e cupons</li>
+              <li>Gestão e resposta de avaliações</li>
+              <li>Integração direta com o PDV Bailey</li>
+            </ul>
+            <a href="https://wa.me/5512988886499" class="svc-cta" target="_blank" rel="noopener">Quero mentoria iFood &rarr;</a>
+          </div>
         </div>
-        <div class="svc-text">
-          <span class="svc-chip svc-chip--purple">Keeta</span>
-          <h3 class="svc-subtitle">Mentoria Keeta para liderar o marketplace mais novo</h3>
-          <p class="svc-body">Entre no Keeta do jeito certo e aproveite a janela de menor concorrencia para construir reputacao rapido e ganhar destaque antes dos outros.</p>
-          <ul class="svc-features">
-            <li>Ativacao e configuracao do perfil</li>
-            <li>Estrategia de lancamento no app</li>
-            <li>Gestao de entregas e SLA</li>
-            <li>Crescimento de avaliacoes organicas</li>
-          </ul>
-          <a href="https://wa.me/5511999999999" class="svc-cta" target="_blank" rel="noopener">Quero mentoria Keeta &rarr;</a>
+
+        <!-- ── Painel 99Food ── -->
+        <div class="mentor-panel" id="tab-99food">
+                    <div class="mentor-panel-media">
+            <img src="images/gestao/99foodgestao.png" alt="Bailey Gestão 99Food" class="mentor-img">
+          </div>
+          <div class="mentor-panel-text">
+            <span class="svc-chip svc-chip--orange">99Food</span>
+            <h3 class="svc-subtitle">Mentoria 99Food para crescer rápido</h3>
+            <p class="svc-body">Aumente sua visibilidade e volume de pedidos na 99Food com a estratégia certa. Menos concorrência, mais oportunidade.</p>
+            <ul class="svc-features">
+              <li>Cadastro e ativação do restaurante</li>
+              <li>Otimização de fotos e descrições</li>
+              <li>Gestão de promoções e descontos</li>
+              <li>Relatórios de desempenho semanais</li>
+            </ul>
+            <a href="https://wa.me/5512988886499" class="svc-cta" target="_blank" rel="noopener">Quero mentoria 99Food &rarr;</a>
+          </div>
         </div>
-      </div>
+
+        <!-- ── Painel Keeta ── -->
+        <div class="mentor-panel" id="tab-keeta">
+                    <div class="mentor-panel-media">
+            <img src="images/gestao/keetagestao.png" alt="Bailey Gestão Keeta" class="mentor-img">
+          </div>
+          <div class="mentor-panel-text">
+            <span class="svc-chip svc-chip--purple">Keeta</span>
+            <h3 class="svc-subtitle">Mentoria Keeta para liderar o marketplace mais novo</h3>
+            <p class="svc-body">Entre no Keeta do jeito certo e aproveite a janela de menor concorrência para construir reputação rápido e ganhar destaque antes dos outros.</p>
+            <ul class="svc-features">
+              <li>Ativação e configuração do perfil</li>
+              <li>Estratégia de lançamento no app</li>
+              <li>Gestão de entregas e SLA</li>
+              <li>Crescimento de avaliações orgânicas</li>
+            </ul>
+            <a href="https://wa.me/5512988886499" class="svc-cta" target="_blank" rel="noopener">Quero mentoria Keeta &rarr;</a>
+          </div>
+        </div>
+
+      </div><!-- /mentor-panels -->
+      </div><!-- /svc-mentor-wrap -->
+
 
     </div>
   </section>
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="js/main.js"></script>
-</body>
-</html>
+  <!-- ══════════════════════════════════════════════════════════
+       MARQUEE — CLIENTES BAILEY
+  ══════════════════════════════════════════════════════════ -->
+  <section id="clientes" class="clients-section">
+
+    <!-- Cabeçalho -->
+    <div class="clients-header" data-animate>
+      <span class="clients-label">Nossos Clientes</span>
+      <h2 class="clients-title">
+        Os <span class="clients-title-green">Estabelecimentos</span><br>já confiam na Bailey.
+      </h2>
+      <p class="clients-desc">
+        De pequenos restaurantes a redes — todos operando com mais eficiência.
+      </p>
+    </div>
+
+    <!-- Faixa 1 — rola para a ESQUERDA -->
+    <div class="marquee-wrapper" style="margin-bottom:16px;">
+      <div class="marquee-track marquee-track--left">
+
+        <!-- Conjunto A -->
+        <div class="marquee-card" style="--card-accent:#e6520e;">
+          <div class="marquee-card-img" style="background-image:url('images/clientes/planet.webp');background-color:#1a0a0a;">
+            <div class="marquee-card-overlay">
+              <span class="marquee-badge" style="background:#e6520e;">Pizza</span>
+              <h4 class="marquee-name">Pizzaria Planet - Jardim Camburi</h4>
+              <p class="marquee-city"><i class="fas fa-location-dot"></i>Vitória - ES</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="marquee-card" style="--card-accent:#10A37F;">
+          <div class="marquee-card-img" style="background-image:url('images/clientes/labor.webp');background-color:#0a1a15;">
+            <div class="marquee-card-overlay">
+              <span class="marquee-badge" style="background:#10A37F;">Pizza</span>
+              <h4 class="marquee-name">Pizzaria Labor</h4>
+              <p class="marquee-city"><i class="fas fa-location-dot"></i>São Paulo - SP</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="marquee-card" style="--card-accent:#fa1b1b;">
+          <div class="marquee-card-img" style="background-image:url('images/clientes/obba.webp');background-color:#110a1a;">
+            <div class="marquee-card-overlay">
+              <span class="marquee-badge" style="background:#fa1b1b;">Pizza</span>
+              <h4 class="marquee-name">Pizza Obba Premium</h4>
+              <p class="marquee-city"><i class="fas fa-location-dot"></i>Uberlândia - MG</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="marquee-card" style="--card-accent:#FF7A00;">
+          <div class="marquee-card-img" style="background-image:url('images/clientes/frango_fille.webp');background-color:#1a0f00;">
+            <div class="marquee-card-overlay">
+              <span class="marquee-badge" style="background:#FF7A00;">Marmitas</span>
+              <h4 class="marquee-name">Frango e Filé Grill</h4>
+              <p class="marquee-city"><i class="fas fa-location-dot"></i>São José dos Campos - SP</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="marquee-card" style="--card-accent:#c01212;">
+          <div class="marquee-card-img" style="background-image:url('images/clientes/bembom.webp');background-color:#1a0808;">
+            <div class="marquee-card-overlay">
+              <span class="marquee-badge" style="background:#c01212;color:#fff;">Lanches</span>
+              <h4 class="marquee-name">Bem Bom - Lanches</h4>
+              <p class="marquee-city"><i class="fas fa-location-dot"></i>São José dos Campos - SP</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="marquee-card" style="--card-accent:#FFC400;">
+          <div class="marquee-card-img" style="background-image:url('images/clientes/mrprime.webp');background-color:#1a1500;">
+            <div class="marquee-card-overlay">
+              <span class="marquee-badge" style="background:#FFC400;color:#000;">Marmitas & Lanches</span>
+              <h4 class="marquee-name">Mr Prime</h4>
+              <p class="marquee-city"><i class="fas fa-location-dot"></i>Caçapava - SP</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="marquee-card" style="--card-accent:#afc20a;">
+          <div class="marquee-card-img" style="background-image:url('images/clientes/bella.webp');background-color:#0f1a00;">
+            <div class="marquee-card-overlay">
+              <span class="marquee-badge" style="background:#afc20a;">Pizza</span>
+              <h4 class="marquee-name">Pizzaria - Bella</h4>
+              <p class="marquee-city"><i class="fas fa-location-dot"></i>Serra - ES</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="marquee-card" style="--card-accent:#f43f5e;">
+          <div class="marquee-card-img" style="background-image:url('images/clientes/italy.webp');background-color:#1a0510;">
+            <div class="marquee-card-overlay">
+              <span class="marquee-badge" style="background:#f43f5e;">Pizza</span>
+              <h4 class="marquee-name">Pizza Italy</h4>
+              <p class="marquee-city"><i class="fas fa-location-dot"></i>Vila Velha - ES</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Conjunto B — cópia para loop infinito -->
+        <div class="marquee-card" style="--card-accent:#e6520e;">
+          <div class="marquee-card-img" style="background-image:url('images/clientes/planet.webp');background-color:#1a0a0a;">
+            <div class="marquee-card-overlay">
+              <span class="marquee-badge" style="background:#e6520e;">Pizza</span>
+              <h4 class="marquee-name">Pizzaria Planet - Jardim Camburi</h4>
+              <p class="marquee-city"><i class="fas fa-location-dot"></i>Vitória - ES</p>
+            </div>
+          </div>
+        </div>
+        <div class="marquee-card" style="--card-accent:#10A37F;">
+          <div class="marquee-card-img" style="background-image:url('images/clientes/labor.webp');background-color:#0a1a15;">
+            <div class="marquee-card-overlay">
+              <span class="marquee-badge" style="background:#10A37F;">Pizza</span>
+              <h4 class="marquee-name">Pizzaria Labor</h4>
+              <p class="marquee-city"><i class="fas fa-location-dot"></i>São Paulo - SP</p>
+            </div>
+          </div>
+        </div>
+        <div class="marquee-card" style="--card-accent:#fa1b1b;">
+          <div class="marquee-card-img" style="background-image:url('images/clientes/obba.webp');background-color:#110a1a;">
+            <div class="marquee-card-overlay">
+              <span class="marquee-badge" style="background:#fa1b1b;">Pizza</span>
+              <h4 class="marquee-name">Pizza Obba Premium</h4>
+              <p class="marquee-city"><i class="fas fa-location-dot"></i>Uberlândia - MG</p>
+            </div>
+          </div>
+        </div>
+        <div class="marquee-card" style="--card-accent:#FF7A00;">
+          <div class="marquee-card-img" style="background-image:url('images/clientes/frango_fille.webp');background-color:#1a0f00;">
+            <div class="marquee-card-overlay">
+              <span class="marquee-badge" style="background:#FF7A00;">Marmitas</span>
+              <h4 class="marquee-name">Frango e Filé Grill</h4>
+              <p class="marquee-city"><i class="fas fa-location-dot"></i>São José dos Campos - SP</p>
+            </div>
+          </div>
+        </div>
+        <div class="marquee-card" style="--card-accent:#c01212;">
+          <div class="marquee-card-img" style="background-image:url('images/clientes/bembom.webp');background-color:#1a0808;">
+            <div class="marquee-card-overlay">
+              <span class="marquee-badge" style="background:#c01212;color:#fff;">Lanches</span>
+              <h4 class="marquee-name">Bem Bom - Lanches</h4>
+              <p class="marquee-city"><i class="fas fa-location-dot"></i>São José dos Campos - SP</p>
+            </div>
+          </div>
+        </div>
+        <div class="marquee-card" style="--card-accent:#FFC400;">
+          <div class="marquee-card-img" style="background-image:url('images/clientes/mrprime.webp');background-color:#1a1500;">
+            <div class="marquee-card-overlay">
+              <span class="marquee-badge" style="background:#FFC400;color:#000;">Marmitas & Lanches</span>
+              <h4 class="marquee-name">Mr Prime</h4>
+              <p class="marquee-city"><i class="fas fa-location-dot"></i>Caçapava - SP</p>
+            </div>
+          </div>
+        </div>
+        <div class="marquee-card" style="--card-accent:#afc20a;">
+          <div class="marquee-card-img" style="background-image:url('images/clientes/bella.webp');background-color:#0f1a00;">
+            <div class="marquee-card-overlay">
+              <span class="marquee-badge" style="background:#afc20a;">Pizza</span>
+              <h4 class="marquee-name">Pizzaria - Bella</h4>
+              <p class="marquee-city"><i class="fas fa-location-dot"></i>Serra - ES</p>
+            </div>
+          </div>
+        </div>
+        <div class="marquee-card" style="--card-accent:#f43f5e;">
+          <div class="marquee-card-img" style="background-image:url('images/clientes/italy.webp');background-color:#1a0510;">
+            <div class="marquee-card-overlay">
+              <span class="marquee-badge" style="background:#f43f5e;">Pizza</span>
+              <h4 class="marquee-name">Pizza Italy</h4>
+              <p class="marquee-city"><i class="fas fa-location-dot"></i>Vila Velha - ES</p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /marquee-track 1 -->
+    </div><!-- /marquee-wrapper 1 -->
+
+    <!-- Faixa 2 — rola para a DIREITA -->
+    <div class="marquee-wrapper">
+      <div class="marquee-track marquee-track--right">
+
+        <!-- Conjunto A -->
+        <div class="marquee-card" style="--card-accent:#e11d48;">
+          <div class="marquee-card-img" style="background-image:url('images/clientes/pizzaGo.webp');background-color:#1a0a10;">
+            <div class="marquee-card-overlay">
+              <span class="marquee-badge" style="background:#e11d48;">Pizza</span>
+              <h4 class="marquee-name">Pizza Go</h4>
+              <p class="marquee-city"><i class="fas fa-location-dot"></i>São José dos Campos - SP</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="marquee-card" style="--card-accent:#16a34a;">
+          <div class="marquee-card-img" style="background-image:url('images/clientes/Nm.webp');background-color:#0a1a0e;">
+            <div class="marquee-card-overlay">
+              <span class="marquee-badge" style="background:#16a34a;">Pizza</span>
+              <h4 class="marquee-name">Pizzas Nm</h4>
+              <p class="marquee-city"><i class="fas fa-location-dot"></i>São Paulo - SP</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="marquee-card" style="--card-accent:#d97706;">
+          <div class="marquee-card-img" style="background-image:url('images/clientes/zaya.webp');background-color:#1a1000;">
+            <div class="marquee-card-overlay">
+              <span class="marquee-badge" style="background:#d97706;">Esfiharia</span>
+              <h4 class="marquee-name">Zaya Esfiharia</h4>
+              <p class="marquee-city"><i class="fas fa-location-dot"></i>Campo Grande - MS</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="marquee-card" style="--card-accent:#7c3aed;">
+          <div class="marquee-card-img" style="background-image:url('images/clientes/pointdodede.webp');background-color:#0f0a1a;">
+            <div class="marquee-card-overlay">
+              <span class="marquee-badge" style="background:#7c3aed;">Pizza</span>
+              <h4 class="marquee-name">Point do Dedé</h4>
+              <p class="marquee-city"><i class="fas fa-location-dot"></i>Guarujá - SP</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="marquee-card" style="--card-accent:#0891b2;">
+          <div class="marquee-card-img" style="background-image:url('images/clientes/kpricho.webp');background-color:#001520;">
+            <div class="marquee-card-overlay">
+              <span class="marquee-badge" style="background:#0891b2;">Lanches</span>
+              <h4 class="marquee-name">K-Pricho Lanches</h4>
+              <p class="marquee-city"><i class="fas fa-location-dot"></i>São José dos Campos - SP</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="marquee-card" style="--card-accent:#dc2626;">
+          <div class="marquee-card-img" style="background-image:url('images/clientes/sanduba.webp');background-color:#1a0808;">
+            <div class="marquee-card-overlay">
+              <span class="marquee-badge" style="background:#dc2626;">Lanches</span>
+              <h4 class="marquee-name">Sandubas Burguer</h4>
+              <p class="marquee-city"><i class="fas fa-location-dot"></i>São José dos Campos - SP</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="marquee-card" style="--card-accent:#4ade80;">
+          <div class="marquee-card-img" style="background-image:url('images/clientes/tropikal.webp');background-color:#0a180e;">
+            <div class="marquee-card-overlay">
+              <span class="marquee-badge" style="background:#4ade80;color:#000;">Pizza</span>
+              <h4 class="marquee-name">Pizzaria Tropikal</h4>
+              <p class="marquee-city"><i class="fas fa-location-dot"></i>São José dos Campos - SP</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="marquee-card" style="--card-accent:#8b5cf6;">
+          <div class="marquee-card-img" style="background-image:url('images/clientes/jo.webp');background-color:#100a1a;">
+            <div class="marquee-card-overlay">
+              <span class="marquee-badge" style="background:#8b5cf6;">Pizza</span>
+              <h4 class="marquee-name">Jô Pizzaria</h4>
+              <p class="marquee-city"><i class="fas fa-location-dot"></i>São José dos Campos - SP</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Conjunto B — cópia para loop infinito -->
+        <div class="marquee-card" style="--card-accent:#e11d48;">
+          <div class="marquee-card-img" style="background-image:url('images/clientes/pizzaGo.webp');background-color:#1a0a10;">
+            <div class="marquee-card-overlay">
+              <span class="marquee-badge" style="background:#e11d48;">Pizza</span>
+              <h4 class="marquee-name">Pizza Go</h4>
+              <p class="marquee-city"><i class="fas fa-location-dot"></i>São José dos Campos - SP</p>
+            </div>
+          </div>
+        </div>
+        <div class="marquee-card" style="--card-accent:#16a34a;">
+          <div class="marquee-card-img" style="background-image:url('images/clientes/Nm.webp');background-color:#0a1a0e;">
+            <div class="marquee-card-overlay">
+              <span class="marquee-badge" style="background:#16a34a;">Pizza</span>
+              <h4 class="marquee-name">Pizzas Nm</h4>
+              <p class="marquee-city"><i class="fas fa-location-dot"></i>São Paulo - SP</p>
+            </div>
+          </div>
+        </div>
+        <div class="marquee-card" style="--card-accent:#d97706;">
+          <div class="marquee-card-img" style="background-image:url('images/clientes/zaya.webp');background-color:#1a1000;">
+            <div class="marquee-card-overlay">
+              <span class="marquee-badge" style="background:#d97706;">Esfiharia</span>
+              <h4 class="marquee-name">Zaya Esfiharia</h4>
+              <p class="marquee-city"><i class="fas fa-location-dot"></i>Campo Grande - MS</p>
+            </div>
+          </div>
+        </div>
+        <div class="marquee-card" style="--card-accent:#7c3aed;">
+          <div class="marquee-card-img" style="background-image:url('images/clientes/pointdodede.webp');background-color:#0f0a1a;">
+            <div class="marquee-card-overlay">
+              <span class="marquee-badge" style="background:#7c3aed;">Pizza</span>
+              <h4 class="marquee-name">Point do Dedé</h4>
+              <p class="marquee-city"><i class="fas fa-location-dot"></i>Guarujá - SP</p>
+            </div>
+          </div>
+        </div>
+        <div class="marquee-card" style="--card-accent:#0891b2;">
+          <div class="marquee-card-img" style="background-image:url('images/clientes/kpricho.webp');background-color:#001520;">
+            <div class="marquee-card-overlay">
+              <span class="marquee-badge" style="background:#0891b2;">Lanches</span>
+              <h4 class="marquee-name">K-Pricho Lanches</h4>
+              <p class="marquee-city"><i class="fas fa-location-dot"></i>São José dos Campos - SP</p>
+            </div>
+          </div>
+        </div>
+        <div class="marquee-card" style="--card-accent:#dc2626;">
+          <div class="marquee-card-img" style="background-image:url('images/clientes/sanduba.webp');background-color:#1a0808;">
+            <div class="marquee-card-overlay">
+              <span class="marquee-badge" style="background:#dc2626;">Lanches</span>
+              <h4 class="marquee-name">Sandubas Burguer</h4>
+              <p class="marquee-city"><i class="fas fa-location-dot"></i>São José dos Campos - SP</p>
+            </div>
+          </div>
+        </div>
+        <div class="marquee-card" style="--card-accent:#4ade80;">
+          <div class="marquee-card-img" style="background-image:url('images/clientes/tropikal.webp');background-color:#0a180e;">
+            <div class="marquee-card-overlay">
+              <span class="marquee-badge" style="background:#4ade80;color:#000;">Pizza</span>
+              <h4 class="marquee-name">Pizzaria Tropikal</h4>
+              <p class="marquee-city"><i class="fas fa-location-dot"></i>São José dos Campos - SP</p>
+            </div>
+          </div>
+        </div>
+        <div class="marquee-card" style="--card-accent:#8b5cf6;">
+          <div class="marquee-card-img" style="background-image:url('images/clientes/jo.webp');background-color:#100a1a;">
+            <div class="marquee-card-overlay">
+              <span class="marquee-badge" style="background:#8b5cf6;">Pizza</span>
+              <h4 class="marquee-name">Jô Pizzaria</h4>
+              <p class="marquee-city"><i class="fas fa-location-dot"></i>São José dos Campos - SP</p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /marquee-track 2 -->
+    </div><!-- /marquee-wrapper 2 -->
+
+  </section><!-- /clients-section -->
+
+
+
+  <!-- ====================================================
+       RESULTADOS REAIS + DEPOIMENTOS — seção unificada
+       ==================================================== -->
+  <section class="testi-section" id="resultados">
+    <div class="testi-inner">
+
+      <!-- Cabeçalho -->
+      <div class="testi-header reveal">
+        <span class="testi-badge">Resultados reais</span>
+        <h2 class="testi-title">Quem usa <span class="testi-title-green">Bailey</span>,<br>vende mais.</h2>
+        <p class="testi-sub">Veja o que nossos clientes conquistaram depois de adotar o ecossistema Bailey.</p>
+      </div>
+
+      <!-- 3 glow stat cards -->
+      <div class="stats-grid">
+
+        <div class="glow-container">
+          <span class="glow"></span>
+          <div class="glow-content">
+            <div class="stats-number"><span class="stats-pre">R$</span><span class="stats-count" data-target="80" data-suffix="M+">0</span></div>
+            <div class="stats-desc">Em vendas<br>gerenciadas</div>
+          </div>
+        </div>
+
+        <div class="glow-container">
+          <span class="glow"></span>
+          <div class="glow-content">
+            <div class="stats-number"><span class="stats-count" data-target="4.9" data-suffix="★" data-dec="1">0</span></div>
+            <div class="stats-desc">Satisfação<br>dos clientes</div>
+          </div>
+        </div>
+
+        <div class="glow-container">
+          <span class="glow"></span>
+          <div class="glow-content">
+            <div class="stats-number"><span class="stats-count" data-target="67" data-suffix="%+">0</span></div>
+            <div class="stats-desc">Pedidos/mês<br>dos clientes</div>
+          </div>
+        </div>
+
+      </div><!-- /stats-grid -->
+
+      <!-- 3 colunas de depoimentos com scroll infinito -->
+      <div class="testi-cols">
+
+        <!-- Coluna A -->
+        <div class="testi-col">
+          <div class="testi-track testi-track--a">
+            <!-- Cards × 2 para loop infinito -->
+
+            <div class="testi-card">
+              <div class="testi-card-top">
+                <div>
+                  <p class="testi-name">Pizzaria Planet</p>
+                  <p class="testi-loc">Vitória — ES</p>
+                </div>
+                <span class="testi-chip">iFood + PDV</span>
+              </div>
+              <p class="testi-quote">"Antes eu perdia pedido toda semana por confusão no caixa e no iFood. Depois do Bailey, zero erro. O pedido já cai direto na impressora da cozinha."</p>
+              <div class="testi-stats">
+                <span class="testi-stat testi-stat--green">+67% <small>pedidos/mês</small></span>
+                <span class="testi-stat testi-stat--green">-3h <small>gestão/dia</small></span>
+              </div>
+              <div class="testi-stars">★★★★★</div>
+            </div>
+
+            <div class="testi-card">
+              <div class="testi-card-top">
+                <div>
+                  <p class="testi-name">Mr Prime</p>
+                  <p class="testi-loc">Caçapava — SP</p>
+                </div>
+                <span class="testi-chip">3 plataformas</span>
+              </div>
+              <p class="testi-quote">"Integrei iFood, 99Food e o cardápio digital em menos de 1 semana. Hoje atualizo preço uma vez e aparece em tudo. Coisa que antes me tomava 1h por dia."</p>
+              <div class="testi-stats">
+                <span class="testi-stat testi-stat--green">+43% <small>faturamento</small></span>
+                <span class="testi-stat testi-stat--green">72h <small>para integrar</small></span>
+              </div>
+              <div class="testi-stars">★★★★★</div>
+            </div>
+
+            <div class="testi-card">
+              <div class="testi-card-top">
+                <div>
+                  <p class="testi-name">Pizza Obba Premium</p>
+                  <p class="testi-loc">Uberlândia — MG</p>
+                </div>
+                <span class="testi-chip">PDV + Robô</span>
+              </div>
+              <p class="testi-quote">"O robô de status no WhatsApp mudou tudo. Meu celular parou de tocar com pergunta de cliente. A equipe pode focar em fazer o lanche."</p>
+              <div class="testi-stats">
+                <span class="testi-stat testi-stat--green">-80% <small>msgs manuais</small></span>
+                <span class="testi-stat testi-stat--green">+28% <small>avaliações 5★</small></span>
+              </div>
+              <div class="testi-stars">★★★★★</div>
+            </div>
+
+            <div class="testi-card">
+              <div class="testi-card-top">
+                <div>
+                  <p class="testi-name">Pizzaria Bella</p>
+                  <p class="testi-loc">Serra — ES</p>
+                </div>
+                <span class="testi-chip">Cardápio Digital</span>
+              </div>
+              <p class="testi-quote">"Com o cardápio digital conseguimos receber pedidos direto sem pagar comissão. Nosso ticket médio subiu porque o cliente vê as fotos e pede mais."</p>
+              <div class="testi-stats">
+                <span class="testi-stat testi-stat--green">+35% <small>ticket médio</small></span>
+                <span class="testi-stat testi-stat--green">0% <small>comissão</small></span>
+              </div>
+              <div class="testi-stars">★★★★★</div>
+            </div>
+
+            <!-- duplicata para loop -->
+            <div class="testi-card">
+              <div class="testi-card-top">
+                <div>
+                  <p class="testi-name">Pizzaria Planet</p>
+                  <p class="testi-loc">Vitória — ES</p>
+                </div>
+                <span class="testi-chip">iFood + PDV</span>
+              </div>
+              <p class="testi-quote">"Antes eu perdia pedido toda semana por confusão no caixa e no iFood. Depois do Bailey, zero erro. O pedido já cai direto na impressora da cozinha."</p>
+              <div class="testi-stats">
+                <span class="testi-stat testi-stat--green">+67% <small>pedidos/mês</small></span>
+                <span class="testi-stat testi-stat--green">-3h <small>gestão/dia</small></span>
+              </div>
+              <div class="testi-stars">★★★★★</div>
+            </div>
+            <div class="testi-card">
+              <div class="testi-card-top">
+                <div>
+                  <p class="testi-name">Mr Prime</p>
+                  <p class="testi-loc">Caçapava — SP</p>
+                </div>
+                <span class="testi-chip">3 plataformas</span>
+              </div>
+              <p class="testi-quote">"Integrei iFood, 99Food e o cardápio digital em menos de 1 semana. Hoje atualizo preço uma vez e aparece em tudo. Coisa que antes me tomava 1h por dia."</p>
+              <div class="testi-stats">
+                <span class="testi-stat testi-stat--green">+43% <small>faturamento</small></span>
+                <span class="testi-stat testi-stat--green">72h <small>para integrar</small></span>
+              </div>
+              <div class="testi-stars">★★★★★</div>
+            </div>
+            <div class="testi-card">
+              <div class="testi-card-top">
+                <div>
+                  <p class="testi-name">Pizza Obba Premium</p>
+                  <p class="testi-loc">Uberlândia — MG</p>
+                </div>
+                <span class="testi-chip">PDV + Robô</span>
+              </div>
+              <p class="testi-quote">"O robô de status no WhatsApp mudou tudo. Meu celular parou de tocar com pergunta de cliente. A equipe pode focar em fazer o lanche."</p>
+              <div class="testi-stats">
+                <span class="testi-stat testi-stat--green">-80% <small>msgs manuais</small></span>
+                <span class="testi-stat testi-stat--green">+28% <small>avaliações 5★</small></span>
+              </div>
+              <div class="testi-stars">★★★★★</div>
+            </div>
+            <div class="testi-card">
+              <div class="testi-card-top">
+                <div>
+                  <p class="testi-name">Pizzaria Bella</p>
+                  <p class="testi-loc">Serra — ES</p>
+                </div>
+                <span class="testi-chip">Cardápio Digital</span>
+              </div>
+              <p class="testi-quote">"Com o cardápio digital conseguimos receber pedidos direto sem pagar comissão. Nosso ticket médio subiu porque o cliente vê as fotos e pede mais."</p>
+              <div class="testi-stats">
+                <span class="testi-stat testi-stat--green">+35% <small>ticket médio</small></span>
+                <span class="testi-stat testi-stat--green">0% <small>comissão</small></span>
+              </div>
+              <div class="testi-stars">★★★★★</div>
+            </div>
+
+          </div><!-- /testi-track--a -->
+        </div><!-- /testi-col A -->
+
+        <!-- Coluna B -->
+        <div class="testi-col">
+          <div class="testi-track testi-track--b">
+
+            <div class="testi-card">
+              <div class="testi-card-top">
+                <div>
+                  <p class="testi-name">Frango e Filé Grill</p>
+                  <p class="testi-loc">São José dos Campos — SP</p>
+                </div>
+                <span class="testi-chip">iFood + 99Food</span>
+              </div>
+              <p class="testi-quote">"A gente vendia no iFood e no 99Food mas cada plataforma era um caos separado. Com a Bailey centralizei tudo e hoje sei exatamente quanto vendo em cada app."</p>
+              <div class="testi-stats">
+                <span class="testi-stat testi-stat--green">+52% <small>pedidos totais</small></span>
+                <span class="testi-stat testi-stat--green">-2h <small>relatórios/dia</small></span>
+              </div>
+              <div class="testi-stars">★★★★★</div>
+            </div>
+
+            <div class="testi-card">
+              <div class="testi-card-top">
+                <div>
+                  <p class="testi-name">Bem Bom Lanches</p>
+                  <p class="testi-loc">São José dos Campos — SP</p>
+                </div>
+                <span class="testi-chip">PDV + Cardápio</span>
+              </div>
+              <p class="testi-quote">"Antes eu anotava pedido no papel e transferia pro sistema. Hoje o cliente faz o pedido no cardápio digital e já aparece na tela da cozinha automaticamente."</p>
+              <div class="testi-stats">
+                <span class="testi-stat testi-stat--green">+38% <small>velocidade</small></span>
+                <span class="testi-stat testi-stat--green">-90% <small>erros de pedido</small></span>
+              </div>
+              <div class="testi-stars">★★★★★</div>
+            </div>
+
+            <div class="testi-card">
+              <div class="testi-card-top">
+                <div>
+                  <p class="testi-name">Pizza Italy</p>
+                  <p class="testi-loc">Vila Velha — ES</p>
+                </div>
+                <span class="testi-chip">Cardápio Digital</span>
+              </div>
+              <p class="testi-quote">"Implantamos o cardápio digital e em 3 dias já tínhamos mais pedidos que no iFood, sem pagar comissão. Valeu cada centavo do investimento."</p>
+              <div class="testi-stats">
+                <span class="testi-stat testi-stat--green">+60% <small>pedidos diretos</small></span>
+                <span class="testi-stat testi-stat--green">R$0 <small>de comissão</small></span>
+              </div>
+              <div class="testi-stars">★★★★★</div>
+            </div>
+
+            <div class="testi-card">
+              <div class="testi-card-top">
+                <div>
+                  <p class="testi-name">Pizzaria Tropikal</p>
+                  <p class="testi-loc">São José dos Campos — SP</p>
+                </div>
+                <span class="testi-chip">PDV + iFood</span>
+              </div>
+              <p class="testi-quote">"O suporte da Bailey é excepcional. Qualquer dúvida responde rápido e sempre resolve. Nunca tive isso com nenhum outro sistema de gestão."</p>
+              <div class="testi-stats">
+                <span class="testi-stat testi-stat--green">+45% <small>eficiência</small></span>
+                <span class="testi-stat testi-stat--green">24h <small>suporte ativo</small></span>
+              </div>
+              <div class="testi-stars">★★★★★</div>
+            </div>
+
+            <!-- duplicata -->
+            <div class="testi-card">
+              <div class="testi-card-top">
+                <div>
+                  <p class="testi-name">Frango e Filé Grill</p>
+                  <p class="testi-loc">São José dos Campos — SP</p>
+                </div>
+                <span class="testi-chip">iFood + 99Food</span>
+              </div>
+              <p class="testi-quote">"A gente vendia no iFood e no 99Food mas cada plataforma era um caos separado. Com a Bailey centralizei tudo e hoje sei exatamente quanto vendo em cada app."</p>
+              <div class="testi-stats">
+                <span class="testi-stat testi-stat--green">+52% <small>pedidos totais</small></span>
+                <span class="testi-stat testi-stat--green">-2h <small>relatórios/dia</small></span>
+              </div>
+              <div class="testi-stars">★★★★★</div>
+            </div>
+            <div class="testi-card">
+              <div class="testi-card-top">
+                <div>
+                  <p class="testi-name">Bem Bom Lanches</p>
+                  <p class="testi-loc">São José dos Campos — SP</p>
+                </div>
+                <span class="testi-chip">PDV + Cardápio</span>
+              </div>
+              <p class="testi-quote">"Antes eu anotava pedido no papel e transferia pro sistema. Hoje o cliente faz o pedido no cardápio digital e já aparece na tela da cozinha automaticamente."</p>
+              <div class="testi-stats">
+                <span class="testi-stat testi-stat--green">+38% <small>velocidade</small></span>
+                <span class="testi-stat testi-stat--green">-90% <small>erros de pedido</small></span>
+              </div>
+              <div class="testi-stars">★★★★★</div>
+            </div>
+            <div class="testi-card">
+              <div class="testi-card-top">
+                <div>
+                  <p class="testi-name">Pizza Italy</p>
+                  <p class="testi-loc">Vila Velha — ES</p>
+                </div>
+                <span class="testi-chip">Cardápio Digital</span>
+              </div>
+              <p class="testi-quote">"Implantamos o cardápio digital e em 3 dias já tínhamos mais pedidos que no iFood, sem pagar comissão. Valeu cada centavo do investimento."</p>
+              <div class="testi-stats">
+                <span class="testi-stat testi-stat--green">+60% <small>pedidos diretos</small></span>
+                <span class="testi-stat testi-stat--green">R$0 <small>de comissão</small></span>
+              </div>
+              <div class="testi-stars">★★★★★</div>
+            </div>
+            <div class="testi-card">
+              <div class="testi-card-top">
+                <div>
+                  <p class="testi-name">Pizzaria Tropikal</p>
+                  <p class="testi-loc">São José dos Campos — SP</p>
+                </div>
+                <span class="testi-chip">PDV + iFood</span>
+              </div>
+              <p class="testi-quote">"O suporte da Bailey é excepcional. Qualquer dúvida responde rápido e sempre resolve. Nunca tive isso com nenhum outro sistema de gestão."</p>
+              <div class="testi-stats">
+                <span class="testi-stat testi-stat--green">+45% <small>eficiência</small></span>
+                <span class="testi-stat testi-stat--green">24h <small>suporte ativo</small></span>
+              </div>
+              <div class="testi-stars">★★★★★</div>
+            </div>
+
+          </div><!-- /testi-track--b -->
+        </div><!-- /testi-col B -->
+
+        <!-- Coluna C -->
+        <div class="testi-col">
+          <div class="testi-track testi-track--c">
+
+            <div class="testi-card">
+              <div class="testi-card-top">
+                <div>
+                  <p class="testi-name">Pizza Go</p>
+                  <p class="testi-loc">São José dos Campos — SP</p>
+                </div>
+                <span class="testi-chip">iFood + PDV</span>
+              </div>
+              <p class="testi-quote">"Três meses usando e não consigo imaginar voltar pra antes. A impressão automática na cozinha sozinha já pagou o sistema várias vezes."</p>
+              <div class="testi-stats">
+                <span class="testi-stat testi-stat--green">+55% <small>pedidos/mês</small></span>
+                <span class="testi-stat testi-stat--green">-4h <small>operação/dia</small></span>
+              </div>
+              <div class="testi-stars">★★★★★</div>
+            </div>
+
+            <div class="testi-card">
+              <div class="testi-card-top">
+                <div>
+                  <p class="testi-name">Point do Dedé</p>
+                  <p class="testi-loc">Guarujá — SP</p>
+                </div>
+                <span class="testi-chip">PDV + 99Food</span>
+              </div>
+              <p class="testi-quote">"O PDV da Bailey é simples e direto. Qualquer funcionário aprende em 1 hora. Antes eu ficava horas treinando equipe no sistema antigo que era complicado."</p>
+              <div class="testi-stats">
+                <span class="testi-stat testi-stat--green">-70% <small>tempo treinamento</small></span>
+                <span class="testi-stat testi-stat--green">+30% <small>produtividade</small></span>
+              </div>
+              <div class="testi-stars">★★★★★</div>
+            </div>
+
+            <div class="testi-card">
+              <div class="testi-card-top">
+                <div>
+                  <p class="testi-name">Jô Pizzaria</p>
+                  <p class="testi-loc">São José dos Campos — SP</p>
+                </div>
+                <span class="testi-chip">Cardápio + Robô</span>
+              </div>
+              <p class="testi-quote">"O robô responde os clientes no WhatsApp enquanto eu estou na cozinha. Vendi mais porque não perco cliente esperando resposta."</p>
+              <div class="testi-stats">
+                <span class="testi-stat testi-stat--green">+48% <small>conversão</small></span>
+                <span class="testi-stat testi-stat--green">-95% <small>msgs sem resposta</small></span>
+              </div>
+              <div class="testi-stars">★★★★★</div>
+            </div>
+
+            <div class="testi-card">
+              <div class="testi-card-top">
+                <div>
+                  <p class="testi-name">K-Pricho Lanches</p>
+                  <p class="testi-loc">São José dos Campos — SP</p>
+                </div>
+                <span class="testi-chip">iFood + Cardápio</span>
+              </div>
+              <p class="testi-quote">"Consegui abrir um segundo ponto com a mesma equipe graças à Bailey. O sistema gerencia os dois lugares e eu vejo tudo no celular de qualquer lugar."</p>
+              <div class="testi-stats">
+                <span class="testi-stat testi-stat--green">2x <small>pontos de venda</small></span>
+                <span class="testi-stat testi-stat--green">+80% <small>faturamento</small></span>
+              </div>
+              <div class="testi-stars">★★★★★</div>
+            </div>
+
+            <!-- duplicata -->
+            <div class="testi-card">
+              <div class="testi-card-top">
+                <div>
+                  <p class="testi-name">Pizza Go</p>
+                  <p class="testi-loc">São José dos Campos — SP</p>
+                </div>
+                <span class="testi-chip">iFood + PDV</span>
+              </div>
+              <p class="testi-quote">"Três meses usando e não consigo imaginar voltar pra antes. A impressão automática na cozinha sozinha já pagou o sistema várias vezes."</p>
+              <div class="testi-stats">
+                <span class="testi-stat testi-stat--green">+55% <small>pedidos/mês</small></span>
+                <span class="testi-stat testi-stat--green">-4h <small>operação/dia</small></span>
+              </div>
+              <div class="testi-stars">★★★★★</div>
+            </div>
+            <div class="testi-card">
+              <div class="testi-card-top">
+                <div>
+                  <p class="testi-name">Point do Dedé</p>
+                  <p class="testi-loc">Guarujá — SP</p>
+                </div>
+                <span class="testi-chip">PDV + 99Food</span>
+              </div>
+              <p class="testi-quote">"O PDV da Bailey é simples e direto. Qualquer funcionário aprende em 1 hora. Antes eu ficava horas treinando equipe no sistema antigo que era complicado."</p>
+              <div class="testi-stats">
+                <span class="testi-stat testi-stat--green">-70% <small>tempo treinamento</small></span>
+                <span class="testi-stat testi-stat--green">+30% <small>produtividade</small></span>
+              </div>
+              <div class="testi-stars">★★★★★</div>
+            </div>
+            <div class="testi-card">
+              <div class="testi-card-top">
+                <div>
+                  <p class="testi-name">Jô Pizzaria</p>
+                  <p class="testi-loc">São José dos Campos — SP</p>
+                </div>
+                <span class="testi-chip">Cardápio + Robô</span>
+              </div>
+              <p class="testi-quote">"O robô responde os clientes no WhatsApp enquanto eu estou na cozinha. Vendi mais porque não perco cliente esperando resposta."</p>
+              <div class="testi-stats">
+                <span class="testi-stat testi-stat--green">+48% <small>conversão</small></span>
+                <span class="testi-stat testi-stat--green">-95% <small>msgs sem resposta</small></span>
+              </div>
+              <div class="testi-stars">★★★★★</div>
+            </div>
+            <div class="testi-card">
+              <div class="testi-card-top">
+                <div>
+                  <p class="testi-name">K-Pricho Lanches</p>
+                  <p class="testi-loc">São José dos Campos — SP</p>
+                </div>
+                <span class="testi-chip">iFood + Cardápio</span>
+              </div>
+              <p class="testi-quote">"Consegui abrir um segundo ponto com a mesma equipe graças à Bailey. O sistema gerencia os dois lugares e eu vejo tudo no celular de qualquer lugar."</p>
+              <div class="testi-stats">
+                <span class="testi-stat testi-stat--green">2x <small>pontos de venda</small></span>
+                <span class="testi-stat testi-stat--green">+80% <small>faturamento</small></span>
+              </div>
+              <div class="testi-stars">★★★★★</div>
+            </div>
+
+          </div><!-- /testi-track--c -->
+        </div><!-- /testi-col C -->
+
+      </div><!-- /testi-cols -->
+
+      <p class="testi-footer-cta">Seu restaurante pode ser o próximo.</p>
+
+    </div><!-- /testi-inner -->
+  </section><!-- /testi-section -->
+
+
+  <!-- ====================================================
+       PREÇOS
+       ==================================================== -->
+  <section class="pricing-section" id="precos">
+    <div class="pricing-inner">
+
+      <!-- Header -->
+      <div class="pricing-header reveal">
+        <span class="pricing-badge">Planos & Preços</span>
+        <h2 class="pricing-title">Simples, transparente<br><span class="pricing-title-green">sem surpresas.</span></h2>
+        <p class="pricing-desc">Escolha o plano ideal para o tamanho do seu negócio. Todos incluem setup assistido e suporte humano.</p>
+      </div>
+
+      <!-- Grid 3×2 -->
+      <div class="pricing-grid">
+
+        <!-- 1. PDV Frente de Caixa -->
+        <div class="pricing-card">
+          <div class="pricing-card-head">
+            <img src="img/logo.png" alt="Bailey" class="pricing-logo">
+            <h3 class="pricing-name" style="color:#22c55e;">PDV Frente de Caixa</h3>
+            <div class="pricing-price">Sob Consulta</div>
+            <p class="pricing-price-sub">Fale com a gente para saber o valor</p>
+          </div>
+          <hr class="pricing-divider">
+          <ul class="pricing-features">
+            <li><span class="pricing-check">✓</span> PDV completo com frente de caixa</li>
+            <li><span class="pricing-check">✓</span> Emissão de Nota Fiscal (NF-e)</li>
+            <li><span class="pricing-check">✓</span> Impressão automática para cozinha</li>
+            <li><span class="pricing-check">✓</span> Integração com marketplaces</li>
+            <li><span class="pricing-check">✓</span> Mentoria de vendas</li>
+            <li><span class="pricing-check">✓</span> Suporte via WhatsApp (seg–sex)</li>
+          </ul>
+          <a href="https://wa.me/5512988886499?text=Olá!%20Tenho%20interesse%20no%20PDV%20Frente%20de%20Caixa." class="pricing-btn pricing-btn--outline" target="_blank" rel="noopener">Quero este plano</a>
+        </div>
+
+        <!-- 2. Cardápio Digital -->
+        <div class="pricing-card">
+          <div class="pricing-card-head">
+            <img src="img/logo.png" alt="Bailey" class="pricing-logo">
+            <h3 class="pricing-name" style="color:#9b1c3a;">Cardápio Digital</h3>
+            <div class="pricing-price">Sob Consulta</div>
+            <p class="pricing-price-sub">Fale com a gente para saber o valor</p>
+          </div>
+          <hr class="pricing-divider">
+          <ul class="pricing-features">
+            <li><span class="pricing-check">✓</span> Cardápio digital personalizado</li>
+            <li><span class="pricing-check">✓</span> Fotos profissionais dos seus pratos</li>
+            <li><span class="pricing-check">✓</span> Pedidos via WhatsApp + robô de status</li>
+            <li><span class="pricing-check">✓</span> Integração com iFood / 99Food / Keeta</li>
+            <li><span class="pricing-check">✓</span> PDV Frente de Caixa</li>
+            <li><span class="pricing-check">✓</span> Suporte via WhatsApp (seg–sex)</li>
+          </ul>
+          <a href="https://wa.me/5512988886499?text=Olá!%20Tenho%20interesse%20no%20Cardápio%20Digital." class="pricing-btn pricing-btn--outline" target="_blank" rel="noopener">Quero este plano</a>
+        </div>
+
+        <!-- 3. Ecossistema Completo — DESTAQUE -->
+        <div class="pricing-card pricing-card--featured">
+          <span class="pricing-popular-badge">Mais Popular</span>
+          <div class="pricing-card-head">
+            <img src="img/logo.png" alt="Bailey" class="pricing-logo">
+            <h3 class="pricing-name" style="color:#a855f7;">Ecossistema Completo</h3>
+            <div class="pricing-price">Sob Consulta</div>
+            <p class="pricing-price-sub">Para quem quer crescer com controle total.</p>
+          </div>
+          <hr class="pricing-divider pricing-divider--featured">
+          <ul class="pricing-features">
+            <li><span class="pricing-check pricing-check--featured">✓</span> Cardápio iFood, 99Food &amp; Keeta</li>
+            <li><span class="pricing-check pricing-check--featured">✓</span> PDV completo com frente de caixa</li>
+            <li><span class="pricing-check pricing-check--featured">✓</span> Integração com 3 plataformas</li>
+            <li><span class="pricing-check pricing-check--featured">✓</span> Emissão de Nota Fiscal (NF-e)</li>
+            <li><span class="pricing-check pricing-check--featured">✓</span> Mentoria completa iFood + 99Food + Keeta</li>
+            <li><span class="pricing-check pricing-check--featured">✓</span> Fotos profissionais dos seus pratos</li>
+            <li><span class="pricing-check pricing-check--featured">✓</span> Robô de Status automático</li>
+            <li><span class="pricing-check pricing-check--featured">✓</span> Suporte via WhatsApp (seg–sex)</li>
+          </ul>
+          <a href="https://wa.me/5512988886499?text=Olá!%20Tenho%20interesse%20no%20Ecossistema%20Completo%20Bailey." class="pricing-btn pricing-btn--featured" target="_blank" rel="noopener">Quero este plano</a>
+        </div>
+
+        <!-- 4. Mentoria iFood -->
+        <div class="pricing-card">
+          <div class="pricing-card-head">
+            <img src="images/logos/ifood.png" alt="iFood" class="pricing-logo">
+            <h3 class="pricing-name" style="color:#D9181A;">Mentoria iFood</h3>
+            <div class="pricing-price">Sob Consulta</div>
+            <p class="pricing-price-sub">Fale com a gente para saber o valor</p>
+          </div>
+          <hr class="pricing-divider">
+          <ul class="pricing-features">
+            <li><span class="pricing-check">✓</span> Cardápio iFood personalizado</li>
+            <li><span class="pricing-check">✓</span> Fotos profissionais dos seus pratos</li>
+            <li><span class="pricing-check">✓</span> Estratégia de ranking e visibilidade</li>
+            <li><span class="pricing-check">✓</span> Mentoria iFood completa</li>
+            <li><span class="pricing-check">✓</span> PDV Frente de Caixa</li>
+            <li><span class="pricing-check">✓</span> Emissão de Nota Fiscal</li>
+            <li><span class="pricing-check">✓</span> Robô de Status automático</li>
+            <li><span class="pricing-check">✓</span> Suporte via WhatsApp (seg–sex)</li>
+          </ul>
+          <a href="https://wa.me/5512988886499?text=Olá!%20Tenho%20interesse%20na%20Mentoria%20iFood." class="pricing-btn pricing-btn--outline" target="_blank" rel="noopener">Quero este plano</a>
+        </div>
+
+        <!-- 5. Mentoria 99Food -->
+        <div class="pricing-card">
+          <div class="pricing-card-head">
+            <img src="images/logos/99food.png" alt="99Food" class="pricing-logo">
+            <h3 class="pricing-name" style="color:#eab308;">Mentoria 99Food</h3>
+            <div class="pricing-price">Sob Consulta</div>
+            <p class="pricing-price-sub">Fale com a gente para saber o valor</p>
+          </div>
+          <hr class="pricing-divider">
+          <ul class="pricing-features">
+            <li><span class="pricing-check">✓</span> Cardápio 99Food personalizado</li>
+            <li><span class="pricing-check">✓</span> Fotos profissionais dos seus pratos</li>
+            <li><span class="pricing-check">✓</span> Mentoria 99Food completa</li>
+            <li><span class="pricing-check">✓</span> PDV Frente de Caixa</li>
+            <li><span class="pricing-check">✓</span> Emissão de Nota Fiscal</li>
+            <li><span class="pricing-check">✓</span> Suporte via WhatsApp (seg–sex)</li>
+          </ul>
+          <a href="https://wa.me/5512988886499?text=Olá!%20Tenho%20interesse%20na%20Mentoria%2099Food." class="pricing-btn pricing-btn--outline" target="_blank" rel="noopener">Quero este plano</a>
+        </div>
+
+        <!-- 6. Mentoria Keeta -->
+        <div class="pricing-card">
+          <div class="pricing-card-head">
+            <img src="images/logos/keeta.png" alt="Keeta" class="pricing-logo">
+            <h3 class="pricing-name" style="color:#f97316;">Mentoria Keeta</h3>
+            <div class="pricing-price">Sob Consulta</div>
+            <p class="pricing-price-sub">Fale com a gente para saber o valor</p>
+          </div>
+          <hr class="pricing-divider">
+          <ul class="pricing-features">
+            <li><span class="pricing-check">✓</span> Cardápio Keeta personalizado</li>
+            <li><span class="pricing-check">✓</span> Fotos profissionais dos seus pratos</li>
+            <li><span class="pricing-check">✓</span> Mentoria Keeta completa</li>
+            <li><span class="pricing-check">✓</span> PDV Frente de Caixa</li>
+            <li><span class="pricing-check">✓</span> Emissão de Nota Fiscal</li>
+            <li><span class="pricing-check">✓</span> Suporte via WhatsApp (seg–sex)</li>
+          </ul>
+          <a href="https://wa.me/5512988886499?text=Olá!%20Tenho%20interesse%20na%20Mentoria%20Keeta." class="pricing-btn pricing-btn--outline" target="_blank" rel="noopener">Quero este plano</a>
+        </div>
+
+      </div><!-- /pricing-grid -->
+
+      <p class="pricing-footer-note">✓ Setup assistido incluído em todos os planos</p>
+
+    </div><!-- /pricing-inner -->
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════
+       FAQ
+  ═══════════════════════════════════════════════════════════ -->
+
+
+  <section class="faq-section" id="faq">
+    <div class="faq-inner">
+
+      <div class="faq-header">
+        <span class="testi-badge">Dúvidas Frequentes</span>
+        <h2 class="faq-title">Ainda tem dúvidas?<br><em>A gente responde.</em></h2>
+        <p class="faq-subtitle">Reunimos as perguntas que mais recebemos para facilitar a sua decisão.</p>
+      </div>
+
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Preciso de algum equipamento especial para usar o Bailey?
+            <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+          </button>
+          <div class="faq-a">
+            <p>Não necessariamente. Para o cardápio digital e as integrações com apps de delivery, qualquer computador ou tablet conectado à internet funciona. Para o módulo PDV com impressão automática de pedidos, recomendamos uma impressora térmica — que já é o padrão na maioria dos estabelecimentos.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            O sistema funciona sem conexão com a internet?
+            <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+          </button>
+          <div class="faq-a">
+            <p>As funcionalidades que dependem de comunicação com as plataformas (iFood, WhatsApp, etc.) exigem internet. O módulo PDV possui modo offline para vendas no balcão, sincronizando automaticamente assim que a conexão for restabelecida.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Quanto tempo leva para o setup completo?
+            <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+          </button>
+          <div class="faq-a">
+            <p>Em média 72 horas. Nossa equipe cuida de toda a configuração: integração com os apps, importação do cardápio e treinamento da equipe. Você não precisa saber de tecnologia — nós fazemos tudo por você.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Consigo gerenciar mais de um estabelecimento na mesma conta?
+            <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+          </button>
+          <div class="faq-a">
+            <p>Sim! O painel unificado foi pensado para redes e franquias. É possível monitorar o desempenho de cada unidade separadamente ou em consolidado, gerenciar cardápios por loja e emitir relatórios individuais ou grupais.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Como funciona a integração com o iFood?
+            <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+          </button>
+          <div class="faq-a">
+            <p>Utilizamos a API oficial do iFood, o que garante estabilidade e conformidade com os termos da plataforma. Os pedidos chegam automaticamente ao sistema, o cardápio pode ser atualizado em tempo real e o status de cada pedido é sincronizado sem precisar de ação manual.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            O cardápio digital já inclui integração com o WhatsApp?
+            <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+          </button>
+          <div class="faq-a">
+            <p>Sim. O cliente acessa o cardápio pelo link ou QR code, faz o pedido e recebe atualizações automáticas de status diretamente no WhatsApp — tudo sem precisar de atendente manual para responder mensagens.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Vocês oferecem suporte técnico? Em qual horário?
+            <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+          </button>
+          <div class="faq-a">
+            <p>Sim, oferecemos suporte via WhatsApp e chat, de segunda a sexta das 8h às 17h30.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            É possível emitir nota fiscal diretamente pelo sistema?
+            <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+          </button>
+          <div class="faq-a">
+            <p>Sim. O módulo PDV inclui emissor de NF-e integrado. Basta configurar o certificado digital e os dados fiscais da empresa uma única vez — depois, a emissão é automática a cada venda.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Funciona com qualquer impressora térmica?
+            <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+          </button>
+          <div class="faq-a">
+            <p>Sim, o sistema é compatível com as principais impressoras térmicas do mercado (Epson, Bematech, Daruma, entre outras). Se você já tem uma impressora, é muito provável que funcione sem precisar trocar. Nosso time valida com você durante o setup.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Preciso saber de tecnologia para usar?
+            <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+          </button>
+          <div class="faq-a">
+            <p>Não. O sistema foi pensado para donos e funcionários de restaurante, não para técnicos. A interface é simples e intuitiva. Além disso, nossa equipe faz o setup completo e treina sua equipe antes de você ir ao ar.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Posso contratar só a mentoria sem o PDV?
+            <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+          </button>
+          <div class="faq-a">
+            <p>Sim! Nossos planos são modulares. Você pode contratar apenas a mentoria iFood, 99Food ou Keeta, apenas o PDV, apenas o cardápio digital, ou combinar tudo no Ecossistema Completo. Fale com a gente para montar o plano ideal para a sua operação.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            O que acontece se eu tiver um problema no meio do serviço?
+            <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+          </button>
+          <div class="faq-a">
+            <p>Nosso suporte funciona de segunda a sexta das 8h às 17h30 via WhatsApp. Para situações críticas de operação, priorizamos o atendimento para resolver o mais rápido possível.</p>
+          </div>
+        </div>
+
+      </div><!-- /faq-list -->
+
+      <div class="faq-cta-box">
+        <p class="faq-cta-text">Não encontrou sua resposta?</p>
+        <a href="https://wa.me/5512988886499?text=Olá!%20Tenho%20uma%20dúvida%20sobre%20os%20planos%20Bailey." class="btn btn--verde" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.555 4.116 1.527 5.845L.057 23.077a.75.75 0 00.92.92l5.232-1.47A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.953 9.953 0 01-5.065-1.379l-.363-.214-3.764 1.057 1.058-3.764-.214-.363A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          Tirar dúvida agora
+        </a>
+      </div>
+
+    </div><!-- /faq-inner -->
+  </section>
+
+    <!-- WhatsApp float -->
+  <a href="https://wa.me/5512988886499?text=Olá!%20Quero%20saber%20mais%20sobre%20a%20Bailey%20Aplicativos." class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.372 0 0 5.373 0 12c0 2.123.555 4.116 1.527 5.845L.057 23.077a.75.75 0 00.92.92l5.232-1.47A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/>
+    </svg>
+    <span class="wa-float-label">Falar agora</span>
+  </a>
+
+  <script src="js/main.js" defer></script>
+
+
+  <script type="module">
+    import { ShaderMount, warpFragmentShader, getShaderNoiseTexture }
+      from 'https://unpkg.com/@paper-design/shaders@0.0.76/dist/index.js';
+
+    function hslToRgba(h, s, l) {
+      s /= 100; l /= 100;
+      const a = s * Math.min(l, 1 - l);
+      const f = n => { const k = (n + h / 30) % 12; return l - a * Math.max(-1, Math.min(k - 3, Math.min(9 - k, 1))); };
+      return [f(0), f(8), f(4), 1.0];
+    }
+    function parseHsl(str) {
+      const m = str.match(/hsl\((\d+),\s*([\d.]+)%,\s*([\d.]+)%\)/);
+      return m ? hslToRgba(+m[1], +m[2], +m[3]) : [1,1,1,1];
+    }
+    function padColors(arr) {
+      const r = arr.map(parseHsl);
+      while (r.length < 10) r.push([0,0,0,0]);
+      return r;
+    }
+
+    const configs = [
+      // PDV — verde escuro
+      { proportion:0.30, softness:0.80, distortion:0.15, swirl:0.6,  swirlIterations:8,  shape:0, shapeScale:0.08,
+        colors:['hsl(142,100%,12%)','hsl(148,90%,22%)','hsl(135,85%,17%)','hsl(150,80%,30%)'] },
+      // Integração — roxo escuro
+      { proportion:0.40, softness:1.20, distortion:0.20, swirl:0.9,  swirlIterations:12, shape:1, shapeScale:0.12,
+        colors:['hsl(272,100%,16%)','hsl(278,90%,28%)','hsl(262,85%,20%)','hsl(275,78%,36%)'] },
+      // Cardápio Digital — vinho
+      { proportion:0.35, softness:0.90, distortion:0.18, swirl:0.7,  swirlIterations:10, shape:0, shapeScale:0.10,
+        colors:['hsl(338,80%,16%)','hsl(343,75%,26%)','hsl(328,72%,20%)','hsl(348,68%,34%)'] },
+      // Mentoria iFood — vermelho escuro
+      { proportion:0.45, softness:1.10, distortion:0.22, swirl:0.8,  swirlIterations:15, shape:1, shapeScale:0.09,
+        colors:['hsl(4,100%,18%)','hsl(8,92%,30%)','hsl(0,88%,22%)','hsl(6,84%,38%)'] },
+      // Mentoria 99Food — amarelo
+      { proportion:0.38, softness:0.95, distortion:0.16, swirl:0.85, swirlIterations:11, shape:0, shapeScale:0.11,
+        colors:['hsl(46,100%,28%)','hsl(50,100%,46%)','hsl(42,95%,34%)','hsl(54,90%,52%)'] },
+      // Mentoria Keeta — laranja escuro
+      { proportion:0.42, softness:1.00, distortion:0.19, swirl:0.75, swirlIterations:9,  shape:1, shapeScale:0.13,
+        colors:['hsl(22,100%,18%)','hsl(28,96%,30%)','hsl(18,90%,22%)','hsl(32,88%,38%)'] },
+    ];
+
+    const noiseImg = getShaderNoiseTexture();
+
+    function initShaders() {
+      document.querySelectorAll('.sf-card').forEach((card, i) => {
+      const cfg = configs[i % configs.length];
+      try {
+        new ShaderMount(card, warpFragmentShader, {
+          u_scale:1, u_rotation:0,
+          u_originX:0.5, u_originY:0.5,
+          u_worldWidth:0, u_worldHeight:0,
+          u_fit:0, u_offsetX:0, u_offsetY:0,
+          u_imageAspectRatio:1,
+          u_proportion:cfg.proportion,
+          u_softness:cfg.softness,
+          u_distortion:cfg.distortion,
+          u_swirl:cfg.swirl,
+          u_swirlIterations:cfg.swirlIterations,
+          u_shape:cfg.shape,
+          u_shapeScale:cfg.shapeScale,
+          u_colors:padColors(cfg.colors),
+          u_colorsCount:cfg.colors.length,
+          u_noiseTexture:noiseImg,
+        }, undefined, 0.8);
+      } catch(e) { console.warn('ShaderMount failed on card', i, e); }
+    });
+  }
+
+  // Wait for noise texture (base64 data URI) to fully load before init
+  if (noiseImg && noiseImg.complete && noiseImg.naturalWidth > 0) {
+    initShaders();
+  } else if (noiseImg) {
+    noiseImg.addEventListener('load', initShaders);
+    noiseImg.addEventListener('error', initShaders); // fallback
+  } else {
+    initShaders();
+  }
+  </script>
+
+
+  <!-- ── Footer ── -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+
+      <div class="footer-grid">
+
+        <!-- Marca -->
+        <div class="footer-brand">
+          <div class="footer-logo-row">
+            <div class="footer-logo-wrap">
+              <img src="images/images/logo.png" alt="Logo Bailey" class="footer-logo-img">
+            </div>
+            <div>
+              <div class="footer-brand-name">Bailey</div>
+              <div class="footer-brand-sub">Aplicativos</div>
+            </div>
+          </div>
+          <p class="footer-tagline">Simplificando a gestão de delivery e integrando tecnologia de ponta para automatizar o seu negócio de ponta a ponta.</p>
+          <div class="footer-socials">
+            <a href="https://www.instagram.com/bailey_aplicativos?igsh=MWJsNjVrbHMzanNwNQ==" target="_blank" rel="noopener" class="footer-social" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/5512988886499" target="_blank" rel="noopener" class="footer-social" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.tiktok.com/@baileyaplicativos" target="_blank" rel="noopener" class="footer-social" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://youtube.com/@baileyaplicativos" target="_blank" rel="noopener" class="footer-social" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://facebook.com/baileyaplicativos" target="_blank" rel="noopener" class="footer-social" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.linkedin.com/in/bailey-aplicativos-a55a6037b" target="_blank" rel="noopener" class="footer-social" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://pin.it/53Z931bN0" target="_blank" rel="noopener" class="footer-social" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+            <a href="https://x.com/bailey_app" target="_blank" rel="noopener" class="footer-social" aria-label="X / Twitter"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://www.threads.com/@bailey_aplicativos" target="_blank" rel="noopener" class="footer-social" aria-label="Threads"><i class="fab fa-threads"></i></a>
+            <a href="https://k.kwai.com/u/@bailey_aplicativos/kxzQCqHG" target="_blank" rel="noopener" class="footer-social footer-social--text" aria-label="Kwai">Kwai</a>
+          </div>
+        </div>
+
+        <!-- Produtos -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Produtos</h4>
+          <ul class="footer-links">
+            <li><a href="#servicos">Bailey PDV</a></li>
+            <li><a href="#servicos">Cardápio Digital</a></li>
+            <li><a href="#funcionalidades">Gestor Único</a></li>
+            <li><a href="#como-funciona">Robô de Status</a></li>
+          </ul>
+        </div>
+
+        <!-- Integrações -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Integrações</h4>
+          <ul class="footer-links">
+            <li><a href="#precos">iFood Marketplace</a></li>
+            <li><a href="#precos">Keeta Delivery</a></li>
+            <li><a href="#precos">99Food App</a></li>
+            <li><a href="#servicos">Frente de Caixa</a></li>
+          </ul>
+        </div>
+
+        <!-- Recursos -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Recursos</h4>
+          <ul class="footer-links">
+            <li><a href="#resultados">Nossos Cases</a></li>
+            <li><a href="#precos">Planos e Preços</a></li>
+            <li><a href="#faq">Perguntas Frequentes</a></li>
+            <li><a href="https://wa.me/5512988886499" target="_blank" rel="noopener">Suporte Técnico</a></li>
+          </ul>
+        </div>
+
+        <!-- Fale Conosco -->
+        <div class="footer-col">
+          <h4 class="footer-col-title">Fale Conosco</h4>
+          <a href="https://wa.me/5512988886499" target="_blank" rel="noopener" class="footer-contact-link">
+            Entre em contato <i class="
