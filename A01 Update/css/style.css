@@ -2771,6 +2771,12 @@ svg { display: block; }
   font-size: .82rem;
   font-weight: 700;
   color: rgba(255,255,255,.55);
+  text-decoration: none;
+  transition: color .2s, gap .2s;
+}
+a.sf-card-link:hover {
+  color: rgba(255,255,255,.9);
+  gap: 10px;
 }
 
 /* ── Responsive ── */

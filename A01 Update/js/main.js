@@ -178,6 +178,22 @@ document.addEventListener('DOMContentLoaded', () => {
     revealEls.forEach(el => revealObs.observe(el));
   }
 
+  // ---- Integration cards staggered reveal -------------------
+  const intCards = document.querySelectorAll('.int-card');
+  if (intCards.length) {
+    const intObs = new IntersectionObserver((entries) => {
+      entries.forEach((entry, _) => {
+        if (entry.isIntersecting) {
+          const card = entry.target;
+          const idx  = Array.from(intCards).indexOf(card);
+          setTimeout(() => card.classList.add('is-visible'), idx * 45);
+          intObs.unobserve(card);
+        }
+      });
+    }, { threshold: 0.08 });
+    intCards.forEach(c => intObs.observe(c));
+  }
+
 
   // ---- Mentor tabs (iFood / 99Food / Keeta) -----------------
   const mentorTabs   = document.querySelectorAll('.mentor-tab');
