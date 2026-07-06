@@ -9,6 +9,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css?v=9">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/MotionPathPlugin.min.js"></script>
 </head>
 <body>
 
@@ -124,70 +126,138 @@
 
 
   <!-- ====================================================
-       HERO
+       HERO — Sistema Solar
        ==================================================== -->
-  <section class="hero" id="hero">
+  <section class="hero" id="hero-section">
 
-    <!-- ====================================================
-         FUNDO 3D ROTATIVO — mesmo approach do waitlist-hero template
-         ==================================================== -->
-    <div class="hero-bg" aria-hidden="true">
-      <div class="hero-bg-inner">
+    <!-- Canvas fundo Sistema Solar -->
+    <canvas id="solar-system-canvas" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;display:block;"></canvas>
 
-      <!-- ── CAMADA 1: back (externo, maior, mais lento) ── -->
-      <div class="hero-bg-ring spin-cw">
-        <img class="hero-bg-img" style="width:2000px;height:2000px;margin:-1000px 0 0 -1000px;opacity:.45;filter:blur(5px)"
-             src="img/externo.png" alt="">
-      </div>
-
-      <!-- ── CAMADA 2: middle ── -->
-      <div class="hero-bg-ring spin-ccw">
-        <img class="hero-bg-img" style="width:1100px;height:1100px;margin:-550px 0 0 -550px;opacity:.55;filter:blur(2px)"
-             src="img/medio.png" alt="">
-      </div>
-
-      <!-- ── CAMADA 3: front (interno, menor, mais rápido) ── -->
-      <div class="hero-bg-ring spin-cw-fast">
-        <img class="hero-bg-img" style="width:820px;height:820px;margin:-410px 0 0 -410px;opacity:.75;filter:blur(1px)"
-             src="img/interno.png" alt="">
-      </div>
-
-      </div><!-- /hero-bg-inner -->
-    </div><!-- /hero-bg -->
-
-
-
-    <!-- Overlay gradiente escuro (sobre os anéis) -->
-    <div class="hero-overlay" aria-hidden="true"></div>
-
-    <!-- Canvas de confetti -->
+    <!-- Canvas confetti (CTA WhatsApp) -->
     <canvas id="confettiCanvas" class="hero-confetti" aria-hidden="true"></canvas>
 
-    <!-- ---- CONTEÚDO ---- -->
-    <div class="hero-content">
-      <div class="hero-icon" aria-hidden="true">
-        <img src="img/logo.png" alt="Bailey" class="hero-icon-logo">
+    <!-- Wrapper principal -->
+    <div class="hero-solar-wrap">
+
+      <!-- ── Ecossistema DESKTOP ── -->
+      <div id="ecosystem-viewport" class="eco-desktop">
+        <svg id="network-svg" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:10;" aria-hidden="true"></svg>
+        <canvas id="hub-aura-canvas" aria-hidden="true" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:260px;height:260px;pointer-events:none;z-index:10;display:block;"></canvas>
+        <div id="central-hub" class="hub-responsive glow-purple" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:20;background:rgba(0,0,0,0.8);border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid rgba(168,85,247,0.3);overflow:hidden;">
+          <canvas id="hub-bg-canvas" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;border-radius:999px;display:block;"></canvas>
+          <img src="img/logo.png" alt="Logo Bailey" style="width:100%;height:100%;object-fit:cover;position:relative;z-index:2;">
+        </div>
+        <div id="branches-container" style="position:absolute;inset:0;width:100%;height:100%;z-index:20;pointer-events:none;"></div>
       </div>
 
-      <h1 class="hero-title">
-        Ecossistema para <em>Delivery</em>
-      </h1>
+      <!-- ── Ecossistema MOBILE ── -->
+      <div class="eco-hub-outer eco-mobile" id="ecosystem-mobile">
+        <div class="eco-hub-container">
+          <svg class="eco-hub-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <filter id="mob-neon" x="-60%" y="-60%" width="220%" height="220%">
+                <feGaussianBlur stdDeviation="3.5" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+              <filter id="mob-ring-glow" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur stdDeviation="7"/>
+              </filter>
+            </defs>
+            <circle cx="150" cy="150" r="108" fill="none" stroke="#4ade80" stroke-width="10" opacity="0.14" filter="url(#mob-ring-glow)"/>
+            <g>
+              <animateTransform attributeName="transform" type="rotate" from="0 150 150" to="360 150 150" dur="42s" repeatCount="indefinite"/>
+              <circle cx="150" cy="150" r="108" fill="none" stroke="#4ade80" stroke-width="1.5" stroke-dasharray="10 7" opacity="0.70" filter="url(#mob-neon)"/>
+            </g>
+            <g>
+              <animateTransform attributeName="transform" type="rotate" from="360 150 150" to="0 150 150" dur="22s" repeatCount="indefinite"/>
+              <circle cx="150" cy="150" r="72" fill="none" stroke="#4ade80" stroke-width="1" stroke-dasharray="5 9" opacity="0.25"/>
+            </g>
+            <line x1="150" y1="108" x2="150" y2="69"  stroke="#4ade80" stroke-width="1" stroke-dasharray="4 4" opacity="0.50"/>
+            <line x1="186" y1="129" x2="220" y2="110" stroke="#4ade80" stroke-width="1" stroke-dasharray="4 4" opacity="0.50"/>
+            <line x1="186" y1="171" x2="220" y2="190" stroke="#4ade80" stroke-width="1" stroke-dasharray="4 4" opacity="0.50"/>
+            <line x1="150" y1="192" x2="150" y2="231" stroke="#4ade80" stroke-width="1" stroke-dasharray="4 4" opacity="0.50"/>
+            <line x1="114" y1="171" x2="80"  y2="190" stroke="#4ade80" stroke-width="1" stroke-dasharray="4 4" opacity="0.50"/>
+            <line x1="114" y1="129" x2="80"  y2="110" stroke="#4ade80" stroke-width="1" stroke-dasharray="4 4" opacity="0.50"/>
+            <circle cx="150" cy="150" r="46" fill="rgba(74,222,128,0.04)" stroke="#4ade80" stroke-width="1.5" opacity="0.4">
+              <animate attributeName="r"       values="44;52;44" dur="2.5s" repeatCount="indefinite" calcMode="ease-in-out"/>
+              <animate attributeName="opacity" values="0.4;0.1;0.4" dur="2.5s" repeatCount="indefinite"/>
+            </circle>
+            <g>
+              <animateTransform attributeName="transform" type="rotate" from="0 150 150" to="360 150 150" dur="5s" repeatCount="indefinite"/>
+              <circle cx="150" cy="42" r="5" fill="#4ade80" filter="url(#mob-neon)" opacity="0.95"/>
+            </g>
+            <g>
+              <animateTransform attributeName="transform" type="rotate" from="190 150 150" to="-170 150 150" dur="8s" repeatCount="indefinite"/>
+              <circle cx="150" cy="42" r="3.5" fill="#a855f7" filter="url(#mob-neon)" opacity="0.90"/>
+            </g>
+          </svg>
+          <div class="eco-hub-center">
+            <div class="eco-hub-center-ring">
+              <div style="position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 38% 38%, rgba(124,58,237,0.55) 0%, rgba(90,30,180,0.22) 55%, transparent 75%);"></div>
+              <img src="img/logo.png" alt="Bailey Aplicativos" style="width:100%;height:100%;object-fit:cover;position:relative;z-index:2;">
+            </div>
+          </div>
+          <!-- iFood — topo -->
+          <div class="eco-hub-node" style="top:42px;left:150px;">
+            <div class="eco-hub-node-ring" style="--node-bg:#EA1D2C;--node-border:rgba(234,29,44,0.6);--node-glow:rgba(234,29,44,0.40);">
+              <img src="img/icons/ifood.png" alt="iFood" loading="lazy">
+            </div>
+          </div>
+          <!-- Keeta — superior direito -->
+          <div class="eco-hub-node" style="top:96px;left:243px;">
+            <div class="eco-hub-node-ring" style="--node-bg:#FFC400;--node-border:rgba(255,196,0,0.6);--node-glow:rgba(255,196,0,0.35);">
+              <img src="img/icons/keeta.png" alt="Keeta" loading="lazy">
+            </div>
+          </div>
+          <!-- PDV — inferior direito -->
+          <div class="eco-hub-node" style="top:204px;left:243px;">
+            <div class="eco-hub-node-ring" style="--node-bg:#7c3aed;--node-border:rgba(124,58,237,0.65);--node-glow:rgba(124,58,237,0.40);">
+              <i class="fas fa-desktop" style="color:#fff;font-size:1.25rem;"></i>
+            </div>
+          </div>
+          <!-- Cardápio — base -->
+          <div class="eco-hub-node" style="top:258px;left:150px;">
+            <div class="eco-hub-node-ring" style="--node-bg:#050806;--node-border:rgba(74,222,128,0.65);--node-glow:rgba(74,222,128,0.40);">
+              <i class="fas fa-utensils" style="color:#4ade80;font-size:1.25rem;"></i>
+            </div>
+          </div>
+          <!-- WhatsApp — inferior esquerdo -->
+          <div class="eco-hub-node" style="top:204px;left:57px;">
+            <div class="eco-hub-node-ring" style="--node-bg:#25D366;--node-border:rgba(37,211,102,0.65);--node-glow:rgba(37,211,102,0.40);">
+              <i class="fab fa-whatsapp" style="color:#fff;font-size:1.5rem;"></i>
+            </div>
+          </div>
+          <!-- 99Food — superior esquerdo -->
+          <div class="eco-hub-node" style="top:96px;left:57px;">
+            <div class="eco-hub-node-ring" style="--node-bg:#FFC400;--node-border:rgba(255,196,0,0.65);--node-glow:rgba(255,196,0,0.40);">
+              <img src="img/icons/99food.png" alt="99Food" loading="lazy">
+            </div>
+          </div>
+        </div><!-- /eco-hub-container -->
+        <p style="text-align:center;font-size:10px;color:rgba(255,255,255,0.35);margin-top:12px;letter-spacing:0.2em;text-transform:uppercase;">
+          <span style="display:inline-block;width:6px;height:6px;background:#4ade80;border-radius:50%;margin-right:6px;vertical-align:middle;box-shadow:0 0 6px #4ade80;"></span>
+          Tudo integrado em um só lugar
+        </p>
+      </div><!-- /eco-hub-outer -->
 
-      <p class="hero-subtitle">Automatizamos sua operação com software PDV, cardápio digital<br class="subtitle-br"> e integração total com iFood, 99Food e Keeta.</p>
-
-      <div class="hero-badge">
-        <span class="badge-pulse"></span>
-        Mais de 2.000 restaurantes confiam na Bailey
+      <!-- Título e CTA -->
+      <div class="hero-copy">
+        <div class="hero-badge">
+          <span class="badge-pulse"></span>
+          Mais de 2.000 restaurantes confiam na Bailey
+        </div>
+        <h1 class="hero-title">Ecossistema para <em>Delivery</em></h1>
+        <p class="hero-subtitle">Automatizamos sua operação com software PDV, frente de caixa, cardápio digital e integração total com os maiores marketplaces do mercado.</p>
+        <div class="hero-cta-wrap">
+          <a href="https://wa.me/5512988886499" class="btn--hero-wa" id="heroWaBtn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Chama no WhatsApp
+          </a>
+          <a href="#precos" class="btn--hero-ghost">Ver planos &rarr;</a>
+        </div>
       </div>
 
-      <div class="hero-cta-wrap">
-        <a href="https://wa.me/5512988886499" class="btn--hero-wa" id="heroWaBtn" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Chama no WhatsApp
-        </a>
-        <a href="#precos" class="btn--hero-ghost">Ver planos &rarr;</a>
-      </div>
-    </div>
+    </div><!-- /hero-solar-wrap -->
 
   </section>
 

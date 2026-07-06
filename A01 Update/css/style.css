@@ -358,7 +358,8 @@ svg { display: block; }
   overflow: hidden;
   background: var(--preto);
   display: flex;
-  align-items: flex-end;
+  align-items: center;
+  justify-content: center;
 }
 
 /* ---- Fundo 3D rotativo — estrutura original waitlist-hero ----- */
@@ -3177,9 +3178,201 @@ a.sf-card-link:hover {
 /* Mobile */
 @media (max-width: 480px) {
   .legal-modal { padding: 12px; }
-  .legal-modal__card { border-radius: 16px; max-height: 92vh; }
-  .legal-modal__header { padding: 16px 18px; }
+  .legal-modal__card { border-radius: 16px; max-height: 92vh; }  .legal-modal__header { padding: 16px 18px; }
   .legal-modal__body { padding: 18px; }
   .legal-modal__footer { padding: 14px 18px; flex-wrap: wrap; }
   .legal-modal__hint { width: 100%; }
 }
+
+
+/* ══════════════════════════════════════════════════════════
+   HERO — SISTEMA SOLAR (ecossistema)
+   ══════════════════════════════════════════════════════════ */
+
+/* Wrapper interno do hero */
+.hero-solar-wrap {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* ── Desktop ecosystem viewport ── */
+.eco-desktop {
+  display: none; /* hidden by default (mobile first) */
+  position: relative;
+  width: 100%;
+  max-width: 1150px;
+  height: 480px;
+  margin: 0 auto;
+  overflow: visible;
+}
+@media (min-width: 600px) {
+  .eco-desktop  { display: block; }
+  .eco-mobile   { display: none !important; }
+}
+
+/* Hub central */
+.hub-responsive { width: 80px; height: 80px; }
+@media (min-width: 480px) { .hub-responsive { width: 100px; height: 100px; } }
+@media (min-width: 768px) { .hub-responsive { width: 120px; height: 120px; } }
+
+.glow-purple { box-shadow: 0 0 40px rgba(124,58,237,0.45); }
+
+/* Branch nodes (category pills + app pills) */
+.branch-node {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 30;
+  pointer-events: auto;
+}
+.category-pill {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.10);
+  color: rgba(255,255,255,0.80);
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.app-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px 5px 5px;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: all 0.5s ease;
+}
+.app-icon-box {
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  background: rgba(255,255,255,0.2);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.app-icon-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* ── Mobile hub SVG ── */
+.eco-hub-outer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.eco-hub-container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  flex-shrink: 0;
+}
+.eco-hub-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.eco-hub-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.eco-hub-center-ring {
+  position: relative;
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  background: #050806;
+  border: 2px solid rgba(74,222,128,0.55);
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(74,222,128,0.30), 0 0 50px rgba(74,222,128,0.12), inset 0 0 20px rgba(74,222,128,0.06);
+}
+.eco-hub-node {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+}
+.eco-hub-node-ring {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: var(--node-bg, #111);
+  border: 2px solid var(--node-border, rgba(74,222,128,0.5));
+  box-shadow: 0 0 18px var(--node-glow, rgba(74,222,128,0.3));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: eco-node-float 3s ease-in-out infinite;
+}
+.eco-hub-node-ring img {
+  width: 78%;
+  height: 78%;
+  object-fit: contain;
+  display: block;
+}
+.eco-hub-node:nth-child(4) .eco-hub-node-ring { animation-delay: 0.0s; }
+.eco-hub-node:nth-child(5) .eco-hub-node-ring { animation-delay: 0.5s; }
+.eco-hub-node:nth-child(6) .eco-hub-node-ring { animation-delay: 1.0s; }
+.eco-hub-node:nth-child(7) .eco-hub-node-ring { animation-delay: 1.5s; }
+.eco-hub-node:nth-child(8) .eco-hub-node-ring { animation-delay: 2.0s; }
+.eco-hub-node:nth-child(9) .eco-hub-node-ring { animation-delay: 2.5s; }
+@keyframes eco-node-float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-5px); }
+}
+
+/* ── Hero copy (título + CTA) — abaixo do ecossistema ── */
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.1rem;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  padding-bottom: 2rem;
+}
+.hero-copy > * {
+  opacity: 0;
+  animation: hero-fade-up 0.8s var(--ease-out) forwards;
+}
+.hero-copy .hero-badge    { animation-delay: 0.10s; }
+.hero-copy .hero-title    { animation-delay: 0.22s; text-align: center; }
+.hero-copy .hero-subtitle { animation-delay: 0.34s; text-align: center; }
+.hero-copy .hero-cta-wrap { animation-delay: 0.46s; text-align: center; justify-content: center; }
+
+/* ── canvas solar system ── */
+#solar-system-canvas { display: block; }
+
+/* ── aura canvases ── */
+#hub-aura-canvas, #hub-bg-canvas { display: block; }

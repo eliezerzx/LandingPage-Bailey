@@ -52,10 +52,16 @@ document.addEventListener("DOMContentLoaded", () => {
       ]
     },
     {
-      id: 'sistemas', categoryName: "Sistemas Internos", angle: 360, distance: 280,
+      id: 'sistemas', categoryName: "Softwares", angle: 360, distance: 280,
       apps: [
         { name: 'Bailey PDV',    icon: 'fas fa-desktop',  bg: '#7c3aed', color: '#FFF' },
-        { name: 'Cardápio Dig.', icon: 'fas fa-utensils', bg: '#4ade80', color: '#000' }
+        { name: 'Cardápio Dig.', icon: 'fas fa-utensils', bg: '#4ade80', color: '#000' },
+        { name: 'Premier',        icon: 'images/icons/premier.png',        isImage: true, bg: '#5f570f', color: '#FFF' },
+        { name: 'Brendi',         icon: 'images/icons/brendi.png',         isImage: true, bg: '#8d8d8d', color: '#ffffff' },
+        { name: 'Anota AI',       icon: 'images/icons/anotaAI.png',        isImage: true, bg: '#05101d', color: '#ffffff' },
+        { name: 'Pedidu',         icon: 'images/icons/pedidu.png',         isImage: true, bg: '#6d0c0c', color: '#FFF' },
+        { name: 'Saipos',         icon: 'images/icons/saipos.png',         isImage: true, bg: '#9e5a00', color: '#FFF' },
+        { name: 'Premio Sistemas', icon: 'images/icons/premio=sistemas.png', isImage: true, bg: '#007185', color: '#FFF' }
       ]
     }
   ];
@@ -676,6 +682,75 @@ document.addEventListener("DOMContentLoaded", () => {
     }, { threshold: 0.5 });
 
     counters.forEach(el => observer.observe(el));
+  }
+
+  // ══════════════════════════════════════════════════════════
+  // REVEAL — scroll reveal para elementos com classe .reveal
+  // ══════════════════════════════════════════════════════════
+  const revealEls = document.querySelectorAll('.reveal');
+  if (revealEls.length) {
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => revealObs.observe(el));
+  }
+
+  // ══════════════════════════════════════════════════════════
+  // MENTOR TABS — iFood / 99Food / Keeta
+  // ══════════════════════════════════════════════════════════
+  const mentorTabs = document.querySelectorAll('.mentor-tab');
+  const mentorPanels = document.querySelectorAll('.mentor-panel');
+  if (mentorTabs.length) {
+    mentorTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        mentorTabs.forEach(t => t.classList.remove('is-active'));
+        mentorPanels.forEach(p => p.classList.remove('is-active'));
+        tab.classList.add('is-active');
+        const target = document.getElementById(tab.dataset.target);
+        if (target) target.classList.add('is-active');
+      });
+    });
+  }
+
+  // ══════════════════════════════════════════════════════════
+  // STATS COUNT — animação de contador para .stats-count
+  // ══════════════════════════════════════════════════════════
+  const statsEls = document.querySelectorAll('.stats-count');
+  if (statsEls.length) {
+    const statsObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = parseFloat(el.dataset.target);
+        const suffix = el.dataset.suffix || '';
+        const isDecimal = el.dataset.dec === '1';
+        const usePtFmt = el.dataset.fmt === 'pt';
+        const duration = 1800;
+        const startTime = performance.now();
+        const tick = (now) => {
+          const p = Math.min((now - startTime) / duration, 1);
+          const eased = 1 - Math.pow(1 - p, 3);
+          const val = eased * target;
+          if (isDecimal) el.textContent = val.toFixed(1) + suffix;
+          else if (usePtFmt) el.textContent = Math.floor(val).toLocaleString('pt-BR') + suffix;
+          else el.textContent = Math.floor(val) + suffix;
+          if (p < 1) requestAnimationFrame(tick);
+          else {
+            if (isDecimal) el.textContent = target.toFixed(1) + suffix;
+            else if (usePtFmt) el.textContent = target.toLocaleString('pt-BR') + suffix;
+            else el.textContent = target + suffix;
+          }
+        };
+        requestAnimationFrame(tick);
+        statsObs.unobserve(el);
+      });
+    }, { threshold: 0.4 });
+    statsEls.forEach(el => statsObs.observe(el));
   }
 
 });
